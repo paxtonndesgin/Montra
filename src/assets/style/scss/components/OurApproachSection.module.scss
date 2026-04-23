@@ -1,0 +1,174 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.approachSection {
+  position: relative;
+  padding: 48px 0 96px;
+  margin-top: 40px;
+  overflow: hidden;
+
+  .container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    width: 100%;
+    max-width: 929.55px;
+    min-height: 582.36px;
+
+    @include respond-to('lg') {
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-end;
+      gap: 71px;
+    }
+  }
+}
+
+.visualColumn {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  min-height: 420px;
+
+  @include respond-to('lg') {
+    flex: 0 0 410px;
+    width: 410px;
+    min-height: 582px;
+  }
+}
+
+.ring9 {
+  position: absolute;
+  left:-2%;
+  top: 26%;
+  width: 75%;
+  height: auto;
+}
+
+.ring10 {
+  position: absolute;
+  left: -18%;
+  bottom: 5%;
+  width: 78%;
+  height: auto;
+}
+
+.sticker {
+  position: absolute;
+  top: 0;
+  left: 36px;
+  z-index: 1;
+  width: 100%;
+  max-width: 447px;
+  height: 170px;
+  padding: 16px 32px 24px;
+  border: 10px solid $main-cyan-300;
+  border-radius: 32px;
+  background: $main-cyan-100;
+  transform: rotate(27.65deg);
+  transform-origin: top left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $main-cyan-900;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: $font-weight-bold;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+
+  span:last-child {
+    margin-left: 36px;
+  }
+
+  @include respond-to('lg') {
+    left: 42px;
+  }
+}
+
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 438px;
+  padding-bottom: 4px;
+}
+
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stepTitle {
+  color: $main-cyan-700;
+  font-size: $fs-36;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.stepDescription {
+  max-width: 408px;
+  color: $neutral-darker;
+  font-size: $fs-14;
+  font-weight: $font-weight-regular;
+  line-height: 1.15;
+}
+
+@media (max-width: 1023px) {
+  .sticker {
+    transform: rotate(14deg);
+  }
+
+  .stepTitle {
+    font-size: $fs-25;
+  }
+}
+
+@media (max-width: 767px) {
+  .approachSection {
+    padding: 24px 0 72px;
+  }
+
+  .visualColumn {
+    min-height: 320px;
+  }
+
+  .ring9,
+  .ring10 {
+    width: 72%;
+  }
+}
+
+@media (max-width: 767px) {
+  .approachSection {
+    padding: 24px 0 72px;
+  }
+
+  .visualColumn {
+    min-height: 320px;
+  }
+
+  .ring9,
+  .ring10 {
+    width: 65%;
+  }
+
+  .sticker {
+    left: 18px;
+    max-width: 320px;
+    min-height: 146px;
+    padding: 20px 22px;
+    border-width: 6px;
+    border-radius: 28px;
+    font-size: $fs-42;
+  }
+
+  .stepDescription {
+    font-size: $fs-12;
+    line-height: 1.3;
+  }
+}

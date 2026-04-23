@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 120px 24px 96px;
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: $fs-56;
+  line-height: 1;
+  color: $main-blue-700;
+}
+
+.description {
+  max-width: 680px;
+  margin: 0;
+  font-size: $fs-18;
+  line-height: 1.5;
+  color: $neutral-darker;
+}

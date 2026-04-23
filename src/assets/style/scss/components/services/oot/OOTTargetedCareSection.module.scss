@@ -1,0 +1,92 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.targetedCareSection {
+  padding: 80px 0;
+
+  .container {
+    @include container;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 40px 0 0;
+    width: 1320px;
+    height: 575px;
+    background: $neutral-light;
+    border: 10px solid $neutral-light-active;
+    border-radius: 32px;
+    overflow: hidden;
+  }
+
+  .imageCol {
+    flex: 1 1 auto;
+    align-self: stretch;
+    position: relative;
+
+    .image {
+      object-fit: cover;
+    }
+
+    .imageGradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba($neutral-light, 0) 50%, $neutral-light 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  .contentCol {
+    flex: 0 0 349px;
+    height: 345px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 36px;
+  }
+
+  .sectionTitle {
+    font-family: $font-family-base;
+    font-size: $fs-42;
+    font-weight: $font-weight-semibold;
+    color: $main-cyan-900;
+    line-height: 1.01;
+    margin: 0;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .listItem {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .itemTitle {
+    font-family: $font-family-base;
+    font-size: $fs-21;
+    font-weight: $font-weight-semibold;
+    color: $main-blue-600;
+    margin: 0;
+  }
+
+  .itemDesc {
+    font-family: $font-family-base;
+    font-size: $fs-12;
+    font-weight: $font-weight-medium;
+    color: $neutral-dark-active;
+    line-height: 1.2;
+    margin: 0;
+  }
+}

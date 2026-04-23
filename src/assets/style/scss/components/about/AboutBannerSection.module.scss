@@ -1,0 +1,130 @@
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins' as *;
+
+.aboutBannerSection {
+  padding-top: 40px; 
+  width: 100%;
+  overflow: hidden;
+
+  .container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+.imageGallery {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    height: max(486px, 32vw); 
+    margin-bottom: 48px;
+  }
+
+  .imageCenter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto; 
+    width: max(872px, 58vw); 
+    height: auto;
+    aspect-ratio: 872 / 486; 
+    z-index: 2;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.12);
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .imageLeft, .imageRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: max(424px, 28vw); 
+    height: auto;
+    aspect-ratio: 424 / 318;
+    z-index: 1;
+    opacity: 0.5;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .imageLeft {
+    left: calc(50% - 50vw); 
+    border-radius: 0 24px 24px 0;
+  }
+
+  .imageRight {
+    right: calc(50% - 50vw); 
+    border-radius: 24px 0 0 24px;
+  }
+
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 640px; 
+    margin: 0 auto;
+  }
+
+  .title {
+    font-family: $font-family-base;
+    font-size: $fs-42;
+    font-weight: $font-weight-semibold;
+    letter-spacing: -0.5px;
+    color: $color-heading-green;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+
+    .highlight {
+      color: $main-blue-800;
+    }
+  }
+
+  .description {
+    font-family: $font-family-base;
+    font-size: $fs-14;
+    font-weight: $font-weight-medium;
+    color: $neutral-dark-active;
+    line-height: 1.5;
+    margin: 0 0 32px 0;
+  }
+
+  .actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  @media (max-width: 1200px) {
+    .imageGallery {
+      height: 40vw;
+    }
+    .imageCenter {
+      width: 65%;
+      height: 100%;
+    }
+    .imageLeft, .imageRight {
+      width: 35%;
+      height: 65%;
+      top: 17.5%;
+    }
+  }
+}

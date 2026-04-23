@@ -1,0 +1,181 @@
+// Main Blue
+$main-blue-50: #e6eefe;
+$main-blue-100: #b0ccfc;
+$main-blue-200: #8ab3fa;
+$main-blue-300: #5490f8;
+$main-blue-400: #337af6;
+$main-blue-500: #0059f4;
+$main-blue-600: #0051de;
+$main-blue-700: #003fad;
+$main-blue-800: #003186;
+$main-blue-900: #002566;
+
+// Main Cyan
+$main-cyan-50: #e9fcf5;
+$main-cyan-100: #baf4de;
+$main-cyan-200: #99efcf;
+$main-cyan-300: #6ae8b9;
+$main-cyan-400: #4de4ab;
+$main-cyan-500: #21dd96;
+$main-cyan-600: #1ec989;
+$main-cyan-700: #179d6b;
+$main-cyan-800: #127a53;
+$main-cyan-900: #0e5d3f;
+
+// Neutral
+$neutral-light: #f9f9f9;
+$neutral-light-hover: #f5f5f5;
+$neutral-light-active: #ebebeb;
+$neutral-normal: #bfbfbf;
+$neutral-normal-hover: #acacac;
+$neutral-normal-active: #999999;
+$neutral-dark: #8f8f8f;
+$neutral-dark-hover: #737373;
+$neutral-dark-active: #565656;
+$neutral-darker: #434343;
+
+// Support 1 (Orange)
+$support-1-light: #fff5ea;
+$support-1-light-hover: #fff0e0;
+$support-1-light-active: #ffe1be;
+$support-1-normal: #ff9d2e;
+$support-1-normal-hover: #e68d29;
+$support-1-normal-active: #cc7e25;
+$support-1-dark: #bf7623;
+$support-1-dark-hover: #995e1c;
+$support-1-dark-active: #734715;
+$support-1-darker: #593710;
+
+// Support 2 (Pink)
+$support-2-light: #ffeffa;
+$support-2-light-hover: #ffe7f8;
+$support-2-light-active: #ffcef0;
+$support-2-normal: #ff61cd;
+$support-2-normal-hover: #e657b9;
+$support-2-normal-active: #cc4ea4;
+$support-2-dark: #bf499a;
+$support-2-dark-hover: #993a7b;
+$support-2-dark-active: #732c5c;
+$support-2-darker: #592248;
+
+// Support 3 (Red)
+$support-3-1: #ffe9e9;
+$support-3-2: #ffc9c9;
+$support-3-3: #ff9f9f;
+$support-3-4: #ff7272;
+$support-3-5: #ff4747;
+$support-3-6: #ff1f1f;
+$support-3-7: #d91a1a;
+$support-3-8: #b51616;
+$support-3-9: #911212;
+$support-3-10: #730e0e;
+
+$color-white: #ffffff;
+$color-black: #000000;
+$color-brand-blue: $main-blue-800;
+$color-brand-green: $main-cyan-700;
+$color-brand-light: $main-blue-50;
+$color-nav-text: $neutral-dark-active;
+$color-text-gray: $neutral-dark-hover;
+$color-text-blue: $main-blue-500;
+$color-text-body: $neutral-darker;
+$color-button-primary: $main-blue-700;
+$color-button-secondary: $main-blue-500;
+$color-button-tertiary: #a4a4a4;
+
+$color-badge-bg: $main-cyan-50;
+$color-badge-text: $main-cyan-700;
+
+$color-pill-blue-bg: $main-blue-100;
+$color-pill-green-bg: $main-cyan-300;
+$color-card-border: $main-blue-100;
+$color-card-bg: $main-blue-50;
+
+// Services Section
+$color-card-blue-bg: $main-blue-50;
+$color-card-blue-border: $main-blue-100;
+$color-card-blue-text: $main-blue-600;
+
+$color-card-green-bg: $main-cyan-50;
+$color-card-green-border: $main-cyan-100;
+$color-card-green-text: $main-cyan-600;
+
+$color-card-pink-bg: $support-2-light;
+$color-card-pink-border: $support-2-light-active;
+$color-card-pink-text: $support-2-normal-active;
+
+// Supplementary Colors
+$color-icon-green: #22C478;           // Icon box background green
+$color-heading-green: #178350;        // Green headings (About & Services pages)
+$color-border-divider: #8B8B8B;       // Divider/border gray (accordions, form)
+$color-text-muted: #7A7A7A;           // Muted secondary text
+$color-text-darkest: #252525;         // Near-black text
+$color-journey-line: #A6E9C8;         // Journey section timeline line
+$color-journey-step-border: #99BBFF;  // Journey step box border
+$color-journey-number: #0052CC;       // Journey step number / title color
+$color-badge-mint-bg: #CBF9E4;        // Mint badge background
+$color-badge-green-light-bg: #E5F3EC; // Light green badge background
+$color-item-title-blue: #1B5CFF;      // Bright blue item titles
+$color-btn-dark-green: #12673F;       // Dark green CTA button text
+$color-pill-mint-bg: #78EFB7;         // Mint pill background
+
+// Typography
+$font-family-base: 'Polin', var(--font-geist-sans), Arial, Helvetica, sans-serif;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$fs-8: 8px;
+$fs-10: 10px;
+$fs-12: 12px;
+$fs-13: 13px;
+$fs-14: 14px;
+$fs-15: 15px;
+$fs-16: 16px;
+$fs-17: 17px;
+$fs-18: 18px;
+$fs-20: 20px;
+$fs-21: 21px;
+$fs-22: 22px;
+$fs-24: 24px;
+$fs-25: 25px;
+$fs-28: 28px;
+$fs-32: 32px;
+$fs-36: 36px;
+$fs-40: 40px;
+$fs-42: 42px;
+$fs-48: 48px;
+$fs-56: 56px;
+$fs-80: 80px;
+$fs-220: 220px;
+
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  '2xl': 1536px
+);
+
+$color-wws-section-bg: $neutral-light;
+$color-wws-icon: $main-cyan-600;
+$color-wws-wave: $main-blue-400;
+
+$color-footer-bg: $color-white;
+$color-footer-heading: $main-blue-800;
+$color-footer-link: $neutral-dark;
+$color-footer-tagline: $neutral-dark;
+$color-footer-icon-bg: $main-cyan-100;
+$color-footer-icon: $main-cyan-800;
+$color-footer-divider: $neutral-light-active;
+$color-footer-copyright: $neutral-darker;
+$color-footer-accent: $main-blue-600;
+
+$spacing-unit: 8px;
+
+$z-index-header: 100;
+$z-index-modal: 1000;
+$z-index-tooltip: 1500;

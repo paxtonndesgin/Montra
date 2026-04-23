@@ -1,0 +1,139 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.buttonLink {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-width: 132.05px;
+  min-height: 43.7px;
+  padding: 16px 24px;
+  border-radius: 24px;
+  color: $color-white;
+  font-size: $fs-16;
+  font-weight: $font-weight-medium;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  gap: 0;
+  overflow: hidden;
+  transition:
+    background-color 0.28s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.24s ease,
+    padding 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    gap 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    min-width 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    min-height 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.18) 45%, transparent 100%);
+    transform: translateX(-135%);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), letter-spacing 0.28s ease;
+  }
+
+  .iconWrapper {
+    width: 0;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transform: translateX(-18px) scale(0.72);
+    transition:
+      width 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      max-width 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.16s ease,
+      transform 0.48s cubic-bezier(0.18, 1.18, 0.32, 1);
+  }
+
+  .icon {
+    width: 16px;
+    height: 14px;
+    display: block;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px) scale(1.015);
+    opacity: 0.98;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+
+    &::before {
+      transform: translateX(135%);
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.withArrow {
+  &:hover,
+  &:focus-visible {
+    min-width: 155.85px;
+    min-height: 50.4px;
+    padding: 16px 20px 16px 24px;
+    gap: 8px;
+    border-radius: 1000000px;
+
+    .label {
+      transform: translateX(-1px);
+      letter-spacing: -0.01em;
+    }
+
+    .iconWrapper {
+      width: 16px;
+      max-width: 16px;
+      opacity: 1;
+      transform: translateX(4px) scale(1.08);
+    }
+  }
+}
+
+.noArrow {
+  .iconWrapper {
+    display: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    .label {
+      transform: translateY(-0.5px);
+      letter-spacing: -0.01em;
+    }
+  }
+}
+
+.default {
+  background: $main-blue-700;
+}
+
+.variant2 {
+  background: $color-button-secondary;
+}
+
+.variant3 {
+  background: $color-button-tertiary;
+}

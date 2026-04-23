@@ -1,0 +1,81 @@
+@use '../abstracts/variables' as *;
+
+.h5 {
+  font-size: $fs-36;
+  &.regular { font-weight: $font-weight-regular; }
+  &.medium { font-weight: $font-weight-medium; }
+  &.semibold { font-weight: $font-weight-semibold; }
+  &.bold { font-weight: $font-weight-bold; }
+}
+
+.h1 {
+  font-size: $fs-25;
+  &.regular { font-weight: $font-weight-regular; }
+  &.medium { font-weight: $font-weight-medium; }
+  &.semibold { font-weight: $font-weight-semibold; }
+  &.bold { font-weight: $font-weight-bold; }
+}
+
+.h2 {
+  font-size: $fs-21;
+  &.regular { font-weight: $font-weight-regular; }
+  &.medium { font-weight: $font-weight-medium; }
+  &.semibold { font-weight: $font-weight-semibold; }
+  &.bold { font-weight: $font-weight-bold; }
+}
+
+.h3 {
+  font-size: $fs-17;
+  &.regular { font-weight: $font-weight-regular; }
+  &.medium { font-weight: $font-weight-medium; }
+  &.semibold { font-weight: $font-weight-semibold; }
+  &.bold { font-weight: $font-weight-bold; }
+}
+
+.h4 {
+  font-size: $fs-14;
+  &.regular { font-weight: $font-weight-regular; }
+  &.medium { font-weight: $font-weight-medium; }
+  &.semibold { font-weight: $font-weight-semibold; }
+  &.bold { font-weight: $font-weight-bold; }
+}
+
+.body1 {
+  font-size: $fs-12;
+  &.regular { font-weight: $font-weight-regular; }
+  &.medium { font-weight: $font-weight-medium; }
+  &.bold { font-weight: $font-weight-bold; }
+}
+
+.body2 {
+  font-size: $fs-10;
+  &.regular { font-weight: $font-weight-regular; }
+  &.medium { font-weight: $font-weight-medium; }
+  &.bold { font-weight: $font-weight-bold; }
+}
+
+.caption {
+  font-size: $fs-8;
+  &.regular { font-weight: $font-weight-regular; }
+  &.medium { font-weight: $font-weight-medium; }
+  &.bold { font-weight: $font-weight-bold; }
+}
+
+h1 { @extend .h1; font-weight: $font-weight-bold; }
+h2 { @extend .h2; font-weight: $font-weight-bold; }
+h3 { @extend .h3; font-weight: $font-weight-bold; }
+h4 { @extend .h4; font-weight: $font-weight-bold; }
+h5 { @extend .h5; font-weight: $font-weight-bold; }
+p { @extend .body1; font-weight: $font-weight-regular; }
+
+.text-small {
+  font-size: $fs-14;
+}
+
+.text-blue {
+  color: $color-brand-blue;
+}
+
+.text-green {
+  color: $color-brand-green;
+}

@@ -1,0 +1,115 @@
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins' as *;
+
+.aboutSpecialFeaturesSection {
+  padding-top: 166px;
+  
+  .container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 42px;
+  }
+
+  .title {
+    font-family: $font-family-base;
+    font-weight: $font-weight-semibold;
+    font-size: $fs-42;
+    color: $color-heading-green;
+    margin: 0;
+
+    .highlight {
+      color: $main-blue-800; 
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  .accordion {
+    width: 100%;
+    max-width: 1320px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .accordionItem {
+    border-top: 1px solid $color-border-divider;
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+      border-bottom: 1px solid $color-border-divider;
+    }
+  }
+
+  .accordionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    cursor: pointer;
+  }
+
+  .itemTitle {
+    font-family: $font-family-base;
+    font-weight: $font-weight-medium;
+    font-size: $fs-36;
+    color: $neutral-normal-hover;
+    margin: 0;
+    transition: color 0.3s;
+  }
+
+  .iconBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba($neutral-light, 0.5);
+    border: 1px solid $neutral-darker;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    .icon {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-right: 2.5px solid $neutral-normal-hover;
+      border-bottom: 2.5px solid $neutral-normal-hover;
+      border-left: none;
+      border-top: none;
+      transform: rotate(45deg);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+  }
+
+  .accordionItem.active {
+    .itemTitle {
+      font-weight: 600;
+      color: $main-blue-500;
+    }
+
+    .iconBtn {
+      background: $main-blue-600;
+      border-color: $main-blue-600;
+
+      .icon {
+        border-color: $neutral-light;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+  .accordionContent {
+    padding-bottom: 16px;
+
+    p {
+      font-family: $font-family-base;
+      font-size: $fs-14;
+      font-weight: $font-weight-medium;
+      color: $neutral-dark-active;
+      margin: 0;
+    }
+  }
+}

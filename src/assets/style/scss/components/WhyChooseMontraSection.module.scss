@@ -1,0 +1,174 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.whyChooseSection {
+  position: relative;
+  width: 100%;
+  height: 437px;
+  background: $main-blue-50;
+  overflow: hidden;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.decorContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.decor11 {
+  position: absolute;
+  top: 90%;
+  left: -140px;
+  width: 700px;
+  height: auto;
+  transform: translateY(-50%);
+  opacity: 0.38;
+}
+
+.decor12 {
+  position: absolute;
+  top: 46%;
+  left: 570px;
+  width: 720px;
+  height: auto;
+  transform: translateY(-50%);
+  opacity: 0.38;
+}
+
+.bgDecorations {
+  display: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1440px;
+  height: 437px;
+  // margin: 0 auto;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 14px;
+  position: absolute;
+  width: 319px;
+  height: 317px;
+  left: 60px;
+  top: 60px;
+}
+
+.mainTitle {
+  font-family: $font-family-base;
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(48px, 5vw, 80px); 
+  line-height: 1.01;
+  margin: 0;
+
+  .greenText {
+    color: $main-cyan-900; 
+  }
+
+  .blueText {
+    color: $main-blue-600; 
+  }
+}
+
+.quote {
+  font-family: $font-family-base;
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(20px, 2.5vw, 25px);
+  line-height: 1.2;
+  margin: 0;
+
+  .greenText {
+    color: $main-cyan-900; 
+  }
+
+  .blueText {
+    color: $main-blue-800; 
+  }
+}
+
+.rightColumn {
+  position: absolute;
+  left: 619px;
+  top: 64.82px;
+  width: 713px;
+  height: 307px;
+}
+
+.featuresGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  padding: 0;
+  gap: 57px 73px;
+  width: 713px;
+  height: 307px;
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 6px;
+  width: 320px;
+  height: 125px;
+  flex: none;
+  flex-grow: 0;
+}
+
+.numberBadge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 63px;
+  height: 46px;
+  background: $main-blue-500;
+  border: 4px solid $color-white;
+  border-radius: 71px;
+  
+  font-family: $font-family-base;
+  font-weight: $font-weight-semibold;
+  font-size: $fs-25;
+  color: $color-white;
+  line-height: 1;
+}
+
+.featTitle {
+  font-family: $font-family-base;
+  font-style: normal;
+  font-weight: $font-weight-semibold;
+  font-size: $fs-21;
+  line-height: 1.2;
+  color: $main-blue-600;
+  margin: 0;
+}
+
+.featDesc {
+  font-family: $font-family-base;
+  font-style: normal;
+  font-weight: $font-weight-medium;
+  font-size: $fs-14;
+  line-height: 1.4;
+  color: $neutral-dark-active;
+  margin: 0;
+}

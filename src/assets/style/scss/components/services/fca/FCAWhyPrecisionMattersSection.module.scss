@@ -1,0 +1,140 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.whyPrecisionMattersSection {
+  padding-top: 100px;
+  
+  .container {
+    @include container;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    position: relative;
+    background: white;
+    border-radius: 24px;
+    border: 10px solid $neutral-light-active;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1320px;
+    width: 100%;
+    overflow: hidden;
+    min-height: 574px;
+  }
+
+  .leftCol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 65%;
+    z-index: 1;
+
+    .image {
+      object-fit: cover;
+      object-position: left center;
+    }
+
+    .fadeOverlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 1) 100%);
+      z-index: 2;
+    }
+  }
+
+  .rightCol {
+    position: relative;
+    z-index: 3;
+    width: 35%; 
+    margin-left: auto;
+    padding: 64px 80px 64px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .badge {
+    background: $color-badge-green-light-bg;
+    color: $main-cyan-800;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-family: $font-family-base;
+    font-size: $fs-12;
+    font-weight: $font-weight-semibold;
+  }
+
+  .title {
+    font-family: $font-family-base;
+    font-size: $fs-40;
+    font-weight: $font-weight-bold;
+    color: $main-cyan-800;
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 12px;
+  }
+
+  .listItem {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .itemTitle {
+    font-family: $font-family-base;
+    font-size: $fs-20;
+    font-weight: $font-weight-bold;
+    color: $color-item-title-blue;
+    margin: 0;
+  }
+
+  .itemDescription {
+    font-family: $font-family-base;
+    font-size: $fs-14;
+    color: $neutral-dark-active;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 95%;
+  }
+  
+  @media (max-width: 992px) {
+    .card {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .leftCol {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      
+      .fadeOverlay {
+        width: 100%;
+        height: 50%;
+        top: auto;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+      }
+    }
+    
+    .rightCol {
+      width: 100%;
+      margin-left: 0;
+      padding: 32px 24px 48px;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.header {
+  padding: 24px 0;
+  width: 100%;
+  background: $color-white;
+}
+
+.container {
+  @include container;
+  @include flex-between;
+}
+
+.logoWrapper {
+  @include flex-center;
+  .logo {
+    @include flex-center;
+    gap: 8px;
+    
+    .brandName {
+      @include flex-column;
+      font-size: $fs-12;
+      font-weight: $font-weight-semibold;
+      color: $color-brand-blue;
+      margin: 0;
+      line-height: 1.1;
+    }
+  }
+}
+
+.nav {
+  display: none; 
+  
+  @include respond-to('md') {
+    @include flex-center;
+    gap: 16px;
+  }
+
+  @include respond-to('lg') {
+    gap: 32px;
+  }
+  
+  a {
+    font-size: $fs-14;
+    font-weight: $font-weight-medium;
+    color: $color-nav-text;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: $color-brand-blue;
+    }
+    
+    &.active {
+      color: $color-brand-blue;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color-brand-green;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+.actions {
+  display: none;
+  
+  @include respond-to('sm') {
+    display: block;
+  }
+
+  .referralBtn {
+    min-height: 43.7px;
+    font-size: $fs-14;
+  }
+}

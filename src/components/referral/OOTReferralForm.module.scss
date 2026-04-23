@@ -1,0 +1,29 @@
+@use '../../assets/style/scss/abstracts/variables' as *;
+
+.clinicalSection {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 24px;
+  gap: 16px !important;
+  width: 696px;
+  align-self: stretch;
+  flex-grow: 0;
+  border-bottom: 1px solid $neutral-normal;
+}
+
+.urgencyRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+  align-self: stretch;
+  flex: none;
+  flex-grow: 0;
+
+  > * {
+    flex: 1;
+  }
+}

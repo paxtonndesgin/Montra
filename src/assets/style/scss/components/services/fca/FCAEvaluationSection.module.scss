@@ -1,0 +1,222 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.evaluationSection {
+  position: relative;
+  padding-top: 166px;
+  overflow: hidden;
+
+  // .backgroundGraphic {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 60%;
+  //   height: 100%;
+  //   background: linear-gradient(135deg, rgba($main-cyan-300, 0.4) 0%, rgba($main-blue-300, 0.2) 100%);
+  //   border-radius: 0 500px 500px 0;
+  //   z-index: 0;
+  //   transform: translateX(-20%);
+  // }
+
+  .container {
+    @include container;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 32px;
+    gap: 46px;
+    max-width: 954px;
+    width: 100%;
+    background: $neutral-light-hover;
+    border-radius: 32px;
+  }
+
+  .leftCol {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .iconBox {
+    width: 48px;
+    height: 48px;
+    background: $color-icon-green;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .icon {
+      width: 24px;
+      height: 24px;
+      border: 2px solid $main-cyan-600;
+      border-radius: 6px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 12px;
+        height: 12px;
+        background: $main-cyan-600;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .title {
+    font-family: $font-family-base;
+    font-size: $fs-36;
+    font-weight: $font-weight-bold;
+    color: $main-cyan-900;
+    line-height: 1.2;
+    margin: 0;
+
+    .highlight {
+      color: $main-blue-800;
+    }
+  }
+
+  .description {
+    font-family: $font-family-base;
+    font-size: $fs-14;
+    color: $neutral-dark-active;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 400px;
+  }
+
+  .statsRow {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .statBoxBlue {
+    background: $main-blue-400;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    color: $color-white;
+
+    .statNumber {
+      font-family: $font-family-base;
+      font-size: $fs-24;
+      font-weight: $font-weight-semibold;
+    }
+
+    .statText {
+      font-size: $fs-12;
+      font-weight: $font-weight-medium;
+      opacity: 0.9;
+      line-height: 1.2;
+    }
+  }
+
+  .statBoxGreen {
+    background: $main-cyan-700;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    color: $color-white;
+
+    .statNumber {
+      font-family: $font-family-base;
+      font-size: $fs-24;
+      font-weight: $font-weight-semibold;
+    }
+
+    .statText {
+      font-size: $fs-12;
+      font-weight: $font-weight-medium;
+      opacity: 0.9;
+      line-height: 1.2;
+    }
+  }
+
+  .rightCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 32px 24px;
+    gap: 24px;
+    width: 422px;
+    background: $neutral-light-active;
+    border-radius: 24px;
+    align-self: stretch;
+    flex-grow: 1;
+    flex: none;
+    order: 1;
+  }
+
+  .domainsCard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .domainsTitle {
+    font-family: $font-family-base;
+    font-size: $fs-24;
+    font-weight: $font-weight-semibold;
+    color: $main-cyan-900;
+    margin: 0;
+  }
+
+  .domainsList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 24px;
+  }
+
+  .domainItem {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+
+    .checkIcon {
+      margin-top: 2px;
+    }
+
+    .domainText {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      h4 {
+        font-family: $font-family-base;
+        font-size: $fs-16;
+        font-weight: $font-weight-semibold;
+        color: $main-blue-600;
+        margin: 0;
+      }
+
+      p {
+        font-family: $font-family-base;
+        font-size: $fs-12;
+        color: $neutral-dark-active;
+        margin: 0;
+        line-height: 1.4;
+      }
+    }
+  }
+}

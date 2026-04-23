@@ -1,0 +1,126 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.referralEnquirySection {
+  padding: 64px 44px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  @include container;
+  position: relative;
+  width: 100%;
+  max-width: none;
+  min-height: 486px;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  
+  background-color: $main-blue-700;
+  background-image: url('../../../images/banner/bannertwo.png'); 
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: screen;
+
+
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+  max-width: 1198.95px;
+  padding: 32px;
+  z-index: 1;
+  position: relative;
+  
+  @include respond-to('lg') {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 120px;
+    padding: 0;
+    margin-top: 39.78px;
+  }
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  
+  @include respond-to('lg') {
+    width: 583px;
+    flex: none;
+  }
+}
+
+.mainTitle {
+  font-family: $font-family-base;
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(48px, 6vw, 80px);
+  line-height: 1.01;
+  display: flex;
+  align-items: center;
+  color: $color-white; 
+  margin: 0;
+  
+  @include respond-to('lg') {
+    height: 243px;
+  }
+}
+
+.subtitle {
+  font-family: $font-family-base;
+  font-style: normal;
+  font-weight: $font-weight-medium;
+  font-size: $fs-12;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  color: $neutral-light;
+  margin: 0;
+  
+  @include respond-to('lg') {
+    height: 28px;
+  }
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  
+
+}
+
+.btnReferral {
+  background-color: $main-cyan-500 !important;
+  color: $color-white !important;
+  
+  &:hover,
+  &:focus-visible {
+    background-color: $main-cyan-600 !important;
+  }
+}
+
+.btnContact {
+  background-color: $color-white !important;
+  color: $main-blue-800 !important;
+  
+  &:hover,
+  &:focus-visible {
+    background-color: $neutral-light-hover !important;
+  }
+}

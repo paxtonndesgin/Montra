@@ -1,0 +1,11 @@
+@use './abstracts/variables' as *;
+@use './base/reset';
+@use './base/typography';
+
+:root {
+  --background: #{$color-white};
+  --foreground: #{$neutral-dark-active};
+  --color-brand-blue: #{$main-blue-800};
+  --color-brand-green: #{$main-cyan-700};
+  --color-brand-light: #{$main-blue-50};
+}

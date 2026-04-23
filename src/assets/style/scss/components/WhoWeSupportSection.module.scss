@@ -1,0 +1,180 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.section {
+  position: relative;
+  background-color: $color-white;
+  padding: 80px 0 120px;
+  overflow: hidden; 
+  z-index: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -17%; 
+    width: 35vw; 
+    aspect-ratio: 662 / 430;
+    background-image: url('../../../decor/homepage/Vector-20.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right top; 
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .container {
+    @include container;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.title {
+  font-size: $fs-48;
+  font-weight: $font-weight-semibold;
+  color: $color-brand-blue;
+  margin: 0 0 12px;
+}
+
+.titleHighlight {
+  color: $main-cyan-800;
+}
+
+.subtitle {
+  font-size: $fs-14;
+  color: $color-text-gray;
+  font-weight: $font-weight-regular;
+  margin: 0;
+}
+
+.cardsArea {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 72px 0 128px;
+  isolation: isolate;
+}
+
+.card {
+  --card-translate-y: 0px;
+  flex-shrink: 0;
+  width: 216px;
+  height: 216px;
+  background-color: $neutral-light;
+  border: 12px solid $main-blue-50;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 86px;
+  transform-origin: bottom center;
+  text-align: left;
+  appearance: none;
+  position: relative;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  box-shadow: -5px -1px 4px rgba(21, 96, 250, 0.24);
+  transform: rotate(var(--card-rotation)) translateY(var(--card-translate-y));
+  will-change: transform;
+  backface-visibility: hidden;
+  cursor: pointer;
+  z-index: 1;
+
+  & + & {
+    margin-left: -60px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    z-index: 20;
+    border-color: $main-blue-400;
+    box-shadow: -7.5px -1.5px 6px rgba(21, 96, 250, 0.24);
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.cardTiltOne {
+  --card-rotation: -15deg;
+  --card-translate-y: 18px;
+}
+
+.cardTiltTwo {
+  --card-rotation: 15deg;
+  --card-translate-y: -18px;
+}
+
+.cardTiltThree {
+  --card-rotation: -15deg;
+  --card-translate-y: 18px;
+}
+
+.cardTiltFour {
+  --card-rotation: 15deg;
+  --card-translate-y: 18px;
+}
+
+.cardTiltFive {
+  --card-rotation: -15deg;
+  --card-translate-y: 18px;
+}
+
+.cardTiltOne {
+  &:hover,
+  &:focus-visible {
+    transform: rotate(var(--card-rotation)) translateY(var(--card-translate-y)) scale(1.5);
+  }
+}
+
+.cardTiltTwo {
+  &:hover,
+  &:focus-visible {
+    transform: rotate(var(--card-rotation)) translateY(var(--card-translate-y)) scale(1.5);
+  }
+}
+
+.cardTiltThree {
+  &:hover,
+  &:focus-visible {
+    transform: rotate(var(--card-rotation)) translateY(var(--card-translate-y)) scale(1.5);
+  }
+}
+
+.cardTiltFour {
+  &:hover,
+  &:focus-visible {
+    transform: rotate(var(--card-rotation)) translateY(var(--card-translate-y)) scale(1.5);
+  }
+
+  
+}
+
+.cardTiltFive {
+  &:hover,
+  &:focus-visible {
+    transform: rotate(var(--card-rotation)) translateY(var(--card-translate-y)) scale(1.5);
+  }
+}
+
+.iconWrapper {
+  color: $color-wws-icon; 
+}
+
+.cardLabel {
+  font-size: $fs-14;
+  font-weight: $font-weight-semibold;
+  color: $color-card-blue-text; 
+  line-height: 1.4;
+  margin: 0;
+}
+
+

@@ -1,0 +1,139 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.precisionReportingSection {
+  position: relative;
+  padding-top: 166px;
+  overflow: hidden;
+
+  
+
+  .container {
+    @include container;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .title {
+    font-family: $font-family-base;
+    font-size: $fs-42;
+    font-weight: $font-weight-semibold;
+    color: $main-blue-800;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-family: $font-family-base;
+    font-size: $fs-14;
+    color: $neutral-dark-active;
+    margin: 0;
+  }
+
+  .cardsWrapper {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    max-width: 1047px;
+  }
+
+  .card {
+    flex: 1;
+    background: $neutral-light;
+    border-radius: 32px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .cardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .iconBoxGreen {
+    width: 40px;
+    height: 40px;
+    background: $color-icon-green;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      border: 2px solid $main-cyan-600;
+      border-radius: 4px;
+      position: relative;
+    }
+  }
+
+  .cardTitleGreen {
+    font-family: $font-family-base;
+    font-size: $fs-28;
+    font-weight: $font-weight-semibold;
+    color: $main-cyan-900;
+    margin: 0;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .listItem {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .numberGreen {
+    font-family: $font-family-base;
+    font-size: $fs-24;
+    font-weight: $font-weight-semibold;
+    color: $main-cyan-900;
+    line-height: 1;
+    min-width: 32px;
+  }
+
+  .checkIconBlue {
+    margin-top: 2px;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .itemTitleBlue {
+    font-family: $font-family-base;
+    font-size: $fs-16;
+    font-weight: $font-weight-semibold;
+    color: $main-blue-600;
+    margin: 0;
+  }
+
+  .itemText {
+    font-family: $font-family-base;
+    font-size: $fs-12;
+    color: $neutral-dark-active;
+    line-height: 1.4;
+    margin: 0;
+  }
+}

@@ -1,0 +1,147 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.footer {
+  background-color: $color-footer-bg;
+  border-top: 1px solid $color-footer-divider;
+  padding: 56px 0 0;
+
+  .container {
+    @include container;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-bottom: 48px;
+
+    @include respond-to('lg') {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 280px;
+  }
+
+  .logoLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logoName {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-size: $fs-18;
+    font-weight: $font-weight-bold;
+    color: $color-brand-blue;
+  }
+
+  .tagline {
+    font-size: $fs-14;
+    color: $color-footer-tagline;
+    font-weight: $font-weight-regular;
+    line-height: 1.6;
+  }
+
+  .socials {
+    display: flex;
+    gap: 10px;
+  }
+
+  .socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: $color-footer-icon-bg;
+    color: $color-footer-icon;
+    text-decoration: none;
+    @include hover-transition {
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+  }
+
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 40px;
+
+    @include respond-to('sm') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .navColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .navHeading {
+    font-size: $fs-16;
+    font-weight: $font-weight-bold;
+    color: $color-footer-heading;
+    margin: 0;
+  }
+
+  .navList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .navLink {
+    font-size: $fs-14;
+    color: $color-footer-link;
+    font-weight: $font-weight-regular;
+    text-decoration: none;
+    @include hover-transition {
+      color: $color-footer-heading;
+    }
+  }
+
+  .bottom {
+    border-top: 1px solid $color-footer-divider;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+
+    @include respond-to('md') {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .copyright {
+    font-size: $fs-12;
+    color: $color-footer-copyright;
+    font-weight: $font-weight-regular;
+    margin: 0;
+  }
+
+  .bottomAccent {
+    font-size: $fs-12;
+    font-weight: $font-weight-semibold;
+    color: $color-footer-accent;
+    white-space: nowrap;
+  }
+}

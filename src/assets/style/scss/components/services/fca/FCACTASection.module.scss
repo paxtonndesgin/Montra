@@ -1,0 +1,68 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.ctaSection {
+  padding-bottom: 60px;
+  
+  .container {
+    @include container;
+  }
+
+  .contentWrapper {
+    background: linear-gradient(rgba(0, 50, 150, 0.7), rgba(0, 50, 150, 0.8)), url('../../../../../images/banner/bannerone.png') center/cover;
+    border-radius: 32px;
+    padding: 64px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-height: 480px;
+  }
+
+  .leftCol {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mainTitle {
+    font-family: $font-family-base;
+    font-weight: $font-weight-semibold;
+    font-size: $fs-80;
+    line-height: 1.05;
+    color: $color-white;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-family: $font-family-base;
+    font-weight: $font-weight-medium;
+    font-size: $fs-14;
+    color: $neutral-light;
+    margin: 0;
+  }
+
+  .rightCol {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btnReferral {
+    background: $main-cyan-600;
+    color: $color-white;
+    
+    &:hover {
+      background: darken($main-cyan-600, 5%);
+    }
+  }
+
+  .btnContact {
+    background: $neutral-light-active;
+    color: $color-btn-dark-green;
+
+    &:hover {
+      background: darken($neutral-light-active, 5%);
+    }
+  }
+}

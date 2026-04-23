@@ -1,0 +1,139 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.journeySection {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  background-color: $neutral-light;
+  border-radius: 48px;
+  padding: 80px;
+  max-width: 1440px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-family: $font-family-base;
+  font-size: $fs-48;
+  font-weight: $font-weight-bold;
+  color: $main-cyan-800;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-family: $font-family-base;
+  font-size: $fs-22;
+  color: $color-text-muted;
+  margin: 0;
+}
+
+.journeyWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background: $color-journey-line;
+  margin-bottom: 40px;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  width: 100%;
+}
+
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  flex: 1;
+  min-width: 140px;
+}
+
+.stepBox {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px; 
+  background: $main-blue-50;
+  border: 3px solid $color-journey-step-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.stepNumber {
+  font-family: $font-family-base;
+  font-size: $fs-28;
+  font-weight: $font-weight-semibold;
+  color: $color-journey-number;
+}
+
+.stepItem:last-child .stepBox {
+  background: $color-journey-number;
+  brder: 4px solid $color-journey-step-border;
+  
+  .stepNumber {
+    color: $color-white;
+  }}
+
+.stepTitle {
+  font-family: $font-family-base;
+  font-size: $fs-22;
+  font-weight: $font-weight-bold;
+  color: $color-journey-number;
+ margin: 0 0 12px 0;
+}
+
+.stepDescription {
+  font-family: $font-family-base;
+  font-size: $fs-15;
+  color: $neutral-darker;
+  line-height: 1.4;
+  margin: 0;
+  padding-right: 12px; 
+}
+
+@media (max-width: 1200px) {
+  .steps {
+    flex-wrap: wrap;
+    gap: 40px 24px;
+  }
+  .stepItem {
+    flex: 0 0 calc(33.333% - 24px);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 24px;
+    border-radius: 32px;
+  }
+  .stepItem {
+    flex: 0 0 100%;
+  }
+  .line {
+    display: none;
+  }
+}
