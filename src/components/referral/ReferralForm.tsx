@@ -33,7 +33,7 @@ function CollapsePanel({ open, children }: { open: boolean; children: React.Reac
 }
 
 export default function ReferralForm({ hideCloseButton = false }: ReferralFormProps) {
-
+  // ── Field state ──────────────────────────────────────────────────────────────
   const [fullName, setFullName] = useState('');
   const [dob, setDob] = useState('');
   const [ndisNumber, setNdisNumber] = useState('');
@@ -55,14 +55,20 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
 
   const [additionalNotes, setAdditionalNotes] = useState('');
   const [privacyConsent, setPrivacyConsent] = useState(false);
+
+  // ── Collapsed state ──────────────────────────────────────────────────────────
   const [collapsed, setCollapsed] = useState({ p: false, r: false, c: false, o: false });
   const toggle = (key: keyof typeof collapsed) =>
     setCollapsed(prev => ({ ...prev, [key]: !prev[key] }));
+
+  // ── Completion rules ─────────────────────────────────────────────────────────
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const participantDone = fullName.trim() !== '' && dob.trim() !== '';
   const referrerDone    = referrerName.trim() !== '' && emailValid;
   const clinicalDone    = reasons.length > 0;
   const optionalDone    = additionalNotes.trim() !== '';
+
+  // ── Auto-collapse once a section becomes complete ────────────────────────────
   const prevP = useRef(false);
   const prevR = useRef(false);
   const prevC = useRef(false);
@@ -103,6 +109,8 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
     }
     prevO.current = optionalDone;
   }, [optionalDone]);
+
+  // ── Toggle helpers ───────────────────────────────────────────────────────────
   const toggleRole    = (v: string) => setRoles(p    => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
   const toggleReason  = (v: string) => setReasons(p  => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
   const toggleConcern = (v: string) => setConcerns(p => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
@@ -110,12 +118,14 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
 
   return (
     <div className={styles.formContainer}>
+      {/* Close Button */}
       {!hideCloseButton && (
         <Link href="/" className={styles.closeButton}>
           <X size={24} />
         </Link>
       )}
 
+      {/* Header */}
       <div className={styles.headerSection}>
         <h2 className={styles.title}>Submit a Referral.</h2>
         <p className={styles.subtitle}>
@@ -123,6 +133,7 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
         </p>
       </div>
 
+      {/* 1. Participant Information */}
       <div className={styles.sectionGroup}>
         <button
           type="button"
@@ -171,6 +182,7 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
 
       <hr className={styles.formDivider} />
 
+      {/* 2. Referrer Information */}
       <div className={styles.sectionGroup}>
         <button
           type="button"
@@ -228,6 +240,7 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
 
       <hr className={styles.formDivider} />
 
+      {/* 3. Guided Clinical Questions */}
       <div className={styles.sectionGroup}>
         <button
           type="button"
@@ -316,6 +329,7 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
 
       <hr className={styles.formDivider} />
 
+      {/* 4. Optional Clinical Context */}
       <div className={styles.sectionGroup}>
         <button
           type="button"
@@ -344,6 +358,7 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
         </CollapsePanel>
       </div>
 
+      {/* 5. Privacy Consent */}
       <div className={styles.privacyConsent} onClick={() => setPrivacyConsent(!privacyConsent)}>
         <div className={`${styles.checkIconBox} ${privacyConsent ? styles.checked : ''}`}>
           {privacyConsent && <Check size={14} strokeWidth={3} />}
@@ -354,6 +369,7 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
         </div>
       </div>
 
+      {/* 6. Submit Button */}
       <div className={styles.submitAction}>
         <button type="submit" className={styles.submitBtn}>
           <span className={styles.submitLabel}>Make a Referral</span>
@@ -367,6 +383,7 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
         </div>
       </div>
 
+      {/* 7. Bottom Banner/Cards */}
       <div className={styles.footerCards}>
         <div className={`${styles.footerCard} ${styles.greenCard}`}>
           <div className={styles.iconBox}>

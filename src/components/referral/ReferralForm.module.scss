@@ -11,8 +11,8 @@
 .formContainer {
   width: 100%;
   max-width: 744px;
-  background: $neutral-light;
-  border: 10px solid $neutral-normal;
+  background: $neutral-light; // #F9F9F9
+  border: 10px solid $neutral-normal; // #BFBFBF
   border-radius: 20px;
   padding: 24px;
   position: relative;
@@ -51,17 +51,17 @@
   margin-bottom: 16px;
 
   .title {
-    font-family: $font-family-base;
-    font-weight: $font-weight-semibold;
-    font-size: $fs-36;
+    font-family: 'Polin', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
     color: $main-blue-600;
     margin: 0;
   }
 
   .subtitle {
-    font-family: $font-family-base;
-    font-weight: $font-weight-medium;
-    font-size: $fs-14;
+    font-family: 'Polin', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
     color: $neutral-dark-active;
     margin: 0;
     line-height: 1.4;
@@ -70,7 +70,7 @@
 
 .formDivider {
   height: 1px;
-  background-color: $neutral-normal;
+  background-color: $neutral-normal; // #BFBFBF
   width: 100%;
   margin: 0;
 }
@@ -122,9 +122,9 @@
   }
 
   .sectionTitle {
-    font-family: $font-family-base;
-    font-weight: $font-weight-semibold;
-    font-size: $fs-21;
+    font-family: 'Polin', sans-serif;
+    font-weight: 600;
+    font-size: 21px;
     color: $main-cyan-800;
     margin: 0;
     transition: color 0.2s;
@@ -137,9 +137,9 @@
 }
 
 .sectionSummary {
-  font-family: $font-family-base;
-  font-size: $fs-12;
-  font-weight: $font-weight-medium;
+  font-family: 'Polin', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
   color: $neutral-dark;
   flex: 1;
   text-align: right;
@@ -186,26 +186,26 @@
   gap: 8px;
 
   label {
-    font-family: $font-family-base;
-    font-weight: $font-weight-medium;
-    font-size: $fs-12;
-    color: $neutral-dark; 
+    font-family: 'Polin', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: $neutral-dark; // #8F8F8F
   }
 }
 
 .inputField {
-  background: $neutral-light-active;
+  background: $neutral-light-active; // #EBEBEB
   border-radius: 12px;
   padding: 16px;
   border: 1px solid transparent;
-  font-family: $font-family-base;
-  font-size: $fs-14;
+  font-family: 'Polin', sans-serif;
+  font-size: 14px;
   color: $neutral-darker;
   width: 100%;
   transition: all 0.2s ease;
   
   &::placeholder {
-    color: $neutral-normal-hover;
+    color: $neutral-normal-hover; // #ACACAC
   }
 
   &:focus {
@@ -269,7 +269,7 @@ textarea.inputField {
     width: 24px;
     height: 24px;
     border-radius: 8px;
-    border: 1px solid $neutral-normal;
+    border: 1px solid $neutral-normal; // #BFBFBF
     background: transparent;
     display: flex;
     align-items: center;
@@ -277,17 +277,17 @@ textarea.inputField {
     flex-shrink: 0;
     
     &.checked {
-      background: $main-cyan-100;
-      border-color: $main-cyan-700;
+      background: $main-cyan-100; // #BAF4DE
+      border-color: $main-cyan-700; // #179D6B
       color: $main-cyan-700;
     }
   }
 
   .checkLabel {
-    font-family: $font-family-base;
-    font-weight: $font-weight-medium;
-    font-size: $fs-12;
-    color: $neutral-dark-active;
+    font-family: 'Polin', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: $neutral-dark-active; // #565656
     --webkit-user-select: none;
   }
 }
@@ -302,16 +302,16 @@ textarea.inputField {
   padding: 12px 16px;
   background: $neutral-light-active;
   border-radius: 10000px;
-  font-family: $font-family-base;
-  font-weight: $font-weight-medium;
-  font-size: $fs-12;
+  font-family: 'Polin', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
   color: $neutral-dark-active;
   cursor: pointer;
   transition: all 0.2s ease;
   border: none;
   
   &.active {
-    background: $main-blue-500;
+    background: $main-blue-500; // #0059F4
     color: $color-white;
   }
   
@@ -324,7 +324,7 @@ textarea.inputField {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  background: $main-blue-50;
+  background: $main-blue-50; // #E6EEFE
   border-radius: 12px;
   padding: 16px;
   
@@ -354,17 +354,17 @@ textarea.inputField {
     gap: 4px;
     
     h4 {
-      font-family: $font-family-base;
-      font-weight: $font-weight-semibold;
-      font-size: $fs-17;
+      font-family: 'Polin', sans-serif;
+      font-weight: 600;
+      font-size: 17px;
       color: $neutral-dark-active;
       margin: 0;
     }
     
     p {
-      font-family: $font-family-base;
-      font-weight: $font-weight-medium;
-      font-size: $fs-12;
+      font-family: 'Polin', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
       color: $neutral-dark-active;
       margin: 0;
       line-height: 1.4;
@@ -380,6 +380,7 @@ textarea.inputField {
   margin-top: 16px;
 }
 
+// ─── Custom ButtonLink-style submit button ─────────────────────────────────────
 .submitBtn {
   position: relative;
   display: inline-flex;
@@ -390,9 +391,9 @@ textarea.inputField {
   border-radius: 100px;
   border: none;
   background: $main-blue-700;
-  font-family: $font-family-base;
-  font-weight: $font-weight-medium;
-  font-size: $fs-16;
+  font-family: 'Polin', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
   color: $color-white;
   cursor: pointer;
   overflow: hidden;
@@ -469,9 +470,9 @@ textarea.inputField {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: $font-family-base;
-  font-weight: $font-weight-medium;
-  font-size: $fs-13;
+  font-family: 'Polin', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
   color: $neutral-dark-active;
 }
 
@@ -496,8 +497,8 @@ textarea.inputField {
     box-sizing: border-box;
     
     &.greenCard {
-      background: $main-cyan-50;
-      border: 1px solid $main-cyan-500;
+      background: $main-cyan-50; // #EAFDF4
+      border: 1px solid $main-cyan-500; // #28E68D
       width: 344px;
       flex: none;
       
@@ -515,13 +516,13 @@ textarea.inputField {
     }
     
     &.grayCard {
-      background: $neutral-light-hover;
-      border: 1px solid $neutral-normal;
+      background: $neutral-light-hover; // #F5F5F5
+      border: 1px solid $neutral-normal; // #BFBFBF
       flex: 1;
     }
     
     &.blueCard {
-      background: $main-blue-300;
+      background: $main-blue-300; // #5490F8
       color: $color-white;
       display: flex;
       flex-direction: column;
@@ -531,16 +532,16 @@ textarea.inputField {
       padding: 16px;
       
       .blueSub {
-        font-family: $font-family-base;
-        font-size: $fs-12;
-        font-weight: $font-weight-medium;
+        font-family: 'Polin', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
         line-height: 14px;
       }
       
       .blueTitle {
-        font-family: $font-family-base;
-        font-size: $fs-25;
-        font-weight: $font-weight-semibold;
+        font-family: 'Polin', sans-serif;
+        font-size: 25px;
+        font-weight: 600;
         margin: 0;
         line-height: 30px;
       }
@@ -552,18 +553,18 @@ textarea.inputField {
       gap: 8px;
       
       h5 {
-        font-family: $font-family-base;
-        font-size: $fs-17;
-        font-weight: $font-weight-semibold;
+        font-family: 'Polin', sans-serif;
+        font-size: 17px;
+        font-weight: 600;
         color: $neutral-dark-active;
         margin: 0;
         line-height: 20px;
       }
       
       p {
-        font-family: $font-family-base;
-        font-size: $fs-10;
-        font-weight: $font-weight-medium;
+        font-family: 'Polin', sans-serif;
+        font-size: 10px;
+        font-weight: 500;
         color: $neutral-dark-active;
         margin: 0;
         line-height: 12px;

@@ -1,8 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
 import styles from '../assets/style/scss/components/WhyChooseMontraSection.module.scss'
-import Vector11 from '../assets/decor/design2/Vector-11.svg'
-import Vector12 from '../assets/decor/design2/Vector-12.svg'
 
 const FEATURES = [
   {
@@ -30,10 +27,6 @@ const FEATURES = [
 const WhyChooseMontraSection = () => {
   return (
     <section className={styles.whyChooseSection}>
-      <div className={styles.decorContainer}>
-        <Image src={Vector11} alt="" className={styles.decor11} />
-        <Image src={Vector12} alt="" className={styles.decor12} />
-      </div>
       <div className={styles.container}>
         <div className={styles.leftColumn}>
           <h2 className={styles.mainTitle}>
