@@ -8,21 +8,21 @@ import ScrollAnimator from '../animation/ScrollAnimator';
 const AboutBannerSection = () => {
   return (
     <section className={styles.aboutBannerSection}>
-      <div className={styles.container}>
-        <div className={styles.imageGallery}>
-          <ScrollAnimator className={styles.imageLeft} delay={0.1} yOffset={30}>
-            <Image src={IMAGES.BANNER_LEFT || IMAGES.BANNER_1} alt="Therapist with patient" width={424} height={318} className={styles.image} />
-          </ScrollAnimator>
-          
-          <ScrollAnimator className={styles.imageCenter} delay={0} yOffset={40}>
-            <Image src={IMAGES.BANNER_CENTER || IMAGES.BANNER_1} alt="Medical team" width={872} height={486} className={styles.image} />
-          </ScrollAnimator>
-          
-          <ScrollAnimator className={styles.imageRight} delay={0.2} yOffset={30}>
-            <Image src={IMAGES.BANNER_RIGHT || IMAGES.BANNER_1} alt="Nurse with elderly patient" width={424} height={318} className={styles.image} />
-          </ScrollAnimator>
-        </div>
+      <div className={styles.imageGallery}>
+        <ScrollAnimator className={styles.imageLeft} delay={0.1} yOffset={30}>
+          <Image src={IMAGES.BANNER_LEFT || IMAGES.BANNER_1} alt="Therapist with patient" width={424} height={318} className={styles.image} />
+        </ScrollAnimator>
+        
+        <ScrollAnimator className={styles.imageCenter} delay={0} yOffset={40}>
+          <Image src={IMAGES.BANNER_CENTER || IMAGES.BANNER_1} alt="Medical team" width={872} height={486} className={styles.image} />
+        </ScrollAnimator>
+        
+        <ScrollAnimator className={styles.imageRight} delay={0.2} yOffset={30}>
+          <Image src={IMAGES.BANNER_RIGHT || IMAGES.BANNER_1} alt="Nurse with elderly patient" width={424} height={318} className={styles.image} />
+        </ScrollAnimator>
+      </div>
 
+      <div className={styles.container}>
         <ScrollAnimator className={styles.textContent} delay={0.4} yOffset={30}>
           <h1 className={styles.title}>
             <span className={styles.highlight}>About</span> Montra Therapy

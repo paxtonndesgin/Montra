@@ -1,0 +1,180 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.redefiningSection {
+  padding: 80px 0;
+  width: 100%;
+
+  .container {
+    @include container;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mainCard {
+    width: 954px;
+    height: 380px;
+    background: #F5F5F5;
+    border-radius: 32px;
+    padding: 32px;
+    display: flex;
+    gap: 46px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .leftCol {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .iconBox {
+    width: 32px;
+    height: 32px;
+    background: #22C478;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    font-family: $font-family-base;
+    font-size: $fs-42;
+    font-weight: $font-weight-semibold;
+    color: #0E5D3F;
+    line-height: 101%;
+    margin: 0;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .subtitle {
+    font-family: $font-family-base;
+    font-size: $fs-25;
+    font-weight: $font-weight-semibold;
+    color: #0E5D3F;
+    line-height: 120%;
+    margin: 0;
+  }
+
+  .description {
+    font-family: $font-family-base;
+    font-size: $fs-17;
+    font-weight: $font-weight-medium;
+    color: #737373;
+    line-height: 120%;
+    margin: 0;
+  }
+
+  .typesRow {
+    display: flex;
+    gap: 8px;
+  }
+
+  .typeCard {
+    flex: 1;
+    background: #179D6B;
+    border-radius: 18px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    h4 {
+      font-family: $font-family-base;
+      font-size: $fs-25;
+      font-weight: $font-weight-semibold;
+      color: #F9F9F9;
+      margin: 0;
+    }
+
+    span {
+      font-family: $font-family-base;
+      font-size: $fs-12;
+      font-weight: $font-weight-medium;
+      color: #F9F9F9;
+      line-height: 120%;
+    }
+  }
+
+  .rightCol {
+    width: 258px;
+    background: #EBEBEB;
+    border-radius: 24px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+  }
+
+  .factorsTitle {
+    font-family: $font-family-base;
+    font-size: $fs-25;
+    font-weight: $font-weight-semibold;
+    color: #0E5D3F;
+    text-align: center;
+    margin: 0;
+  }
+
+  .factorsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .factorItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    span {
+      font-family: $font-family-base;
+      font-size: $fs-14;
+      font-weight: $font-weight-semibold;
+      color: #565656;
+    }
+  }
+
+  .checkIcon {
+    width: 16px;
+    height: 16px;
+    background: #1CA364;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .mainCard {
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+    }
+    .rightCol {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,158 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.frameworkSection {
+  padding: 80px 0;
+
+  .container {
+    @include container;
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .header {
+    text-align: center;
+    width: 100%;
+  }
+
+  .title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #0E5D3F;
+    line-height: 40px;
+    letter-spacing: -0.9px;
+    margin: 0;
+  }
+
+  .gridWrapper {
+    display: flex;
+    gap: 8px;
+    width: 860px;
+    margin: 0 auto;
+    align-items: stretch;
+  }
+
+  .rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .bottomRow {
+    display: flex;
+    gap: 8px;
+    height: 174.5px;
+  }
+
+  .card {
+    background: #EBEBEB;
+    border-radius: 18px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .cardLarge {
+    width: 426px;
+    height: 357px;
+    flex: none;
+  }
+
+  .cardMedium {
+    width: 426px;
+    height: 174.5px;
+    flex: none;
+  }
+
+  .cardSmall {
+    flex: 1;
+    width: 209px;
+    height: 174.5px;
+    padding: 24px 32px; // Slightly less vertical padding for small cards
+  }
+
+  .blueBg {
+    background: #5490f8; // $main-blue-300
+  }
+
+  .cyanBg {
+    background: #179D6B; // $main-cyan-700
+  }
+
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cardTitle {
+    font-family: 'Polin', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #565656;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .cardDescription {
+    font-family: 'Polin', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #565656;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .cardTitleLight {
+    @extend .cardTitle;
+    color: #F9F9F9;
+  }
+
+  .cardDescriptionLight {
+    @extend .cardDescription;
+    color: #F9F9F9;
+  }
+
+  @media (max-width: 900px) {
+    .gridWrapper {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cardLarge, .cardMedium {
+      width: 100%;
+      max-width: 426px;
+      height: auto;
+      min-height: 200px;
+    }
+
+    .bottomRow {
+      height: auto;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+
+    .cardSmall {
+      width: 100%;
+      max-width: 426px;
+      height: auto;
+      min-height: 174px;
+    }
+  }
+}

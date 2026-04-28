@@ -1,5 +1,5 @@
-@use '../../assets/style/scss/abstracts/variables' as *;
-@use '../../assets/style/scss/abstracts/mixins' as *;
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins' as *;
 
 .referralPage {
   padding: 120px 24px 64px;
@@ -264,6 +264,10 @@ textarea.inputField {
     background: $neutral-light-active;
     border-color: $neutral-dark;
   }
+
+  &:active {
+    transform: scale(0.98);
+  }
   
   .checkIconBox {
     width: 24px;
@@ -317,6 +321,10 @@ textarea.inputField {
   
   &:hover:not(.active) {
     background: $neutral-normal-hover;
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 }
 
@@ -433,6 +441,11 @@ textarea.inputField {
       opacity: 1;
       transform: translateX(2px) scale(1.08);
     }
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.97);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 }
 

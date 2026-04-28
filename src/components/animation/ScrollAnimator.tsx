@@ -4,20 +4,26 @@ import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 
+export type AnimationType = 'slideUp' | 'slideLeft' | 'slideRight' | 'fade' | 'scaleUp';
+
 interface ScrollAnimatorProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   duration?: number;
   yOffset?: number;
+  xOffset?: number;
+  type?: AnimationType;
 }
 
 const ScrollAnimator: React.FC<ScrollAnimatorProps> = ({ 
   children, 
   className,
   delay = 0,
-  duration = 0.5,
-  yOffset = 50
+  duration = 0.8,
+  yOffset = 50,
+  xOffset = 50,
+  type = 'slideUp'
 }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -31,15 +37,37 @@ const ScrollAnimator: React.FC<ScrollAnimatorProps> = ({
     }
   }, [controls, inView]);
 
+  const getHiddenState = () => {
+    switch (type) {
+      case 'slideLeft': return { opacity: 0, x: xOffset };
+      case 'slideRight': return { opacity: 0, x: -xOffset };
+      case 'scaleUp': return { opacity: 0, scale: 0.8 };
+      case 'fade': return { opacity: 0 };
+      case 'slideUp':
+      default: return { opacity: 0, y: yOffset };
+    }
+  };
+
+  const getVisibleState = () => {
+    switch (type) {
+      case 'slideLeft':
+      case 'slideRight': return { opacity: 1, x: 0 };
+      case 'scaleUp': return { opacity: 1, scale: 1 };
+      case 'fade': return { opacity: 1 };
+      case 'slideUp':
+      default: return { opacity: 1, y: 0 };
+    }
+  };
+
   const variants: Variants = {
-    hidden: { opacity: 0, y: yOffset },
+    hidden: getHiddenState(),
     visible: { 
-      opacity: 1, 
-      y: 0,
+      ...getVisibleState(),
       transition: {
+        type: "spring",
+        bounce: 0.3,
         duration: duration,
         delay: delay,
-        ease: 'easeOut'
       }
     },
   };

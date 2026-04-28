@@ -1,0 +1,106 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.serviceSection {
+  padding: 80px 0;
+  width: 100%;
+
+  .container {
+    @include container;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 48px;
+    max-width: 1320px;
+  }
+
+  .leftCol {
+    flex: 0 0 300px;
+  }
+
+  .title {
+    font-family: $font-family-base;
+    font-size: $fs-42;
+    font-weight: $font-weight-semibold;
+    color: #0E5D3F;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .rightCol {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    background: #FFFFFF;
+    border: 4px solid #8AB3FA;
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #0051DE;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  .cardNumber {
+    font-family: $font-family-base;
+    font-size: $fs-21;
+    font-weight: $font-weight-semibold;
+    color: #0051DE;
+    line-height: 1;
+  }
+
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cardTitle {
+    font-family: $font-family-base;
+    font-size: $fs-21;
+    font-weight: $font-weight-semibold;
+    color: #0051DE;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .cardDescription {
+    font-family: $font-family-base;
+    font-size: $fs-12;
+    font-weight: $font-weight-medium;
+    color: #565656;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .leftCol {
+      flex: none;
+      width: 100%;
+    }
+    .rightCol {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .rightCol {
+      grid-template-columns: 1fr;
+    }
+  }
+}

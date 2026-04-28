@@ -1,0 +1,134 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.supportSection {
+  padding: 100px 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .bgCircle {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: #E6EEFE;
+    border-radius: 50%;
+    z-index: 1;
+    
+    &.left {
+      top: -100px;
+      left: -200px;
+    }
+
+    &.right {
+      bottom: -100px;
+      right: -200px;
+    }
+  }
+
+  .container {
+    @include container;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    max-width: 1320px;
+  }
+
+  .title {
+    font-family: $font-family-base;
+    font-size: $fs-42;
+    font-weight: $font-weight-semibold;
+    color: #0051DE;
+    text-align: center;
+    margin: 0;
+  }
+
+  .cardsGrid {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    border: 10px solid #99EFCF; // main-cyan-200
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    padding: 24px;
+    box-sizing: border-box;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:nth-child(1) { transform: rotate(-5deg); }
+    &:nth-child(2) { transform: translateY(-30px) rotate(5deg); }
+    &:nth-child(3) { transform: rotate(-3deg); }
+
+    &:hover {
+      transform: translateY(-10px) rotate(0deg) scale(1.05);
+      box-shadow: 0 20px 40px rgba(153, 239, 207, 0.4);
+      z-index: 10;
+    }
+  }
+
+  .imageWrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    
+    .image {
+      object-fit: cover;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, #FFFFFF 70%);
+      z-index: 2;
+    }
+  }
+
+  .content {
+    position: relative;
+    z-index: 3;
+    text-align: left; // Design shows flex-start
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cardTitle {
+    font-family: $font-family-base;
+    font-size: $fs-21;
+    font-weight: $font-weight-semibold;
+    color: #179D6B;
+    margin: 0;
+  }
+
+  .cardDescription {
+    font-family: $font-family-base;
+    font-size: $fs-12;
+    font-weight: $font-weight-medium;
+    color: #565656;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .card {
+      transform: none !important;
+      width: 100%;
+      max-width: 350px;
+    }
+  }
+}

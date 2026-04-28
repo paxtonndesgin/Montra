@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 interface ParallaxAnimatorProps {
   children: React.ReactNode;
@@ -21,8 +21,14 @@ const ParallaxAnimator: React.FC<ParallaxAnimatorProps> = ({
     offset: ['start end', 'start 25%'],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [offset, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const y = useTransform(smoothProgress, [0, 1], [offset, 0]);
+  const opacity = useTransform(smoothProgress, [0, 0.6], [0, 1]);
 
   return (
     <motion.div ref={ref} style={{ y, opacity }} className={className}>
