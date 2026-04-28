@@ -6,8 +6,8 @@ import {
   X, User, Building, FileQuestion, PlusCircle, 
   Check, ChevronDown, Clock, ShieldCheck, Send 
 } from 'lucide-react';
-import baseStyles from './ReferralForm.module.scss';
-import styles from './OOTReferralForm.module.scss';
+import baseStyles from '../../assets/style/scss/components/referral/ReferralForm.module.scss';
+import styles from '../../assets/style/scss/components/referral/OOTReferralForm.module.scss';
 
 interface OOTReferralFormProps {
   hideCloseButton?: boolean;

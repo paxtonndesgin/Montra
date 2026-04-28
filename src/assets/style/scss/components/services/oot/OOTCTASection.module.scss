@@ -1,0 +1,118 @@
+@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/mixins' as *;
+
+.ctaSection {
+  padding: 80px 0;
+  width: 100%;
+
+  .container {
+    @include container;
+    position: relative;
+    max-width: 1320px;
+    height: 486px;
+    border-radius: 32px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .backgroundWrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    .bgImage {
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: #003FAD;
+      mix-blend-mode: screen;
+    }
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    gap: 120px;
+    padding: 0 60px;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .textCol {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .title {
+    font-family: $font-family-base;
+    font-size: $fs-80;
+    font-weight: $font-weight-semibold;
+    color: $color-white;
+    line-height: 101%;
+    margin: 0;
+  }
+
+  .description {
+    font-family: $font-family-base;
+    font-size: $fs-12;
+    font-weight: $font-weight-medium;
+    color: #F9F9F9;
+    line-height: 120%;
+    max-width: 583px;
+    margin: 0;
+  }
+
+  .actionsCol {
+    flex: 0 0 auto;
+  }
+
+  .actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .btnPrimary {
+    width: 139.65px;
+    height: 43.7px;
+    background: #1EC989 !important;
+    font-size: $fs-12;
+  }
+
+  .btnSecondary {
+    width: 108.3px;
+    height: 43.7px;
+    background: #EAEAEA !important;
+    color: #12673F !important;
+    font-size: $fs-12;
+  }
+
+  @media (max-width: 1200px) {
+    .content {
+      gap: 40px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .title {
+      font-size: $fs-56;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      height: auto;
+      padding: 60px 0;
+    }
+    .title {
+      font-size: $fs-40;
+    }
+  }
+}

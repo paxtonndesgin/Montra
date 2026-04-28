@@ -7,7 +7,7 @@ import {
   X, User, Building, FileQuestion, PlusCircle,
   Check, ChevronDown, ChevronUp, Clock, ShieldCheck, Send,
 } from 'lucide-react';
-import styles from './ReferralForm.module.scss';
+import styles from '../../assets/style/scss/components/referral/ReferralForm.module.scss';
 
 interface ReferralFormProps {
   hideCloseButton?: boolean;
@@ -22,7 +22,7 @@ function CollapsePanel({ open, children }: { open: boolean; children: React.Reac
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.35, ease: 'easeOut' }}
+          transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
           style={{ overflow: 'hidden' }}
         >
           {children}

@@ -9,10 +9,16 @@ import { IMAGES } from '../assets/images'
 import ButtonLink from './ButtonLink'
 import ScrollAnimator from './animation/ScrollAnimator'
 
+const services = [
+  { href: "/services/functional-capacity-assessments", label: "Functional Capacity Assessments" },
+  { href: "/services/assistive-technology-assessments", label: "Assistive Technology Assessments" },
+  { href: "/services/home-modification-assessments", label: "Home Modification Assessments" },
+  { href: "/services/ongoing-occupational-therapy", label: "Ongoing Occupational Therapy" },
+];
+
 const navLinks = [
-  { href: "/services/functional-capacity-assessments", label: "Services" },
   { href: "/about", label: "About Us" },
-  { href: "/resources", label: "Resources" },
+  { href: "/referral", label: "Referral" },
   { href: "/contact", label: "Contact" },
   { href: "/career", label: "Career" },
 ];
@@ -34,6 +40,23 @@ const Header = () => {
             </div>
             <ScrollAnimator delay={0.1} yOffset={20}>
               <nav className={styles.nav} aria-label="Main navigation">
+                  <div className={styles.navItemWithDropdown}>
+                    <span className={`${styles.navLabel} ${pathname.startsWith('/services') ? styles.active : ''}`}>
+                      Services
+                    </span>
+                    <div className={styles.dropdown}>
+                      {services.map(service => (
+                        <Link 
+                          key={service.href} 
+                          href={service.href} 
+                          className={`${styles.dropdownItem} ${pathname === service.href ? styles.dropdownActive : ''}`}
+                        >
+                          {service.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
                   {navLinks.map(link => {
                     const isActive = pathname === link.href;
                     return (

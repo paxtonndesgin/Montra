@@ -1,6 +1,6 @@
 import React from 'react';
 import ReferralForm from '../../components/referral/ReferralForm';
-import styles from '../../components/referral/ReferralForm.module.scss';
+import styles from '../../assets/style/scss/components/referral/ReferralForm.module.scss';
 
 export default function ReferralPage() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import styles from '../../../assets/style/scss/components/services/fca/FCABannerSection.module.scss';
+import styles from '../../../assets/style/scss/components/services/oot/OOTBannerSection.module.scss';
 import { IMAGES } from '../../../assets/images';
 import ButtonLink from '@/components/ButtonLink';
 
@@ -10,9 +10,10 @@ const OOTBannerSection = () => {
       <div className={styles.container}>
         <div className={styles.imageWrapper}>
           <Image
-            src={IMAGES.BANNER_1}
+            src="/images/services/oot/banner.png"
             alt="Ongoing Occupational Therapy"
-            fill
+            width={1200}
+            height={630}
             className={styles.image}
           />
         </div>
