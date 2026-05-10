@@ -54,3 +54,25 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .introSection {
+    margin-bottom: 48px;
+
+    .title {
+      font-size: $fs-32;
+      line-height: 1.15;
+    }
+
+    .description {
+      max-width: 100%;
+      font-size: $fs-14;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .buttonGroup {
+      max-width: none;
+    }
+  }
+}

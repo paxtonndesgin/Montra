@@ -145,3 +145,32 @@
     white-space: nowrap;
   }
 }
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 40px 0 0;
+
+    .top {
+      gap: 32px;
+      padding-bottom: 32px;
+    }
+
+    .brand {
+      max-width: none;
+    }
+
+    .nav {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .bottom {
+      padding: 16px 0 24px;
+      align-items: flex-start;
+    }
+
+    .bottomAccent {
+      white-space: normal;
+    }
+  }
+}

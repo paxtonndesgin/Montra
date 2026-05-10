@@ -1,0 +1,22 @@
+@use '../abstracts/variables' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main {
+  flex-grow: 1;
+  position: relative;
+  background:
+    radial-gradient(circle at top left, rgba(0, 89, 244, 0.05), transparent 26%),
+    radial-gradient(circle at 88% 32%, rgba(30, 201, 137, 0.06), transparent 22%),
+    linear-gradient(180deg, #ffffff 0%, #f9fbff 55%, #ffffff 100%);
+}
+
+.middleSectionsWrapper {
+  position: relative;
+  width: 100%;
+}

@@ -1,0 +1,87 @@
+@use '../../../abstracts/variables' as vars;
+@use '../../../abstracts/mixins' as *;
+
+.section {
+  padding: vars.$section-padding-y 0;
+  background: vars.$color-white;
+}
+
+.container {
+  @include container;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 60px;
+  .title {
+    font-size: vars.$fs-42;
+    font-weight: 700;
+    color: #0E5D3F;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  
+  @include respond-to('md') {
+    flex-direction: row;
+  }
+}
+
+.card {
+  padding: 32px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  min-height: 120px;
+  flex: 1;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  .cardTitle {
+    font-size: vars.$fs-18;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .cardDesc {
+    font-size: vars.$fs-13;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+}
+
+.cardGrey {
+  background: #EBEBEB;
+  .cardTitle { color: vars.$neutral-dark-active; }
+  .cardDesc { color: #565656; }
+}
+
+.cardBlue {
+  background: #5490F8;
+  .cardTitle, .cardDesc { color: #F9F9F9; }
+}
+
+.cardGreen {
+  background: #179D6B;
+  .cardTitle, .cardDesc { color: #F9F9F9; }
+}
+
+.cardWide {
+  flex: 2;
+}

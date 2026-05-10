@@ -8,11 +8,12 @@ const BannerSection = () => {
       <div className={styles.bannerContainer}>
         <div className={styles.bannerImageWrapper}>
           <Image 
-            src={IMAGES.BANNER_1}
+            src={IMAGES.HOME_HERO}
             alt="Banner Image" 
             width={1200} 
             height={630} 
-            className={styles.bannerImage} 
+            className={styles.bannerImage}
+            priority
           />
           
           <div className={styles.badgesWrapper}>

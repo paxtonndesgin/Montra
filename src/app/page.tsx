@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+
 import styles from "../assets/style/scss/pages/home.module.scss";
 import BannerSection from "@/components/BannerSection";
 import IntroSection from "@/components/IntroSection";
@@ -10,29 +10,26 @@ import OurApproachSection from "@/components/OurApproachSection";
 import ScrollAnimator from "@/components/animation/ScrollAnimator";
 import WhyChooseMontraSection from "@/components/WhyChooseMontraSection";
 import ReferralEnquirySection from "@/components/ReferralEnquirySection";
-import Footer from "@/components/Footer";
+import { homeContent } from "@/content/home";
+
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Header />
+
       <main className={styles.main}>
+        <BannerSection />
+        <IntroSection />
         <ScrollAnimator>
-          <BannerSection />
-        </ScrollAnimator>
-        <ScrollAnimator delay={0.1}>
-          <IntroSection />
-        </ScrollAnimator>
-        <ScrollAnimator delay={0.2}>
           <PracticeSection />
         </ScrollAnimator>
-        <ScrollAnimator delay={0.2}>
+        <ScrollAnimator>
           <ServicesSection />
         </ScrollAnimator>
          <ScrollAnimator>
           <WhyChooseMontraSection />
         </ScrollAnimator>
-        <ScrollAnimator delay={0.2}>
+        <ScrollAnimator>
           <WhoWeSupportSection />
         </ScrollAnimator>
         <DecorWave />
@@ -40,10 +37,10 @@ export default function Home() {
           <OurApproachSection />
         </ScrollAnimator>
         <ScrollAnimator>
-          <ReferralEnquirySection />
+          <ReferralEnquirySection {...homeContent.cta} />
         </ScrollAnimator>
       </main>
-      <Footer />
+
     </div>
   );
 }

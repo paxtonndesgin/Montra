@@ -2,7 +2,7 @@
 @use '../../../abstracts/mixins' as *;
 
 .targetedCareSection {
-  padding: 80px 0;
+  padding: clamp(56px, 8vw, $section-padding-y) 0;
 
   .container {
     @include container;
@@ -16,8 +16,9 @@
     flex-direction: row;
     align-items: center;
     padding: 0 40px 0 0;
-    width: 1320px;
-    height: 575px;
+    width: 100%;
+    max-width: 1320px;
+    min-height: 575px;
     background: $neutral-light;
     border: 10px solid $neutral-light-active;
     border-radius: 32px;
@@ -44,7 +45,7 @@
 
   .contentCol {
     flex: 0 0 349px;
-    height: 345px;
+    min-height: 345px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -88,5 +89,40 @@
     color: $neutral-dark-active;
     line-height: 1.2;
     margin: 0;
+  }
+
+  @media (max-width: 1200px) {
+    .card {
+      flex-direction: column;
+      min-height: 0;
+      padding: 0;
+    }
+
+    .imageCol {
+      width: 100%;
+      min-height: 340px;
+    }
+
+    .contentCol {
+      flex: none;
+      width: 100%;
+      min-height: 0;
+      padding: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .imageCol {
+      min-height: 260px;
+    }
+
+    .contentCol {
+      padding: 28px 20px;
+      gap: 24px;
+    }
+
+    .sectionTitle {
+      font-size: $fs-32;
+    }
   }
 }

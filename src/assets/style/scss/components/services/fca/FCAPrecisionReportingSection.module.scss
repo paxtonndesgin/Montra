@@ -3,7 +3,7 @@
 
 .precisionReportingSection {
   position: relative;
-  padding-top: 166px;
+  padding-top: clamp(72px, 10vw, 166px);
   overflow: hidden;
 
   
@@ -135,5 +135,45 @@
     color: $neutral-dark-active;
     line-height: 1.4;
     margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .cardsWrapper {
+      flex-direction: column;
+      max-width: 100%;
+    }
+
+    .card {
+      padding: 32px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      gap: 28px;
+    }
+
+    .title {
+      font-size: $fs-32;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+    }
+
+    .card {
+      padding: 24px 16px;
+      gap: 24px;
+      border-radius: 24px;
+    }
+
+    .cardTitleGreen {
+      font-size: $fs-24;
+    }
+
+    .list {
+      gap: 18px;
+    }
   }
 }

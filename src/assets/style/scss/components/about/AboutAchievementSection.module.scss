@@ -12,7 +12,7 @@
   align-items: center;
 
   .backgroundTextContainer {
-    width: 1320px;
+    width: min(1320px, 100%);
     height: 161.5px;
     display: flex;
     justify-content: center;
@@ -104,6 +104,44 @@
       color: $neutral-light;
       margin: 0;
       line-height: 1.4;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .aboutAchievementSection {
+    padding-top: 112px;
+    padding-bottom: 112px;
+
+    .backgroundText {
+      font-size: clamp(100px, 14vw, 180px);
+    }
+
+    .card {
+      width: 340px;
+      height: 380px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutAchievementSection {
+    padding-top: 72px;
+    padding-bottom: 72px;
+
+    .backgroundTextContainer {
+      height: auto;
+      margin: 0 0 20px;
+    }
+
+    .backgroundText {
+      font-size: clamp(64px, 18vw, 110px);
+    }
+
+    .card {
+      width: 280px;
+      height: 332px;
+      padding: 20px;
     }
   }
 }

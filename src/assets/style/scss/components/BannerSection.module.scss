@@ -2,7 +2,7 @@
 @use '../abstracts/mixins' as *;
 
 .bannerSection {
-  padding: 34px 44px;
+  padding: clamp(18px, 3vw, 34px) clamp(16px, 3.2vw, 44px);
   position: relative;
   overflow: visible;
   z-index: 0;
@@ -24,8 +24,8 @@
   
   .bannerContainer {
     @include container;
-    padding: 0 10px;
-    max-width: none;
+    padding: 0;
+    max-width: 1320px;
     margin: 0 auto;
     
     .bannerImageWrapper {
@@ -80,6 +80,73 @@
             line-height: 1.2;
             
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .bannerSection {
+    &::after {
+      width: 72vw;
+      right: -28%;
+      top: 52%;
+      opacity: 0.45;
+    }
+  }
+
+  .bannerContainer {
+    .bannerImageWrapper {
+      border-radius: 32px;
+
+      .badgesWrapper {
+        bottom: 20px;
+        padding: 0 20px;
+
+        .badgeLeft {
+          padding: 10px 18px;
+        }
+
+        .badgeRight {
+          padding: 14px 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerSection {
+    padding: 16px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .bannerContainer {
+    .bannerImageWrapper {
+      border-radius: 24px;
+
+      .badgesWrapper {
+        position: static;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        background: linear-gradient(180deg, rgba(10, 46, 140, 0) 0%, rgba(10, 46, 140, 0.55) 100%);
+        margin-top: -88px;
+        z-index: 2;
+
+        .badgeLeft,
+        .badgeRight {
+          width: fit-content;
+          max-width: 100%;
+        }
+
+        .badgeRight {
+          align-self: flex-start;
         }
       }
     }

@@ -2,15 +2,21 @@ import React from 'react';
 import Image from 'next/image';
 import styles from '../../../assets/style/scss/components/services/hma/HMAWhyStrategicSection.module.scss';
 
+import { servicesContent } from '@/content/services';
+
 const HMAWhyStrategicSection = () => {
+  const content = servicesContent.hma.whyStrategic;
+
+  if (!content) return null;
+
   return (
     <section className={styles.strategicSection}>
       <div className={styles.container}>
         <div className={styles.imageCol}>
           <div className={styles.imageWrapper}>
             <Image
-              src="/images/services/hma/strategic.png"
-              alt="Why Strategic Modification Matters"
+              src={content.image}
+              alt={content.title}
               width={811}
               height={575}
               className={styles.image}
@@ -20,23 +26,19 @@ const HMAWhyStrategicSection = () => {
 
         <div className={styles.textCol}>
           <div className={styles.textContent}>
-            <h2 className={styles.title}>Why Strategic Modification Matters</h2>
+            <h2 className={styles.title}>{content.title}</h2>
             <p className={styles.description}>
-              Poorly planned modifications lead to expensive rework and delayed independence. 
-              Our clinical approach identifies the root cause of environmental barriers to ensure 
-              the first solution is the right one.
+              {content.description}
             </p>
           </div>
 
           <div className={styles.statsRow}>
-            <div className={`${styles.statCard} ${styles.blueCard}`}>
-              <h3>0%</h3>
-              <span>Tolerance for error</span>
-            </div>
-            <div className={`${styles.statCard} ${styles.greenCard}`}>
-              <h3>24/7</h3>
-              <span>Safe independence</span>
-            </div>
+            {content.stats.map((stat, index) => (
+              <div key={index} className={`${styles.statCard} ${stat.type === 'blue' ? styles.blueCard : styles.greenCard}`}>
+                <h3>{stat.number}</h3>
+                <span>{stat.text}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

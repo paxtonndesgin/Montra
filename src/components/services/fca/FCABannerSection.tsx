@@ -10,7 +10,7 @@ const FCABannerSection = () => {
       <div className={styles.container}>
         <div className={styles.imageWrapper}>
           <Image 
-            src={IMAGES.BANNER_1} 
+            src={IMAGES.FCA_BANNER} 
             alt="Functional Capacity Assessments" 
             width={1200}
             height={630}

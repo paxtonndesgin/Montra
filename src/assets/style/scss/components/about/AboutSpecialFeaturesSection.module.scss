@@ -113,3 +113,43 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .aboutSpecialFeaturesSection {
+    padding-top: 112px;
+
+    .title {
+      font-size: $fs-36;
+      text-align: center;
+    }
+
+    .itemTitle {
+      font-size: $fs-32;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSpecialFeaturesSection {
+    padding-top: 72px;
+
+    .container {
+      gap: 28px;
+    }
+
+    .title {
+      font-size: $fs-32;
+      line-height: 1.2;
+    }
+
+    .accordionHeader {
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .itemTitle {
+      font-size: $fs-24;
+      line-height: 1.25;
+    }
+  }
+}

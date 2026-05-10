@@ -1,5 +1,6 @@
-@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/variables' as vars;
 @use '../../../abstracts/mixins' as *;
+@use 'sass:color';
 
 .ctaSection {
   padding-bottom: 60px;
@@ -26,18 +27,18 @@
   }
 
   .mainTitle {
-    font-family: $font-family-base;
-    font-weight: $font-weight-semibold;
-    font-size: $fs-56;
+    font-family: vars.$font-family-base;
+    font-weight: vars.$font-weight-semibold;
+    font-size: vars.$fs-56;
     line-height: 1.05;
-    color: $color-white;
+    color: vars.$color-white;
     margin: 0;
   }
 
   .subtitle {
-    font-family: $font-family-base;
-    font-weight: $font-weight-medium;
-    font-size: $fs-14;
+    font-family: vars.$font-family-base;
+    font-weight: vars.$font-weight-medium;
+    font-size: vars.$fs-14;
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
   }
@@ -49,20 +50,20 @@
   }
 
   .btnReferral {
-    background: $main-cyan-600;
-    color: $color-white;
+    background: vars.$main-cyan-600;
+    color: vars.$color-white;
     
     &:hover {
-      background: darken($main-cyan-600, 5%);
+      background: color.adjust(vars.$main-cyan-600, $lightness: -5%);
     }
   }
 
   .btnContact {
-    background: $neutral-light-active;
-    color: $color-btn-dark-green;
+    background: vars.$neutral-light-active;
+    color: vars.$color-btn-dark-green;
 
     &:hover {
-      background: darken($neutral-light-active, 5%);
+      background: color.adjust(vars.$neutral-light-active, $lightness: -5%);
     }
   }
 }

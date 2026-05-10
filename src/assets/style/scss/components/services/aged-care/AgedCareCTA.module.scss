@@ -1,0 +1,68 @@
+@use '../../../abstracts/variables' as vars;
+@use '../../../abstracts/mixins' as *;
+
+.ctaSection {
+  padding: vars.$section-padding-y-lg 0;
+  position: relative;
+  overflow: hidden;
+  color: vars.$color-white;
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(10, 46, 140, 0.8) 0%, rgba(10, 46, 140, 0.4) 100%);
+    z-index: 1;
+  }
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  max-width: 700px;
+  
+  .title {
+    font-size: vars.$fs-42;
+    font-weight: 700;
+    margin-bottom: 40px;
+    line-height: 1.1;
+    
+    @include respond-to('md') {
+      font-size: vars.$fs-56;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  
+  .btnGreen {
+    background: #179D6B;
+    color: vars.$color-white;
+    &:hover { background: #0E5D3F; }
+  }
+  
+  .btnWhite {
+    background: vars.$color-white;
+    color: vars.$color-brand-blue;
+    &:hover { background: #f0f0f0; }
+  }
+}

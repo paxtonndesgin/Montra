@@ -1,81 +1,91 @@
 @use '../abstracts/variables' as *;
 
-.h5 {
-  font-size: $fs-36;
-  &.regular { font-weight: $font-weight-regular; }
-  &.medium { font-weight: $font-weight-medium; }
-  &.semibold { font-weight: $font-weight-semibold; }
-  &.bold { font-weight: $font-weight-bold; }
+// Global Font Family
+html, body {
+  font-family: $font-family-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-text-darkest;
 }
 
+// Typography Scale
 .h1 {
-  font-size: $fs-25;
-  &.regular { font-weight: $font-weight-regular; }
-  &.medium { font-weight: $font-weight-medium; }
-  &.semibold { font-weight: $font-weight-semibold; }
-  &.bold { font-weight: $font-weight-bold; }
+  font-size: clamp(36px, 5vw, 80px);
+  line-height: 1.05;
+  font-weight: $font-weight-semibold;
 }
 
 .h2 {
-  font-size: $fs-21;
-  &.regular { font-weight: $font-weight-regular; }
-  &.medium { font-weight: $font-weight-medium; }
-  &.semibold { font-weight: $font-weight-semibold; }
-  &.bold { font-weight: $font-weight-bold; }
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+  font-weight: $font-weight-semibold;
 }
 
 .h3 {
-  font-size: $fs-17;
-  &.regular { font-weight: $font-weight-regular; }
-  &.medium { font-weight: $font-weight-medium; }
-  &.semibold { font-weight: $font-weight-semibold; }
-  &.bold { font-weight: $font-weight-bold; }
+  font-size: $fs-42;
+  line-height: 1.1;
+  font-weight: $font-weight-semibold;
+  
+  @media (max-width: 768px) {
+    font-size: $fs-28;
+  }
 }
 
 .h4 {
-  font-size: $fs-14;
-  &.regular { font-weight: $font-weight-regular; }
-  &.medium { font-weight: $font-weight-medium; }
-  &.semibold { font-weight: $font-weight-semibold; }
-  &.bold { font-weight: $font-weight-bold; }
+  font-size: $fs-25;
+  line-height: 1.2;
+  font-weight: $font-weight-semibold;
+  
+  @media (max-width: 768px) {
+    font-size: $fs-20;
+  }
 }
 
-.body1 {
+.h5 {
+  font-size: $fs-21;
+  line-height: 1.2;
+  font-weight: $font-weight-semibold;
+  
+  @media (max-width: 768px) {
+    font-size: $fs-18;
+  }
+}
+
+.body-large {
+  font-size: $fs-18;
+  line-height: 1.5;
+}
+
+.body-regular {
+  font-size: $fs-16;
+  line-height: 1.5;
+}
+
+.body-small {
+  font-size: $fs-14;
+  line-height: 1.4;
+}
+
+.micro {
   font-size: $fs-12;
-  &.regular { font-weight: $font-weight-regular; }
-  &.medium { font-weight: $font-weight-medium; }
-  &.bold { font-weight: $font-weight-bold; }
+  line-height: 1.2;
 }
 
-.body2 {
-  font-size: $fs-10;
-  &.regular { font-weight: $font-weight-regular; }
-  &.medium { font-weight: $font-weight-medium; }
-  &.bold { font-weight: $font-weight-bold; }
-}
+// Global Element Mappings
+h1 { @extend .h1; margin: 0; }
+h2 { @extend .h2; margin: 0; }
+h3 { @extend .h3; margin: 0; }
+h4 { @extend .h4; margin: 0; }
+h5 { @extend .h5; margin: 0; }
+p { @extend .body-regular; margin: 0; }
 
-.caption {
-  font-size: $fs-8;
-  &.regular { font-weight: $font-weight-regular; }
-  &.medium { font-weight: $font-weight-medium; }
-  &.bold { font-weight: $font-weight-bold; }
-}
+// Utility Classes
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
 
-h1 { @extend .h1; font-weight: $font-weight-bold; }
-h2 { @extend .h2; font-weight: $font-weight-bold; }
-h3 { @extend .h3; font-weight: $font-weight-bold; }
-h4 { @extend .h4; font-weight: $font-weight-bold; }
-h5 { @extend .h5; font-weight: $font-weight-bold; }
-p { @extend .body1; font-weight: $font-weight-regular; }
-
-.text-small {
-  font-size: $fs-14;
-}
-
-.text-blue {
-  color: $color-brand-blue;
-}
-
-.text-green {
-  color: $color-brand-green;
-}
+.text-blue { color: $main-blue-600; }
+.text-green { color: $main-cyan-900; }
+.text-gray { color: $neutral-dark-active; }
+.text-muted { color: $neutral-dark; }
+.text-white { color: $color-white; }

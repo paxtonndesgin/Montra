@@ -2,29 +2,10 @@
 @use '../../../abstracts/mixins' as *;
 
 .supportSection {
-  padding: 100px 0;
+  padding: $section-padding-y 0;
   width: 100%;
   position: relative;
   overflow: hidden;
-
-  .bgCircle {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: #E6EEFE;
-    border-radius: 50%;
-    z-index: 1;
-    
-    &.left {
-      top: -100px;
-      left: -200px;
-    }
-
-    &.right {
-      bottom: -100px;
-      right: -200px;
-    }
-  }
 
   .container {
     @include container;

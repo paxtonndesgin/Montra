@@ -1,20 +1,22 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import styles from "../../../assets/style/scss/pages/ata.module.scss";
 
-import ATABannerSection from "@/components/services/ata/ATABannerSection";
+import ServiceBanner from "@/components/services/ServiceBanner";
 import ATAWhatIsSection from "@/components/services/ata/ATAWhatIsSection";
 import ATAWhoIsForSection from "@/components/services/ata/ATAWhoIsForSection";
 import ATAFrameworkSection from "@/components/services/ata/ATAFrameworkSection";
 import ATAPhilosophySection from "@/components/services/ata/ATAPhilosophySection";
 import ATAJourneySection from "@/components/services/ata/ATAJourneySection";
-import ATACTASection from "@/components/services/ata/ATACTASection";
+import ReferralEnquirySection from "@/components/ReferralEnquirySection";
 import ScrollAnimator from "@/components/animation/ScrollAnimator";
 import DecorWave from "@/components/DecorWave";
+import { servicesContent } from "@/content/services";
 
 import Image from "next/image";
 import DecorRight from "@/assets/decor/design4/Vector-23.svg";
 import DecorLeft from "@/assets/decor/design4/Vector-24.svg";
+
+export const revalidate = 60; // ISR
 
 export const metadata = {
   title: "Assistive Technology Assessments | Montra Therapy",
@@ -25,11 +27,12 @@ export const metadata = {
 export default function AssistiveTechnologyAssessmentsPage() {
   return (
     <div className={styles.page}>
-      <Header />
+
       <main className={styles.main}>
-        <ScrollAnimator>
-          <ATABannerSection />
-        </ScrollAnimator>
+        <ServiceBanner 
+            {...servicesContent.ata.banner}
+            imagePriority={true}
+          />
 
         <div className={styles.middleSectionsWrapper}>
           <div className={styles.decorContainer}>
@@ -62,10 +65,13 @@ export default function AssistiveTechnologyAssessmentsPage() {
         </ScrollAnimator>
 
         <ScrollAnimator>
-          <ATACTASection />
+          <ReferralEnquirySection 
+            {...servicesContent.ata.cta}
+            variant="service"
+          />
         </ScrollAnimator>
       </main>
-      <Footer />
+
     </div>
   );
 }

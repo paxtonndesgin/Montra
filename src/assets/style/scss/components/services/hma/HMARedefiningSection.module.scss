@@ -1,8 +1,8 @@
-@use '../../../abstracts/variables' as *;
+@use '../../../abstracts/variables' as vars;
 @use '../../../abstracts/mixins' as *;
 
 .redefiningSection {
-  padding: 80px 0;
+  padding: vars.$section-padding-y 0;
   width: 100%;
 
   .container {
@@ -48,12 +48,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
 
   .title {
-    font-family: $font-family-base;
-    font-size: $fs-42;
-    font-weight: $font-weight-semibold;
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-42;
+    font-weight: vars.$font-weight-semibold;
     color: #0E5D3F;
     line-height: 101%;
     margin: 0;
@@ -66,18 +67,18 @@
   }
 
   .subtitle {
-    font-family: $font-family-base;
-    font-size: $fs-25;
-    font-weight: $font-weight-semibold;
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-25;
+    font-weight: vars.$font-weight-semibold;
     color: #0E5D3F;
     line-height: 120%;
     margin: 0;
   }
 
   .description {
-    font-family: $font-family-base;
-    font-size: $fs-17;
-    font-weight: $font-weight-medium;
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-17;
+    font-weight: vars.$font-weight-medium;
     color: #737373;
     line-height: 120%;
     margin: 0;
@@ -98,17 +99,17 @@
     gap: 8px;
 
     h4 {
-      font-family: $font-family-base;
-      font-size: $fs-25;
-      font-weight: $font-weight-semibold;
+      font-family: vars.$font-family-base;
+      font-size: vars.$fs-25;
+      font-weight: vars.$font-weight-semibold;
       color: #F9F9F9;
       margin: 0;
     }
 
     span {
-      font-family: $font-family-base;
-      font-size: $fs-12;
-      font-weight: $font-weight-medium;
+      font-family: vars.$font-family-base;
+      font-size: vars.$fs-12;
+      font-weight: vars.$font-weight-medium;
       color: #F9F9F9;
       line-height: 120%;
     }
@@ -126,9 +127,9 @@
   }
 
   .factorsTitle {
-    font-family: $font-family-base;
-    font-size: $fs-25;
-    font-weight: $font-weight-semibold;
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-25;
+    font-weight: vars.$font-weight-semibold;
     color: #0E5D3F;
     text-align: center;
     margin: 0;
@@ -149,18 +150,16 @@
     gap: 16px;
 
     span {
-      font-family: $font-family-base;
-      font-size: $fs-14;
-      font-weight: $font-weight-semibold;
+      font-family: vars.$font-family-base;
+      font-size: vars.$fs-14;
+      font-weight: vars.$font-weight-semibold;
       color: #565656;
     }
   }
 
-  .checkIcon {
-    width: 16px;
-    height: 16px;
-    background: #1CA364;
-    border-radius: 2px;
+  .factorIcon {
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;

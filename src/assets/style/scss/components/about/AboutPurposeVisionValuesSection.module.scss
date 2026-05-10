@@ -167,6 +167,75 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .aboutPurposeSection {
+    padding-top: 112px;
+    padding-bottom: 112px;
+
+    .contentLayout {
+      flex-direction: column;
+      gap: 36px;
+      max-width: 100%;
+    }
+
+    .leftColumn,
+    .rightColumn {
+      width: 100%;
+      gap: 28px;
+    }
+
+    .centerColumn {
+      width: min(424px, 100%);
+      height: auto;
+      aspect-ratio: 424 / 616;
+      order: -1;
+    }
+
+    .textBlock,
+    .textBlockLeft {
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutPurposeSection {
+    padding-top: 72px;
+    padding-bottom: 72px;
+
+    .container {
+      gap: 28px;
+    }
+
+    .title {
+      font-size: $fs-32;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .contentLayout {
+      gap: 24px;
+    }
+
+    .centerColumn {
+      width: min(320px, 100%);
+    }
+
+    .textBlock,
+    .textBlockLeft {
+      .blockTitle {
+        font-size: $fs-24;
+      }
+
+      .blockText {
+        font-size: $fs-13;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
 @keyframes dropDownBounce {
   0% {
     opacity: 0;

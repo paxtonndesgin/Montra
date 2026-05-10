@@ -120,13 +120,16 @@ $color-btn-dark-green: #12673F;       // Dark green CTA button text
 $color-pill-mint-bg: #78EFB7;         // Mint pill background
 
 // Typography
-$font-family-base: 'Polin', var(--font-geist-sans), Arial, Helvetica, sans-serif;
+$font-family-base: 'Polin', Arial, Helvetica, sans-serif;
 
 // Font Weights
+$font-weight-thin: 200;
+$font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
+$font-weight-black: 900;
 
 $fs-8: 8px;
 $fs-10: 10px;
@@ -149,6 +152,7 @@ $fs-40: 40px;
 $fs-42: 42px;
 $fs-48: 48px;
 $fs-56: 56px;
+$fs-64: 64px;
 $fs-80: 80px;
 $fs-220: 220px;
 
@@ -179,3 +183,8 @@ $spacing-unit: 8px;
 $z-index-header: 100;
 $z-index-modal: 1000;
 $z-index-tooltip: 1500;
+
+// Section spacing (used across all service pages for consistent vertical rhythm)
+$section-padding-y: 80px;       // Standard section top/bottom padding
+$section-padding-y-lg: 100px;   // For CTA/journey sections that benefit from extra breathing room
+$section-gap: 48px;             // Gap between elements inside a section header

@@ -2,26 +2,13 @@ import React from 'react';
 import styles from '../../../assets/style/scss/components/services/fca/FCAEvaluationSection.module.scss';
 import Image from 'next/image';
 import tickIcon from '../../../assets/icon/tick.svg';
-const domains = [
-  {
-    title: 'Daily Living Skills',
-    description: 'Self-care, nutrition, and home management.'
-  },
-  {
-    title: 'Mobility & Access',
-    description: 'Transfers, community navigation, and physical capacity.'
-  },
-  {
-    title: 'Cognitive Capacity',
-    description: 'Decision making, social interactions, and memory.'
-  },
-  {
-    title: 'Environmental Factors',
-    description: 'Home modifications and assistive technology needs.'
-  }
-];
+import { servicesContent } from '@/content/services';
 
 const FCAEvaluationSection = () => {
+  const content = servicesContent.fca.evaluation;
+
+  if (!content) return null;
+
   return (
     <section className={styles.evaluationSection}>
       <div className={styles.backgroundGraphic}></div>
@@ -31,32 +18,24 @@ const FCAEvaluationSection = () => {
             <div className={styles.iconBox}>
               <span className={styles.icon}></span>
             </div>
-            <h2 className={styles.title}>
-              A comprehensive<br />
-              evaluation of<br />
-              <span className={styles.highlight}>independence.</span>
-            </h2>
-            <p className={styles.description}>
-              Functional Capacity Assessment (FCA) is a detailed investigation into how an individual&apos;s disability impacts their everyday life across all life domains.
-            </p>
+            <h2 className={styles.title}>{content.title}</h2>
+            <p className={styles.description}>{content.description}</p>
             
             <div className={styles.statsRow}>
-              <div className={styles.statBoxBlue}>
-                <span className={styles.statNumber}>12-15</span>
-                <span className={styles.statText}>Average Hours invested per<br/>report</span>
-              </div>
-              <div className={styles.statBoxGreen}>
-                <span className={styles.statNumber}>100%</span>
-                <span className={styles.statText}>Clinician verified evidence</span>
-              </div>
+              {content.stats.map((stat, index) => (
+                <div key={index} className={stat.type === 'blue' ? styles.statBoxBlue : styles.statBoxGreen}>
+                  <span className={styles.statNumber}>{stat.number}</span>
+                  <span className={styles.statText} dangerouslySetInnerHTML={{ __html: stat.text }} />
+                </div>
+              ))}
             </div>
           </div>
 
           <div className={styles.rightCol}>
             <div className={styles.domainsCard}>
-              <h3 className={styles.domainsTitle}>Domains of Evaluation</h3>
+              <h3 className={styles.domainsTitle}>{content.domainsTitle}</h3>
               <div className={styles.domainsList}>
-                {domains.map((domain, index) => (
+                {content.domains.map((domain, index) => (
                   <div key={index} className={styles.domainItem}>
                     <div className={styles.checkIcon}>
                       <Image src={tickIcon} alt="" width={16} height={16} />

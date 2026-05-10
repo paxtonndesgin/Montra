@@ -1,0 +1,71 @@
+@use '../../../abstracts/variables' as vars;
+@use '../../../abstracts/mixins' as *;
+
+.bannerSection {
+  padding: vars.$section-padding-y 0;
+  background: vars.$color-white;
+}
+
+.container {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  
+  .image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.textContent {
+  max-width: 800px;
+  
+  .title {
+    font-size: vars.$fs-32;
+    font-weight: 700;
+    color: vars.$color-brand-blue;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    
+    @include respond-to('md') {
+      font-size: vars.$fs-56;
+    }
+  }
+  
+  .description {
+    font-size: vars.$fs-16;
+    line-height: 1.6;
+    color: vars.$neutral-dark-active;
+    margin-bottom: 32px;
+    
+    @include respond-to('md') {
+      font-size: vars.$fs-18;
+    }
+  }
+}
+
+.actions {
+  @include flex-center;
+  gap: 16px;
+  flex-wrap: wrap;
+  
+  .btnPrimary {
+    min-width: 180px;
+  }
+  
+  .btnSecondary {
+    min-width: 180px;
+  }
+}

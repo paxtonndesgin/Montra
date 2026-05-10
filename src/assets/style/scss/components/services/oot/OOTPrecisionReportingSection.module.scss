@@ -2,7 +2,7 @@
 @use '../../../abstracts/mixins' as *;
 
 .precisionSection {
-  padding: 80px 0 120px;
+  padding: $section-padding-y 0;
 
   .container {
     @include container;

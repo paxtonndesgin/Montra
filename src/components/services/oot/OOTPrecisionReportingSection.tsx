@@ -5,19 +5,19 @@ import { IMAGES } from '../../../assets/images';
 
 const cards = [
   {
-    image: IMAGES.BANNER_1,
+    image: IMAGES.OOT_REPORTING_PARTICIPANTS,
     title: 'NDIS Participants',
     description: 'Developing essential routines for personal care, nutrition management, and domestic autonomy.',
     rotation: 'rotatePos',
   },
   {
-    image: IMAGES.BANNER_1,
+    image: IMAGES.OOT_REPORTING_INDEPENDENCE,
     title: 'Independence',
     description: 'Systematic removal of barriers to facilitate full participation in social and occupational environments.',
     rotation: 'rotateNeg',
   },
   {
-    image: IMAGES.BANNER_1,
+    image: IMAGES.OOT_REPORTING_COGNITIVE,
     title: 'Cognitive Support',
     description: 'Strategic interventions for memory, executive functioning, and emotional regulation in daily life.',
     rotation: 'rotatePos',

@@ -2,7 +2,7 @@
 @use '../../../abstracts/mixins' as *;
 
 .journeySection {
-  padding: 80px 20px;
+  padding: $section-padding-y 0;
   display: flex;
   justify-content: center;
   width: 100%;

@@ -25,7 +25,7 @@ const OOTTargetedCareSection = () => {
         <div className={styles.card}>
           <div className={styles.imageCol}>
             <Image
-              src={IMAGES.BANNER_1}
+              src={IMAGES.OOT_TARGETED_CARE}
               alt="Targeted Care Populations"
               fill
               className={styles.image}

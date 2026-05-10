@@ -1,8 +1,8 @@
-@use '../abstracts/variables' as *;
+@use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as *;
 
 .referralEnquirySection {
-  padding: 64px 44px;
+  padding: clamp(18px, 3vw, 34px) clamp(16px, 3.2vw, 44px);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -10,24 +10,41 @@
 
 .container {
   @include container;
+  padding: 0; /* Override mixin padding — contentWrapper handles internal spacing */
   position: relative;
   width: 100%;
-  max-width: none;
+  max-width: 1320px;
   min-height: 486px;
-  border-radius: 32px;
+  border-radius: 40px;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* Moves content closer to the bottom */
   justify-content: center;
   z-index: 0;
   
-  background-color: $main-blue-700;
-  background-image: url('../../../images/banner/bannertwo.png'); 
+  background-color: vars.$main-blue-700;
   background-size: cover;
   background-position: center;
-  background-blend-mode: screen;
+  background-repeat: no-repeat;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 89, 244, 0.8) 0%, rgba(0, 89, 244, 0.2) 100%);
+    z-index: 1;
+  }
+}
 
-
+.bgImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  
+  .image {
+    object-fit: cover;
+    opacity: 0.9;
+  }
 }
 
 .contentWrapper {
@@ -36,18 +53,16 @@
   align-items: flex-start;
   gap: 48px;
   width: 100%;
-  max-width: 1198.95px;
-  padding: 32px;
-  z-index: 1;
+  max-width: none;
+  padding: 48px 40px;
+  z-index: 2;
   position: relative;
   
   @include respond-to('lg') {
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 120px;
-    padding: 0;
-    margin-top: 39.78px;
+    gap: 40px;
   }
 }
 
@@ -59,68 +74,133 @@
   width: 100%;
   
   @include respond-to('lg') {
-    width: 583px;
+    width: 60%;
     flex: none;
   }
 }
 
 .mainTitle {
-  font-family: $font-family-base;
-  font-style: normal;
+  font-family: vars.$font-family-base;
   font-weight: 600;
-  font-size: clamp(48px, 6vw, 80px);
-  line-height: 1.01;
-  display: flex;
-  align-items: center;
-  color: $color-white; 
+  font-size: clamp(36px, 5.5vw, 80px);
+  line-height: 1.0;
+  color: vars.$color-white; 
   margin: 0;
-  
-  @include respond-to('lg') {
-    height: 243px;
+
+  @include respond-to('xl') {
+    font-size: vars.$fs-80;
+    line-height: 1.0;
   }
 }
 
 .subtitle {
-  font-family: $font-family-base;
-  font-style: normal;
-  font-weight: $font-weight-medium;
-  font-size: $fs-12;
+  font-family: vars.$font-family-base;
+  font-weight: 500;
+  font-size: clamp(12px, 1.2vw, 16px); /* Scaling subtitle */
   line-height: 1.2;
+  color: vars.$neutral-light;
+  margin: 0;
+  max-width: 420px;
   display: flex;
   align-items: center;
-  color: $neutral-light;
-  margin: 0;
-  
-  @include respond-to('lg') {
-    height: 28px;
-  }
 }
 
 .rightCol {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+  flex-wrap: nowrap;
+  padding-bottom: 12px; /* Extra nudge for buttons to sit nicely */
   
-
+  @include respond-to('lg') {
+    min-width: 320px;
+    justify-content: flex-end;
+  }
 }
 
 .btnReferral {
-  background-color: $main-cyan-500 !important;
-  color: $color-white !important;
+  background-color: vars.$main-cyan-600 !important;
+  color: vars.$color-white !important;
+  border-radius: 24px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  padding: 16px 24px !important;
+  min-width: 160px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   
-  &:hover,
-  &:focus-visible {
-    background-color: $main-cyan-600 !important;
+  &:hover {
+    background-color: vars.$main-cyan-700 !important;
   }
 }
 
 .btnContact {
-  background-color: $color-white !important;
-  color: $main-blue-800 !important;
+  background-color: vars.$neutral-light-active !important;
+  color: vars.$color-btn-dark-green !important;
+  border-radius: 24px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  padding: 16px 24px !important;
+  min-width: 120px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   
-  &:hover,
-  &:focus-visible {
-    background-color: $neutral-light-hover !important;
+  &:hover {
+    background-color: vars.$neutral-normal !important;
+  }
+}
+
+/* Service Variant */
+.serviceVariant {
+  .mainTitle {
+    font-size: clamp(36px, 5.5vw, 80px);
+
+    @include respond-to('xl') {
+      font-size: vars.$fs-80;
+      line-height: 1.0;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .contentWrapper {
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .referralEnquirySection {
+    padding: 16px;
+  }
+  .container {
+    min-height: 0;
+    padding: 0;
+    border-radius: 24px;
+    align-items: stretch;
+  }
+  .contentWrapper {
+    padding: 40px 24px;
+    gap: 32px;
+  }
+  .mainTitle {
+    font-size: clamp(32px, 12vw, 48px);
+  }
+  .subtitle {
+    max-width: none;
+    font-size: vars.$fs-14;
+  }
+  .rightCol {
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 0;
+    
+    a {
+      width: 100%;
+    }
   }
 }

@@ -2,21 +2,36 @@
 @use '../abstracts/mixins' as *;
 
 .header {
-  padding: 24px 0;
+  padding: 12px 0;
   width: 100%;
-  background: $color-white;
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 81, 222, 0.08);
+  box-shadow: 0 10px 32px rgba(12, 37, 86, 0.06);
+  transition: all 0.3s ease;
 }
 
 .container {
   @include container;
   @include flex-between;
+  max-width: 1320px;
+  position: relative;
+  gap: 20px;
 }
 
 .logoWrapper {
   @include flex-center;
+  flex-shrink: 0;
+
   .logo {
     @include flex-center;
     gap: 8px;
+    padding: 6px 0;
     
     .brandName {
       @include flex-column;
@@ -32,13 +47,9 @@
 .nav {
   display: none; 
   
-  @include respond-to('md') {
-    @include flex-center;
-    gap: 16px;
-  }
-
   @include respond-to('lg') {
-    gap: 32px;
+    @include flex-center;
+    gap: 28px;
   }
   
   .navItemWithDropdown {
@@ -84,9 +95,10 @@
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background: $color-white;
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    backdrop-filter: blur(18px) saturate(180%);
     min-width: 300px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
     padding: 12px;
     z-index: 100;
@@ -97,7 +109,7 @@
     flex-direction: column;
     gap: 4px;
     margin-top: 12px;
-    border: 1px solid $neutral-light-active;
+    border: 1px solid rgba(255, 255, 255, 0.45);
 
     &::before {
       content: '';
@@ -162,12 +174,207 @@
 .actions {
   display: none;
   
-  @include respond-to('sm') {
+  @include respond-to('lg') {
     display: block;
   }
 
   .referralBtn {
     min-height: 43.7px;
     font-size: $fs-14;
+    box-shadow: 0 12px 24px rgba(0, 81, 222, 0.16);
+  }
+}
+
+.menuToggle {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 81, 222, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(239, 245, 255, 0.92) 100%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-shrink: 0;
+  box-shadow: 0 10px 24px rgba(8, 40, 113, 0.08);
+
+  span {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: $color-brand-blue;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  @include respond-to('lg') {
+    display: none;
+  }
+}
+
+.menuToggleOpen {
+  span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  span:nth-child(2) {
+    opacity: 0;
+  }
+
+  span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 72px 0 0;
+  background: rgba(4, 17, 45, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.mobileOverlayVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobilePanel {
+  position: fixed;
+  top: 72px;
+  right: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 81, 222, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 28px 60px rgba(12, 37, 86, 0.14);
+  padding: 16px;
+  transform: translateY(-12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.25s ease;
+
+  @include respond-to('lg') {
+    display: none;
+  }
+}
+
+.mobilePanelOpen {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobileLink,
+.mobileServicesToggle,
+.mobileServiceLink {
+  font-size: $fs-16;
+  font-weight: $font-weight-medium;
+  color: $neutral-dark-active;
+  border-radius: 18px;
+}
+
+.mobileLink,
+.mobileServicesToggle {
+  padding: 14px 16px;
+  background: rgba(247, 250, 255, 0.9);
+  border: 1px solid rgba(0, 81, 222, 0.06);
+}
+
+.mobileServicesToggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobileChevron {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid $color-brand-blue;
+  border-bottom: 2px solid $color-brand-blue;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.mobileServicesToggleOpen {
+  .mobileChevron {
+    transform: rotate(-135deg);
+  }
+}
+
+.mobileServicesList {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: max-height 0.28s ease, padding 0.28s ease;
+  padding: 0 4px;
+}
+
+.mobileServicesListOpen {
+  max-height: 420px;
+  padding: 6px 4px 2px;
+}
+
+.mobileServiceLink {
+  padding: 12px 16px;
+  background: rgba(230, 238, 254, 0.82);
+}
+
+.mobileActive {
+  color: $color-brand-blue;
+  background: rgba(230, 238, 254, 1);
+}
+
+.mobileActions {
+  padding-top: 16px;
+}
+
+.mobileReferralBtn {
+  width: 100%;
+  justify-content: center !important;
+  min-height: 48px;
+  box-shadow: 0 16px 30px rgba(0, 81, 222, 0.16);
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 10px 0;
+  }
+
+  .container {
+    gap: 12px;
+  }
+
+  .logoWrapper {
+    .logo {
+      gap: 6px;
+
+      .brandName {
+        font-size: 11px;
+      }
+    }
+  }
+
+  .mobilePanel {
+    top: 68px;
+    left: 12px;
+    right: 12px;
+    border-radius: 24px;
+  }
+
+  .mobileOverlay {
+    inset: 68px 0 0;
   }
 }

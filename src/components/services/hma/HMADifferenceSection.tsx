@@ -1,32 +1,20 @@
 import React from 'react';
 import styles from '../../../assets/style/scss/components/services/hma/HMADifferenceSection.module.scss';
 
+import { servicesContent } from '@/content/services';
+
 const HMADifferenceSection = () => {
-  const pillars = [
-    {
-      title: "Real-life Context",
-      description: "We don't just assess rooms; we assess your daily flow, habits, and community interactions within the home environment.",
-      color: "#1CA364"
-    },
-    {
-      title: "Future-proofing",
-      description: "Our clinical foresight accounts for progressive conditions, ensuring modifications remain functional for years, not just months.",
-      color: "#28E68D"
-    },
-    {
-      title: "Detail-oriented Documentation",
-      description: "Detailed measurements and clear clinical reasoning facilitate smoother approvals through the NDIS funding portal.",
-      color: "#78EFB7"
-    }
-  ];
+  const content = servicesContent.hma.difference;
+
+  if (!content) return null;
 
   return (
     <section className={styles.differenceSection}>
       <div className={styles.container}>
-        <h2 className={styles.title}>The Montra Difference</h2>
+        <h2 className={styles.title}>{content.title}</h2>
         
         <div className={styles.pillarsGrid}>
-          {pillars.map((pillar, index) => (
+          {content.pillars.map((pillar, index) => (
             <div 
               key={index} 
               className={styles.pillarCard} 

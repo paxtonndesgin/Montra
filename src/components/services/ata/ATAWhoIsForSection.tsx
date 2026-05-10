@@ -7,17 +7,17 @@ const categories = [
   {
     title: 'NDIS Participants',
     description: 'Individuals seeking greater autonomy through specialized equipment and modifications.',
-    image: IMAGES.BANNER_1,
+    image: IMAGES.ATA_PARTICIPANT,
   },
   {
     title: 'Support Coordinators',
     description: 'Partners looking for rigorous clinical documentation to support participant plan reviews.',
-    image: IMAGES.BANNER_1,
+    image: IMAGES.ATA_COORDINATOR,
   },
   {
     title: 'Families & Carers',
     description: 'Care circles needing expert guidance on equipment that reduces carer strain and improves safety.',
-    image: IMAGES.BANNER_1,
+    image: IMAGES.ATA_FAMILY,
   },
 ];
 

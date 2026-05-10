@@ -1,8 +1,9 @@
 @use '../../../abstracts/variables' as *;
 @use '../../../abstracts/mixins' as *;
+@use 'sass:color';
 
 .whatIsSection {
-  padding: 80px 0;
+  padding: clamp(56px, 8vw, $section-padding-y) 0;
 
   .container {
     @include container;
@@ -64,12 +65,8 @@
 
     &:hover {
       transform: translateY(-5px);
-      border-color: darken(#8AB3FA, 10%);
+      border-color: color.adjust(#8AB3FA, $lightness: -10%);
     }
-  }
-
-  .statBlue {
-    // Already defined in statBox mostly, kept for consistency
   }
 
   .statNumber {
@@ -112,26 +109,49 @@
       gap: 48px;
     }
 
+    .leftCol {
+      flex: none;
+      width: 100%;
+    }
+
     .rightCol {
       justify-content: flex-start;
       width: 100%;
       overflow-x: auto;
       padding-bottom: 20px;
+      scroll-snap-type: x proximity;
+
+      .statBox {
+        scroll-snap-align: start;
+      }
     }
   }
 
   @media (max-width: 768px) {
+    .container {
+      gap: 28px;
+    }
+
     .title {
       font-size: 32px;
+    }
+
+    .description {
+      max-width: none;
+      font-size: 13px;
     }
     
     .rightCol {
       flex-direction: column;
+      overflow: visible;
+      padding-bottom: 0;
     }
     
     .statBox {
       width: 100%;
       height: auto;
+      min-height: 184px;
+      gap: 18px;
     }
   }
 }

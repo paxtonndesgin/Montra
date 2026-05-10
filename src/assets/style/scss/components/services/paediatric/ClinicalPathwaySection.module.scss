@@ -1,0 +1,188 @@
+@use '../../../abstracts/variables' as vars;
+@use '../../../abstracts/mixins' as *;
+
+.section {
+  padding: clamp(56px, 8vw, 80px) 0;
+  width: 100%;
+
+  .container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 46px;
+    gap: 32px;
+    width: 100%;
+    max-width: 1320px;
+    min-height: 486px;
+    background: #F5F5F5;
+    border-radius: 32px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 100%;
+    max-width: 660px;
+    text-align: center;
+  }
+
+  .title {
+    font-family: 'Polin', sans-serif;
+    font-weight: 600;
+    font-size: vars.$fs-42;
+    line-height: 101%;
+    color: #0E5D3F;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-family: 'Polin', sans-serif;
+    font-weight: 500;
+    font-size: vars.$fs-17;
+    line-height: 120%;
+    color: #8F8F8F;
+    margin: 0;
+  }
+
+  .pathway {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px 0px;
+    gap: 32px;
+    width: 100%;
+    border-top: 2px solid #A3F4CE;
+    margin-top: 16px;
+  }
+
+  .step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 32px;
+    width: 283px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &:nth-child(4) {
+      .numberBox {
+        background: #0051DE;
+        border-color: #0051DE;
+        span {
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+
+  .numberBox {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+    width: 56px;
+    height: 56px;
+    background: #E6EEFE;
+    border: 4px solid #8AB3FA;
+    border-radius: 12px;
+    
+    span {
+      font-family: 'Polin', sans-serif;
+      font-weight: 600;
+      font-size: vars.$fs-21;
+      line-height: 120%;
+      color: #0051DE;
+    }
+  }
+
+  .stepContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 6px;
+    width: 100%;
+
+    h4 {
+      font-family: 'Polin', sans-serif;
+      font-weight: 600;
+      font-size: vars.$fs-21;
+      line-height: 120%;
+      color: #0051DE;
+      margin: 0;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+    }
+
+    p {
+      font-family: 'Polin', sans-serif;
+      font-weight: 500;
+      font-size: vars.$fs-12;
+      line-height: 120%;
+      color: #565656;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      min-height: 0;
+      padding: 40px 20px;
+    }
+    .header {
+      width: 100%;
+    }
+    .pathway {
+      flex-direction: column;
+      width: 100%;
+      border-top: none;
+      gap: 40px;
+    }
+    .step {
+      width: 100%;
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 28px 16px;
+      gap: 24px;
+    }
+
+    .title {
+      font-size: vars.$fs-32;
+    }
+
+    .subtitle {
+      font-size: vars.$fs-14;
+    }
+
+    .pathway {
+      gap: 28px;
+      padding: 8px 0 0;
+    }
+
+    .step {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}

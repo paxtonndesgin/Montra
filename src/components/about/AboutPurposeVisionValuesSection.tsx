@@ -9,29 +9,33 @@ import Vector6 from '../../assets/decor/design1/Vector-6.svg';
 import ScrollAnimator from '../animation/ScrollAnimator';
 import { useInView } from 'react-intersection-observer';
 
+import { aboutContent } from '@/content/about';
+
 const AboutPurposeVisionValuesSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const content = aboutContent.purposeVisionValues;
+
+  if (!content) return null;
+
   return (
     <section className={styles.aboutPurposeSection}>
       <div className={styles.container}>
         <ScrollAnimator delay={0} yOffset={30}>
-          <h2 className={styles.title}>
-            Our <span className={styles.highlight}>Purpose Vision & Values</span>
-          </h2>
+          <h2 className={styles.title}>{content.title}</h2>
         </ScrollAnimator>
 
         <div className={styles.contentLayout}>
           <ScrollAnimator className={styles.leftColumn} delay={0.1} yOffset={40}>
             <div className={styles.textBlock}>
-              <h3 className={styles.blockTitle}>Purpose</h3>
+              <h3 className={styles.blockTitle}>{content.purpose.title}</h3>
               <p className={styles.blockText}>
-                To provide occupational therapy that helps people engage more fully, safely and confidently in everyday life.
+                {content.purpose.text}
               </p>
             </div>
             <div className={styles.textBlock}>
-              <h3 className={styles.blockTitle}>Vision</h3>
+              <h3 className={styles.blockTitle}>{content.vision.title}</h3>
               <p className={styles.blockText}>
-                To build a trusted therapy practice known for warm relationships, high-quality clinical care and practical outcomes.
+                {content.vision.text}
               </p>
             </div>
           </ScrollAnimator>
@@ -52,15 +56,15 @@ const AboutPurposeVisionValuesSection = () => {
 
           <ScrollAnimator className={styles.rightColumn} delay={0.5} yOffset={40}>
             <div className={styles.textBlockLeft}>
-              <h3 className={styles.blockTitle}>Values</h3>
+              <h3 className={styles.blockTitle}>{content.values.title}</h3>
               <p className={styles.blockText}>
-                Compassion, integrity, collaboration, respect and person-centred care guide every aspect of our work.
+                {content.values.text}
               </p>
             </div>
             <div className={styles.textBlockLeft}>
-              <h3 className={styles.blockTitle}>Approach</h3>
+              <h3 className={styles.blockTitle}>{content.approach.title}</h3>
               <p className={styles.blockText}>
-                We listen carefully, assess thoroughly and work alongside each person to identify realistic goals and meaningful next steps.
+                {content.approach.text}
               </p>
             </div>
           </ScrollAnimator>

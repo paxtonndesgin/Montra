@@ -144,3 +144,51 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .aboutIntroSection {
+    padding-top: 112px;
+
+    .title {
+      font-size: $fs-36;
+    }
+
+    .subtitle {
+      font-size: $fs-18;
+    }
+
+    .cardsContainer {
+      gap: 28px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutIntroSection {
+    padding-top: 72px;
+
+    .container {
+      gap: 28px;
+    }
+
+    .title {
+      font-size: $fs-32;
+      gap: 6px;
+    }
+
+    .subtitle {
+      font-size: $fs-16;
+      line-height: 1.5;
+    }
+
+    .cardsContainer {
+      gap: 20px;
+      margin-top: 12px;
+    }
+
+    .card {
+      width: min(100%, 320px);
+      height: 300px;
+    }
+  }
+}

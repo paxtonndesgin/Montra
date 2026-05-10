@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X, User, Building, FileQuestion, PlusCircle,
   Check, ChevronDown, ChevronUp, Clock, ShieldCheck, Send,
 } from 'lucide-react';
-import styles from '../../assets/style/scss/components/referral/ReferralForm.module.scss';
+import styles from '@/assets/style/scss/components/referral/ReferralForm.module.scss';
+import { submitReferral, getServices, Service } from '@/lib/api/referral';
 
 interface ReferralFormProps {
   hideCloseButton?: boolean;
@@ -56,6 +57,19 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
   const [additionalNotes, setAdditionalNotes] = useState('');
   const [privacyConsent, setPrivacyConsent] = useState(false);
 
+  // ── Submission state ─────────────────────────────────────────────────────────
+  const [submitting, setSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  // ── Services ─────────────────────────────────────────────────────────────────
+  const [services, setServices] = useState<Service[]>([]);
+  const [serviceId, setServiceId] = useState('');
+
+  useEffect(() => {
+    getServices().then(setServices);
+  }, []);
+
   // ── Collapsed state ──────────────────────────────────────────────────────────
   const [collapsed, setCollapsed] = useState({ p: false, r: false, c: false, o: false });
   const toggle = (key: keyof typeof collapsed) =>
@@ -68,47 +82,16 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
   const clinicalDone    = reasons.length > 0;
   const optionalDone    = additionalNotes.trim() !== '';
 
-  // ── Auto-collapse once a section becomes complete ────────────────────────────
-  const prevP = useRef(false);
-  const prevR = useRef(false);
-  const prevC = useRef(false);
-  const prevO = useRef(false);
-
-  useEffect(() => {
-    if (participantDone && !prevP.current) {
-      const id = setTimeout(() => setCollapsed(c => ({ ...c, p: true })), 0);
-      prevP.current = participantDone;
-      return () => clearTimeout(id);
-    }
-    prevP.current = participantDone;
-  }, [participantDone]);
-
-  useEffect(() => {
-    if (referrerDone && !prevR.current) {
-      const id = setTimeout(() => setCollapsed(c => ({ ...c, r: true })), 0);
-      prevR.current = referrerDone;
-      return () => clearTimeout(id);
-    }
-    prevR.current = referrerDone;
-  }, [referrerDone]);
-
-  useEffect(() => {
-    if (clinicalDone && !prevC.current) {
-      const id = setTimeout(() => setCollapsed(c => ({ ...c, c: true })), 0);
-      prevC.current = clinicalDone;
-      return () => clearTimeout(id);
-    }
-    prevC.current = clinicalDone;
-  }, [clinicalDone]);
-
-  useEffect(() => {
-    if (optionalDone && !prevO.current) {
-      const id = setTimeout(() => setCollapsed(c => ({ ...c, o: true })), 0);
-      prevO.current = optionalDone;
-      return () => clearTimeout(id);
-    }
-    prevO.current = optionalDone;
-  }, [optionalDone]);
+  // ── Next handlers ──────────────────────────────────────────────────────────
+  const handleNextParticipant = () => {
+    if (participantDone) setCollapsed(c => ({ ...c, p: true }));
+  };
+  const handleNextReferrer = () => {
+    if (referrerDone) setCollapsed(c => ({ ...c, r: true }));
+  };
+  const handleNextClinical = () => {
+    if (clinicalDone) setCollapsed(c => ({ ...c, c: true }));
+  };
 
   // ── Toggle helpers ───────────────────────────────────────────────────────────
   const toggleRole    = (v: string) => setRoles(p    => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
@@ -116,7 +99,66 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
   const toggleConcern = (v: string) => setConcerns(p => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
   const toggleOutcome = (v: string) => setOutcomes(p => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
 
+  // ── Submit handler ───────────────────────────────────────────────────────────
+  const urgencyMap: Record<string, 'ROUTINE' | 'STANDARD' | 'URGENT'> = {
+    'Routine (Normal Waitlist)': 'ROUTINE',
+    'Urgent (Priority Waitlist)': 'URGENT',
+  };
+  const contactMap: Record<string, 'EMAIL' | 'PHONE'> = {
+    'Email': 'EMAIL',
+    'Phone': 'PHONE',
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitError(null);
+
+    if (!fullName.trim() || !referrerName.trim() || !email.trim()) {
+      setSubmitError('Please fill in all required fields.');
+      return;
+    }
+    if (reasons.length === 0) {
+      setSubmitError('Please select at least one reason for referral.');
+      return;
+    }
+    if (!privacyConsent) {
+      setSubmitError('Please confirm privacy consent before submitting.');
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      await submitReferral({
+        participantName: fullName.trim(),
+        participantDob: dob || undefined,
+        ndisNumber: ndisNumber || undefined,
+        participantPhone: contactPhone || undefined,
+        participantAddress: homeAddress || undefined,
+        referrerName: referrerName.trim(),
+        referrerOrganisation: organisation || undefined,
+        referrerEmail: email.trim(),
+        referrerPhone: referrerPhone || undefined,
+        referrerRoles: roles.length ? roles : undefined,
+        primaryReason: primaryReason || undefined,
+        referralReasons: reasons.length ? reasons : undefined,
+        areasOfConcern: concerns.length ? concerns : undefined,
+        desiredOutcomes: outcomes.length ? outcomes : undefined,
+        urgency: urgencyMap[urgency] ?? 'ROUTINE',
+        preferredContact: contactMap[contactMethod] ?? 'EMAIL',
+        additionalNotes: additionalNotes || undefined,
+        privacyConsent,
+        serviceId: serviceId || undefined,
+      });
+      setSubmitSuccess(true);
+    } catch (err: unknown) {
+      setSubmitError(err instanceof Error ? err.message : 'Submission failed. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
+    <form onSubmit={handleSubmit} noValidate>
     <div className={styles.formContainer}>
       {/* Close Button */}
       {!hideCloseButton && (
@@ -176,6 +218,11 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
               <label>Home Address</label>
               <input type="text" className={styles.inputField} placeholder="123 Precision St, Medical Precinct" value={homeAddress} onChange={e => setHomeAddress(e.target.value)} />
             </div>
+            <div className={styles.sectionNextRow}>
+              <button type="button" className={styles.nextBtn} disabled={!participantDone} onClick={handleNextParticipant}>
+                Next
+              </button>
+            </div>
           </div>
         </CollapsePanel>
       </div>
@@ -234,6 +281,11 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
                 ))}
               </div>
             </div>
+            <div className={styles.sectionNextRow}>
+              <button type="button" className={styles.nextBtn} disabled={!referrerDone} onClick={handleNextReferrer}>
+                Next
+              </button>
+            </div>
           </div>
         </CollapsePanel>
       </div>
@@ -261,6 +313,23 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
 
         <CollapsePanel open={!collapsed.c}>
           <div className={styles.sectionBody}>
+            <div className={styles.inputGroup}>
+              <label>Service requested</label>
+              <div className={styles.selectWrapper}>
+                <select
+                  title="Service requested"
+                  className={styles.inputField}
+                  value={serviceId}
+                  onChange={e => setServiceId(e.target.value)}
+                >
+                  <option value="">Select a service…</option>
+                  {services.map(s => (
+                    <option key={s.id} value={s.id}>{s.name}</option>
+                  ))}
+                </select>
+                <ChevronDown size={16} className={styles.selectIcon} />
+              </div>
+            </div>
             <div className={styles.inputGroup}>
               <label>Primary reason for referral</label>
               <textarea className={styles.inputField} placeholder="Briefly describe the clinical goals..." value={primaryReason} onChange={e => setPrimaryReason(e.target.value)} />
@@ -323,6 +392,11 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
                 </div>
               </div>
             </div>
+            <div className={styles.sectionNextRow}>
+              <button type="button" className={styles.nextBtn} disabled={!clinicalDone} onClick={handleNextClinical}>
+                Next
+              </button>
+            </div>
           </div>
         </CollapsePanel>
       </div>
@@ -369,19 +443,38 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
         </div>
       </div>
 
-      {/* 6. Submit Button */}
-      <div className={styles.submitAction}>
-        <button type="submit" className={styles.submitBtn}>
-          <span className={styles.submitLabel}>Make a Referral</span>
-          <span className={styles.submitIconWrapper} aria-hidden="true">
-            <Send size={16} className={styles.submitIcon} />
-          </span>
-        </button>
-        <div className={styles.submitHint}>
-          <Clock size={14} />
-          <span>Clinical review response within 1–2 business days.</span>
+      {/* 6. Feedback messages */}
+      {submitError && (
+        <div className={styles.errorMessage} role="alert">
+          {submitError}
         </div>
-      </div>
+      )}
+
+      {submitSuccess ? (
+        <div className={styles.successMessage} role="status">
+          <Check size={20} />
+          <div>
+            <strong>Referral submitted successfully!</strong>
+            <p>Our clinical team will review your request and contact you within 1–2 business days.</p>
+          </div>
+        </div>
+      ) : (
+        /* 6. Submit Button */
+        <div className={styles.submitAction}>
+          <button type="submit" className={styles.submitBtn} disabled={submitting}>
+            <span className={styles.submitLabel}>
+              {submitting ? 'Submitting…' : 'Make a Referral'}
+            </span>
+            <span className={styles.submitIconWrapper} aria-hidden="true">
+              <Send size={16} className={styles.submitIcon} />
+            </span>
+          </button>
+          <div className={styles.submitHint}>
+            <Clock size={14} />
+            <span>Clinical review response within 1–2 business days.</span>
+          </div>
+        </div>
+      )}
 
       {/* 7. Bottom Banner/Cards */}
       <div className={styles.footerCards}>
@@ -407,5 +500,6 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
       </div>
 
     </div>
+    </form>
   );
 }

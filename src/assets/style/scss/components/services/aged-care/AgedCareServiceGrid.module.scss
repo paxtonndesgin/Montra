@@ -1,0 +1,140 @@
+@use '../../../abstracts/variables' as vars;
+@use '../../../abstracts/mixins' as *;
+
+.section {
+  padding: clamp(40px, 6vw, 48px) clamp(16px, 4vw, 60px);
+  width: 100%;
+  box-sizing: border-box;
+
+  .container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  width: 100%;
+
+  .title {
+    font-family: 'Polin', sans-serif;
+    font-weight: 600;
+    font-size: vars.$fs-42;
+    line-height: 101%;
+    color: #0E5D3F;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-family: 'Polin', sans-serif;
+    font-weight: 500;
+    font-size: vars.$fs-12;
+    line-height: 120%;
+    color: #252525;
+    margin: 0;
+    max-width: 662px;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 48px;
+  height: 180px;
+  background: #E6EEFE;
+  border: 8px solid #8AB3FA;
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    border-color: #0051DE;
+    transform: translateY(-5px);
+  }
+  
+  .number {
+    font-family: 'Polin', sans-serif;
+    font-weight: 600;
+    font-size: vars.$fs-21;
+    line-height: 120%;
+    color: #0051DE;
+    margin: 0;
+  }
+
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 6px;
+    width: 100%;
+  }
+  
+  .title {
+    font-family: 'Polin', sans-serif;
+    font-weight: 600;
+    font-size: vars.$fs-21;
+    line-height: 120%;
+    color: #0051DE;
+    margin: 0;
+  }
+  
+  .desc {
+    font-family: 'Polin', sans-serif;
+    font-weight: 500;
+    font-size: vars.$fs-12;
+    line-height: 120%;
+    color: #565656;
+    margin: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section {
+    padding: 40px 20px;
+  }
+  .card {
+    height: auto;
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 32px 16px;
+  }
+
+  .header {
+    .title {
+      font-size: vars.$fs-32;
+    }
+  }
+
+  .grid {
+    gap: 12px;
+  }
+}

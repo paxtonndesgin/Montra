@@ -1,36 +1,23 @@
 import React from 'react';
 import styles from '../../../assets/style/scss/components/services/oot/OOTJourneySection.module.scss';
 
+import { servicesContent } from '@/content/services';
+
 const OOTJourneySection = () => {
-  const steps = [
-    {
-      id: 1,
-      title: "Referral",
-      description: "Digital submission of participant details and preliminary goals via our secure portal."
-    },
-    {
-      id: 2,
-      title: "Assessment",
-      description: "Clinical triage to in-depth functional capacity assessment to establish clinical baseline and intervention scope."
-    },
-    {
-      id: 3,
-      title: "Implementation",
-      description: "Delivery of structured therapy sessions focused on targeted functional domains.",
-      isHighlighted: true
-    }
-  ];
+  const content = servicesContent.oot.journey;
+
+  if (!content) return null;
 
   return (
     <section className={styles.journeySection}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>The Clinical Journey</h2>
-          <p className={styles.subtitle}>Submission of details via our secure intake portal.</p>
+          <h2 className={styles.title}>{content.title}</h2>
+          {content.subtitle && <p className={styles.subtitle}>{content.subtitle}</p>}
         </div>
         
         <div className={styles.stepsWrapper}>
-          {steps.map((step, index) => (
+          {content.steps.map((step, index) => (
             <div key={index} className={styles.step}>
               <div className={`${styles.numberBox} ${step.isHighlighted ? styles.highlighted : ''}`}>
                 <span>{step.id}</span>

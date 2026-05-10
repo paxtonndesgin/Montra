@@ -1,5 +1,6 @@
 @use '../../../abstracts/variables' as *;
 @use '../../../abstracts/mixins' as *;
+@use 'sass:color';
 
 .ctaSection {
   padding-bottom: 60px;
@@ -53,7 +54,7 @@
     color: $color-white;
     
     &:hover {
-      background: darken($main-cyan-600, 5%);
+      background: color.adjust($main-cyan-600, $lightness: -5%);
     }
   }
 
@@ -62,7 +63,7 @@
     color: $color-btn-dark-green;
 
     &:hover {
-      background: darken($neutral-light-active, 5%);
+      background: color.adjust($neutral-light-active, $lightness: -5%);
     }
   }
 }

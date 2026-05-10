@@ -2,7 +2,7 @@
 @use '../../../abstracts/mixins' as *;
 
 .strategicSection {
-  padding: 80px 0;
+  padding: clamp(56px, 8vw, $section-padding-y) 0;
   width: 100%;
 
   .container {
@@ -132,6 +132,30 @@
     }
     .textCol {
       padding: 32px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      border-radius: 24px;
+      border-width: 8px;
+    }
+
+    .imageCol {
+      height: 240px;
+    }
+
+    .textCol {
+      padding: 24px 16px;
+      gap: 24px;
+    }
+
+    .title {
+      font-size: $fs-32;
+    }
+
+    .statsRow {
+      flex-direction: column;
     }
   }
 }

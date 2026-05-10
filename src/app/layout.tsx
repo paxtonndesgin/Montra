@@ -1,16 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../assets/style/scss/globals.scss";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Montra Therapy | Clinical Rigor and Trust",
@@ -38,6 +27,10 @@ export const metadata: Metadata = {
   },
 };
 
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import QueryProvider from "@/providers/QueryProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,9 +39,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body>{children}</body>
+      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Header />
+        <div style={{ flexGrow: 1, paddingTop: '80px' }}>
+          <QueryProvider>
+            {children}
+          </QueryProvider>
+        </div>
+        <Footer />
+      </body>
     </html>
   );
 }

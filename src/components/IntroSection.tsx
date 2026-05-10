@@ -1,19 +1,20 @@
 import React from 'react'
 import styles from '../assets/style/scss/components/IntroSection.module.scss'
 import ButtonLink from './ButtonLink'
+import { homeContent } from '@/content/home'
 
 const IntroSection = () => {
+  const { intro } = homeContent;
+
   return (
     <section className={styles.introSection}>
       <div className={styles.container}>
         <h1 className={styles.title}>
-          <span className={styles.titleBlue}>Empowering Independence Through</span>
-          <br />
-          <span className={styles.titleGreen}>Expert Occupational Therapy</span>
+          {intro.title}
         </h1>
         
         <p className={styles.description}>
-          Evidence-based assessments, clear reporting, and practical solutions for NDIS participants, aged care clients, and complex cases.
+          {intro.description}
         </p>
         
         <div className={styles.buttonGroup}>

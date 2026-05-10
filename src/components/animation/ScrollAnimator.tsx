@@ -20,9 +20,9 @@ const ScrollAnimator: React.FC<ScrollAnimatorProps> = ({
   children, 
   className,
   delay = 0,
-  duration = 0.8,
-  yOffset = 50,
-  xOffset = 50,
+  duration = 0.5,
+  yOffset = 30,
+  xOffset = 30,
   type = 'slideUp'
 }) => {
   const controls = useAnimation();
@@ -64,8 +64,8 @@ const ScrollAnimator: React.FC<ScrollAnimatorProps> = ({
     visible: { 
       ...getVisibleState(),
       transition: {
-        type: "spring",
-        bounce: 0.3,
+        type: "tween",
+        ease: "easeOut",
         duration: duration,
         delay: delay,
       }

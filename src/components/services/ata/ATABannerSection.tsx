@@ -10,7 +10,7 @@ const ATABannerSection = () => {
       <div className={styles.container}>
         <div className={styles.imageWrapper}>
           <Image
-            src={IMAGES.BANNER_1}
+            src={IMAGES.ATA_BANNER}
             alt="Assistive Technology Assessments"
             width={1200}
             height={630}
