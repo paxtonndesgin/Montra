@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../../assets/style/scss/components/services/oot/OOTBannerSection.module.scss';
-import { IMAGES } from '../../../assets/images';
+import { PUBLIC_IMAGES } from '../../../assets/images';
 import ButtonLink from '@/components/ButtonLink';
 
 const OOTBannerSection = () => {
@@ -10,7 +10,7 @@ const OOTBannerSection = () => {
       <div className={styles.container}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/images/services/oot/banner.png"
+            src={PUBLIC_IMAGES.OOT_BANNER}
             alt="Ongoing Occupational Therapy"
             width={1200}
             height={630}
@@ -19,7 +19,7 @@ const OOTBannerSection = () => {
         </div>
 
         <div className={styles.textContent}>
-          <h1 className={styles.title}>
+          <h1 data-service-heading className={styles.title}>
             Ongoing Occupational Therapy
           </h1>
           <p className={styles.description}>

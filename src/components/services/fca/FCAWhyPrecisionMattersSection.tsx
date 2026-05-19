@@ -27,7 +27,7 @@ const FCAWhyPrecisionMattersSection = () => {
           
           <div className={styles.rightCol}>
             <div className={styles.badge}>{content.badge}</div>
-            <h2 className={styles.title}>{content.title}</h2>
+            <h2 data-service-heading className={styles.title}>{content.title}</h2>
             
             <div className={styles.list}>
               {content.list.map((item, index) => (

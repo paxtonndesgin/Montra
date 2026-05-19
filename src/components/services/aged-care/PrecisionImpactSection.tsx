@@ -12,7 +12,7 @@ const PrecisionImpactSection = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.leftCol}>
-          <h2 className={styles.title}>{content.title}</h2>
+          <h2 data-service-heading className={styles.title}>{content.title}</h2>
           <div className={styles.list}>
             {content.impacts.map((impact, index) => (
               <div key={index} className={styles.listItem}>

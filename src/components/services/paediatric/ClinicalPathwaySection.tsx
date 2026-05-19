@@ -11,7 +11,7 @@ const ClinicalPathwaySection = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>{content.title}</h2>
+          <h2 data-service-heading className={styles.title}>{content.title}</h2>
           <p className={styles.subtitle}>{content.subtitle}</p>
         </div>
         

@@ -10,6 +10,7 @@
     max-width: 1320px;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 80px;
   }
@@ -25,7 +26,7 @@
     font-family: $font-family-base;
     font-size: 42px;
     font-weight: 600;
-    color: #0E5D3F;
+    color: $main-cyan-900;
     line-height: 1.01;
     margin: 0;
   }
@@ -34,7 +35,7 @@
     font-family: $font-family-base;
     font-size: 12px;
     font-weight: 500;
-    color: #565656;
+    color: $neutral-dark-active;
     line-height: 1.2;
     margin: 0;
     max-width: 350px;
@@ -56,8 +57,8 @@
     gap: 24px;
     width: 215.25px;
     height: 209px;
-    background: #E6EEFE;
-    border: 8px solid #8AB3FA;
+    background: $main-blue-50;
+    border: 8px solid $main-blue-200;
     border-radius: 24px;
     flex: none;
     box-sizing: border-box;
@@ -65,7 +66,7 @@
 
     &:hover {
       transform: translateY(-5px);
-      border-color: color.adjust(#8AB3FA, $lightness: -10%);
+      border-color: color.adjust($main-blue-200, $lightness: -10%);
     }
   }
 
@@ -73,7 +74,7 @@
     font-family: $font-family-base;
     font-size: 21px;
     font-weight: 600;
-    color: #0051DE;
+    color: $main-blue-600;
     line-height: 1.2;
     margin: 0;
   }
@@ -88,7 +89,7 @@
     font-family: $font-family-base;
     font-size: 21px;
     font-weight: 600;
-    color: #0051DE;
+    color: $main-blue-600;
     line-height: 1.2;
     margin: 0;
   }
@@ -97,9 +98,13 @@
     font-family: $font-family-base;
     font-size: 12px;
     font-weight: 500;
-    color: #565656;
+    color: $neutral-dark-active;
     line-height: 1.2;
     margin: 0;
+  }
+
+  .carouselDots {
+    display: none;
   }
 
   @media (max-width: 1200px) {
@@ -128,30 +133,99 @@
   }
 
   @media (max-width: 768px) {
+    padding: 40px 0;
+
     .container {
-      gap: 28px;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+      max-width: 412px;
+      padding: 0;
+    }
+
+    .leftCol {
+      flex: none;
+      width: 100%;
+      max-width: 349px;
+      gap: 14px;
+      align-items: center;
+      text-align: center;
     }
 
     .title {
-      font-size: 32px;
+      width: 100%;
+      max-width: 349px;
+      font-size: 42px;
+      text-align: center;
     }
 
     .description {
-      max-width: none;
-      font-size: 13px;
-    }
-    
-    .rightCol {
-      flex-direction: column;
-      overflow: visible;
-      padding-bottom: 0;
-    }
-    
-    .statBox {
       width: 100%;
-      height: auto;
-      min-height: 184px;
-      gap: 18px;
+      max-width: 349px;
+      font-size: 12px;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .rightCol {
+      width: 100%;
+      max-width: 412px;
+      justify-content: flex-start;
+      gap: 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      flex-wrap: nowrap;
+      padding: 0 16px 8px;
+      margin: 0 -16px -8px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .statBox {
+      width: 215.25px;
+      min-width: 215.25px;
+      height: 209px;
+      padding: 24px;
+      gap: 24px;
+      scroll-snap-align: start;
+    }
+
+    .statNumber,
+    .statTitle {
+      font-size: 21px;
+    }
+
+    .statDescription {
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .carouselDots {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      appearance: none;
+      border: none;
+      width: 12px;
+      height: 12px;
+      padding: 0;
+      border-radius: 999px;
+      background: rgba(37, 37, 37, 0.16);
+      transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+    }
+
+    .dotActive {
+      background: rgba(37, 37, 37, 0.92);
+      transform: scale(1.08);
     }
   }
 }

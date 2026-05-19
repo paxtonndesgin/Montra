@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import styles from '../assets/style/scss/components/Header.module.scss'
 import { IMAGES } from '../assets/images'
 import ButtonLink from './ButtonLink'
+import RouteLoadingLink from './RouteLoadingLink'
 
 const services = [
   { href: "/services/functional-capacity-assessments", label: "Functional Capacity Assessments" },
@@ -29,10 +29,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
-  useEffect(() => {
+  const closeMobileNavigation = () => {
     setIsMenuOpen(false);
     setIsServicesOpen(false);
-  }, [pathname]);
+  };
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : '';
@@ -42,17 +42,31 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        closeMobileNavigation();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <header className={styles.header}>
         <div className={styles.container}>
             <div className={styles.logoWrapper}>
-                <Link href="/" className={styles.logo}>
+              <RouteLoadingLink href="/" className={styles.logo} onClick={closeMobileNavigation}>
                     <Image src={IMAGES.LOGO_MAIN} alt="Montra Therapy Logo" width={32} height={32} />
                     <span className={styles.brandName}>
                         <span>Montra</span>
                         <span>Therapy</span>
                     </span>
-                </Link>
+                </RouteLoadingLink>
             </div>
             <nav className={styles.nav} aria-label="Main navigation">
                 <div className={styles.navItemWithDropdown}>
@@ -61,13 +75,13 @@ const Header = () => {
                   </span>
                   <div className={styles.dropdown}>
                     {services.map(service => (
-                      <Link 
+                      <RouteLoadingLink 
                         key={service.href} 
                         href={service.href} 
                         className={`${styles.dropdownItem} ${pathname === service.href ? styles.dropdownActive : ''}`}
                       >
                         {service.label}
-                      </Link>
+                      </RouteLoadingLink>
                     ))}
                   </div>
                 </div>
@@ -75,9 +89,9 @@ const Header = () => {
                 {navLinks.map(link => {
                   const isActive = pathname === link.href;
                   return (
-                    <Link key={link.href} href={link.href} className={isActive ? styles.active : ''}>
+                    <RouteLoadingLink key={link.href} href={link.href} className={isActive ? styles.active : ''} onClick={closeMobileNavigation}>
                       {link.label}
-                    </Link>
+                    </RouteLoadingLink>
                   );
                 })}
             </nav>
@@ -101,7 +115,7 @@ const Header = () => {
 
         <div
           className={`${styles.mobileOverlay} ${isMenuOpen ? styles.mobileOverlayVisible : ''}`}
-          onClick={() => setIsMenuOpen(false)}
+          onClick={closeMobileNavigation}
         />
 
         <div
@@ -120,13 +134,14 @@ const Header = () => {
 
             <div className={`${styles.mobileServicesList} ${isServicesOpen ? styles.mobileServicesListOpen : ''}`}>
               {services.map(service => (
-                <Link
+                <RouteLoadingLink
                   key={service.href}
                   href={service.href}
                   className={`${styles.mobileServiceLink} ${pathname === service.href ? styles.mobileActive : ''}`}
+                  onClick={closeMobileNavigation}
                 >
                   {service.label}
-                </Link>
+                </RouteLoadingLink>
               ))}
             </div>
 
@@ -134,18 +149,19 @@ const Header = () => {
               const isActive = pathname === link.href;
 
               return (
-                <Link
+                <RouteLoadingLink
                   key={link.href}
                   href={link.href}
                   className={`${styles.mobileLink} ${isActive ? styles.mobileActive : ''}`}
+                  onClick={closeMobileNavigation}
                 >
                   {link.label}
-                </Link>
+                </RouteLoadingLink>
               );
             })}
           </nav>
 
-          <div className={styles.mobileActions}>
+          <div className={styles.mobileActions} onClick={closeMobileNavigation}>
             <ButtonLink href="/referral" className={styles.mobileReferralBtn} showArrowOnHover={false}>
               Make a Referral
             </ButtonLink>

@@ -25,7 +25,7 @@ const ATAPhilosophySection = () => {
     <section className={styles.philosophySection}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Our Clinical Philosophy</h2>
+          <h2 data-service-heading className={styles.title}>Our Clinical Philosophy</h2>
         </div>
 
         <div className={styles.pillarsRow}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../../assets/style/scss/components/services/paediatric/PaediatricBanner.module.scss';
+import { PUBLIC_IMAGES } from '../../../assets/images';
 import ButtonLink from '@/components/ButtonLink';
 
 const PaediatricBanner = () => {
@@ -9,7 +10,7 @@ const PaediatricBanner = () => {
       <div className={styles.container}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/images/services/paediatric/banner.png"
+            src={PUBLIC_IMAGES.PAEDIATRIC_BANNER}
             alt="Paediatric Occupational Therapy"
             width={1200}
             height={600}
@@ -19,7 +20,7 @@ const PaediatricBanner = () => {
         </div>
 
         <div className={styles.textContent}>
-          <h1 className={styles.title}>
+          <h1 data-service-heading className={styles.title}>
             Paediatric Occupational Therapy
           </h1>
           <p className={styles.description}>

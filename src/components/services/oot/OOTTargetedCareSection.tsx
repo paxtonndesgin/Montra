@@ -33,7 +33,7 @@ const OOTTargetedCareSection = () => {
             <div className={styles.imageGradient} />
           </div>
           <div className={styles.contentCol}>
-            <h2 className={styles.sectionTitle}>Targeted Care Populations</h2>
+            <h2 data-service-heading className={styles.sectionTitle}>Targeted Care Populations</h2>
             <div className={styles.list}>
               {populations.map((item, index) => (
                 <div key={index} className={styles.listItem}>

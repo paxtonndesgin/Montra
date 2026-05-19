@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../../assets/style/scss/components/services/paediatric/WhoIsForSection.module.scss';
-import { CheckCircle } from 'lucide-react';
 import brainIcon from '../../../assets/icon/pae-occ-therap-icon.svg';
+import certificationIcon from '../../../assets/icon/Icon-19.svg';
 import { servicesContent } from '@/content/services';
 
 const WhoIsForSection = () => {
@@ -14,7 +14,7 @@ const WhoIsForSection = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.leftCol}>
-          <h2 className={styles.title}>{content.title}</h2>
+          <h2 data-service-heading className={styles.title}>{content.title}</h2>
           <div className={styles.list}>
             {content.items?.map((item, index) => (
               <div key={index} className={styles.item}>
@@ -39,7 +39,7 @@ const WhoIsForSection = () => {
                 <div className={styles.iconBox}>
                   <Image src={brainIcon} alt="Icon" width={22} height={22} />
                 </div>
-                <h2 className={styles.rightTitle}>{content.rightCol?.title}</h2>
+                <h2 data-service-heading className={styles.rightTitle}>{content.rightCol?.title}</h2>
               </div>
 
               <p className={styles.rightDescription}>
@@ -49,7 +49,7 @@ const WhoIsForSection = () => {
 
             <div className={styles.certifiedBadge}>
               <div className={styles.checkIcon}>
-                <CheckCircle size={16} color="#FFFFFF" />
+                <Image src={certificationIcon} alt="Clinical Governance Certified" width={22} height={21} />
               </div>
               <span>Clinical Governance Certified</span>
             </div>

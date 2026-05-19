@@ -11,7 +11,7 @@ const HMADifferenceSection = () => {
   return (
     <section className={styles.differenceSection}>
       <div className={styles.container}>
-        <h2 className={styles.title}>{content.title}</h2>
+        <h2 data-service-heading className={styles.title}>{content.title}</h2>
         
         <div className={styles.pillarsGrid}>
           {content.pillars.map((pillar, index) => (

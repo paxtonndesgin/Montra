@@ -62,10 +62,10 @@
   flex-wrap: wrap;
   
   .btnGreen {
-    background: #179D6B;
+    background: vars.$main-cyan-700;
     color: vars.$color-white;
     &:hover {
-      background: #0E5D3F;
+      background: vars.$main-cyan-900;
     }
   }
   
@@ -74,6 +74,16 @@
     color: vars.$color-brand-blue;
     &:hover {
       background: #f0f0f0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+
+    .btnGreen,
+    .btnWhite {
+      width: 100%;
     }
   }
 }

@@ -1,39 +1,104 @@
+// ─── LOGO ─────────────────────────────────────────────────────────────────────
 import LogoMain from './logo/logo.svg';
-import BannerOne from './banner/bannerone.webp';
-import HomeHero from './Hinh anh 3/asian-professional-confidence-medic-team-are-walking-hospital-health-care-concept.webp';
-import PracticeOne from './Hinh anh 3/close-up-team-health-workers.webp';
-import PracticeTwo from './Hinh anh 3/supportive-medical-coworkers-stacking-hands-show-collaboration-is-key-success.webp';
-import AboutLeft from './Hinh anh 3/young-asian-female-nurse-care-giver-helping-asian-senior-old-man-with-mobility-walker-living-area-nursing-home-senior-daycare-centernurse-take-care-elderly-patient-with-cheerful-concentrate.webp';
-import AboutCenter from './Hinh anh 3/asian-professional-confidence-medic-team-are-walking-hospital-health-care-concept.webp';
-import AboutRight from './Hinh anh 3/doctor-giving-high-five-smiling-girl-sitting-her-mother-039-s-lap-medical-appointment.webp';
-import AboutAchievement from './Hinh anh 3/team-doctors-meeting.webp';
-import AtaBanner from './Hinh anh 3/team-healthcare-experts-examining-xray-image-medical-clinic.webp';
-import AtaParticipant from './Hinh anh 3/asian-medical-doctor-take-care-explain-senior-elderly-woman-female-patient-wheelchair-with-tablet-looking-camera.webp';
-import AtaCoordinator from './Hinh anh 3/asian-doctor-team-examine-xray-film-patient-analysis-find-bext-solution-operation-treat-health-ideas-concept.webp';
-import AtaFamily from './Hinh anh 3/discussing-treatment-with-surgeon.webp';
-import FcaBanner from './Hinh anh 3/physician-doctor-discussing-sickness-symptoms-with-retired-elderly-senior.webp';
-import OotTargetedCare from './Hinh anh 3/female-nurse-talking-with-old-woman-with-alzheimer-nursing-home.webp';
-import OotReportingParticipants from './Hinh anh 3/asian-young-caregiver-caring-her-elderly-patient-senior-daycare-handicap-patient-wheelchair-hospital-talking-friendly-nurse-looking-cheerful-nurse-wheeling-senior-patient.webp';
-import OotReportingIndependence from './Hinh anh 3/happy-grandmother-wheelchair-with-her-daughter-grandchild-park-happy-life-happy-time.webp';
-import OotReportingCognitive from './Hinh anh 3/cheerful-asian-female-doctor-visiting-senior-caucasian-male-patient-home.webp';
 
+// ─── BANNERS (shared CTA backgrounds) ─────────────────────────────────────────
+import BannerOne from './banner/bannerone.webp';
+import BannerTwo from './banner/bannertwo.png';
+
+const SOURCE_PHOTO_BASE = '/images/source_photo';
+const sourcePhoto = (fileName: string) => `${SOURCE_PHOTO_BASE}/${fileName}`;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Static-import image map (for components that use next/image with imported files)
+// ─────────────────────────────────────────────────────────────────────────────
 export const IMAGES = {
+  // Logo
   LOGO_MAIN: LogoMain,
+
+  // Banners (CTA backgrounds)
   BANNER_1: BannerOne,
-  HOME_HERO: HomeHero,
-  PRACTICE_1: PracticeOne,
-  PRACTICE_2: PracticeTwo,
-  BANNER_LEFT: AboutLeft,
-  BANNER_CENTER: AboutCenter,
-  BANNER_RIGHT: AboutRight,
-  ABOUT_ACHIEVEMENT: AboutAchievement,
-  ATA_BANNER: AtaBanner,
-  ATA_PARTICIPANT: AtaParticipant,
-  ATA_COORDINATOR: AtaCoordinator,
-  ATA_FAMILY: AtaFamily,
-  FCA_BANNER: FcaBanner,
-  OOT_TARGETED_CARE: OotTargetedCare,
-  OOT_REPORTING_PARTICIPANTS: OotReportingParticipants,
-  OOT_REPORTING_INDEPENDENCE: OotReportingIndependence,
-  OOT_REPORTING_COGNITIVE: OotReportingCognitive,
+  BANNER_2: BannerTwo,
+
+  // Home
+  HOME_HERO:       sourcePhoto('home-1.jpg'),
+  HOME_PRACTICE_1: sourcePhoto('home-2.jpg'),
+  HOME_PRACTICE_2: sourcePhoto('home-3.jpg'),
+
+  // About
+  ABOUT_BANNER_LEFT:    sourcePhoto('about-1.jpg'),
+  ABOUT_BANNER_CENTER:  sourcePhoto('about-2.jpg'),
+  ABOUT_BANNER_RIGHT:   sourcePhoto('about-3.jpg'),
+  ABOUT_ACHIEVEMENT:    sourcePhoto('about-achievement-4.webp'),
+  ABOUT_ACHIEVEMENT_2:  sourcePhoto('about-achievement-1.jpg'),
+  ABOUT_ACHIEVEMENT_3:  sourcePhoto('about-achievement-2.jpg'),
+  ABOUT_ACHIEVEMENT_4:  sourcePhoto('about-achievement-3.jpg'),
+
+  // Service – ACOT (Aged Care OT)
+  ACOT_BANNER:    sourcePhoto('acot-1.jpg'),
+  ACOT_SERVICE_1: sourcePhoto('acot-2.jpg'),
+  ACOT_SERVICE_2: sourcePhoto('acot-3.jpg'),
+  ACOT_SERVICE_3: sourcePhoto('acot-4.jpg'),
+  ACOT_SERVICE_4: sourcePhoto('acot-5.jpg'),
+
+  // Service – ATA
+  ATA_BANNER:      sourcePhoto('ata-0.webp'),
+  ATA_PARTICIPANT: sourcePhoto('ata-1.jpg'),
+  ATA_COORDINATOR: sourcePhoto('ata-2.jpg'),
+  ATA_FAMILY:      sourcePhoto('ata-3.webp'),
+
+  // Service – FCA
+  FCA_BANNER:   sourcePhoto('fca-1.webp'),
+  FCA_SERVICE:  sourcePhoto('fca-2.jpg'),
+
+  // Service – HMA
+  HMA_BANNER:    sourcePhoto('hma-1.jpg'),
+  HMA_STRATEGIC: sourcePhoto('hma-2.jpg'),
+
+  // Service – OOT
+  OOT_BANNER:        sourcePhoto('oot-5.webp'),
+  OOT_TARGETED_CARE: sourcePhoto('oot-1.jpg'),
+  OOT_PARTICIPANTS:  sourcePhoto('oot-2.jpg'),
+  OOT_INDEPENDENCE:  sourcePhoto('oot-3.jpg'),
+  OOT_COGNITIVE:     sourcePhoto('oot-4.jpg'),
+
+  // Service – POT (Paediatric OT)
+  POT_BANNER: sourcePhoto('pot-1.jpg'),
 };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Public-folder image paths (for content files that pass URLs as strings)
+// ─────────────────────────────────────────────────────────────────────────────
+export const PUBLIC_IMAGES = {
+  // About
+  ABOUT_BANNER: sourcePhoto('about-1.jpg'),
+  ABOUT_BANNER_CENTER: sourcePhoto('about-2.jpg'),
+  ABOUT_BANNER_RIGHT: sourcePhoto('about-3.jpg'),
+  ABOUT_ACHIEVEMENT: sourcePhoto('about-achievement-4.webp'),
+
+  // Service – Aged Care (ACOT)
+  AGED_CARE_BANNER: sourcePhoto('acot-1.jpg'),
+  AGED_CARE_CTA:    sourcePhoto('acot-2.jpg'),
+
+  // Service – Paediatric (POT)
+  PAEDIATRIC_BANNER: sourcePhoto('pot-1.jpg'),
+  PAEDIATRIC_CTA:    sourcePhoto('pot-1.jpg'),
+
+  // Service – ATA
+  ATA_BANNER: sourcePhoto('ata-0.webp'),
+
+  // Service – FCA
+  FCA_BANNER: sourcePhoto('fca-1.webp'),
+
+  // Service – HMA (Home Modification Assessments)
+  HMA_BANNER:    sourcePhoto('hma-1.jpg'),
+  HMA_STRATEGIC: sourcePhoto('hma-2.jpg'),
+  HMA_CTA:       sourcePhoto('hma-2.jpg'),
+
+  // Service – OOT
+  OOT_BANNER:       sourcePhoto('oot-5.webp'),
+  OOT_DAILY_LIVING: sourcePhoto('oot-2.jpg'),
+  OOT_INDEPENDENCE: sourcePhoto('oot-3.jpg'),
+  OOT_COGNITIVE:    sourcePhoto('oot-4.jpg'),
+  OOT_TARGETED:     sourcePhoto('oot-1.jpg'),
+};
+

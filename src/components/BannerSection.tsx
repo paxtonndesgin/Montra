@@ -10,10 +10,10 @@ const BannerSection = () => {
           <Image 
             src={IMAGES.HOME_HERO}
             alt="Banner Image" 
-            width={1200} 
-            height={630} 
+            fill
             className={styles.bannerImage}
             priority
+            sizes="(max-width: 768px) 100vw, 1320px"
           />
           
           <div className={styles.badgesWrapper}>

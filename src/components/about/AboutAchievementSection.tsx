@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../../assets/style/scss/components/about/AboutAchievementSection.module.scss';
 import Image from 'next/image';
-import { IMAGES } from '../../assets/images';
 import ScrollAnimator from '../animation/ScrollAnimator';
 
 import { aboutContent } from '@/content/about';
@@ -23,7 +22,7 @@ const AboutAchievementSection = () => {
           {[...content.items, ...content.items].map((item, index) => (
             <div key={`${item.id}-${index}`} className={styles.card}>
               <Image 
-                src={IMAGES.ABOUT_ACHIEVEMENT} 
+                src={item.image} 
                 alt={item.title} 
                 fill 
                 className={styles.cardImage} 

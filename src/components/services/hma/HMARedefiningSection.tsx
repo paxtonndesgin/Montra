@@ -20,7 +20,7 @@ const HMARedefiningSection = () => {
               <div className={styles.iconBox}>
                 <Image src={homeApartIcon} alt="Accessibility" width={22} height={18} />
               </div>
-              <h2 className={styles.title}>{content.title}</h2>
+              <h2 data-service-heading className={styles.title}>{content.title}</h2>
             </div>
             
             <div className={styles.content}>

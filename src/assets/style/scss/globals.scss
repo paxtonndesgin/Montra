@@ -9,4 +9,47 @@
   --color-brand-blue: #{$main-blue-800};
   --color-brand-green: #{$main-cyan-700};
   --color-brand-light: #{$main-blue-50};
+  --site-header-offset: 76px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+.siteBody {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.siteContent {
+  flex-grow: 1;
+  padding-top: var(--site-header-offset);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --site-header-offset: 64px;
+  }
+}
+
+
+h1[data-service-heading] {
+  font-family: $font-family-base !important;
+  font-size: 42px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  letter-spacing: 0 !important;
+  color: $color-brand-blue !important;
+}
+
+:where(h2, h3, h4, h5, h6)[data-service-heading] {
+  font-family: $font-family-base !important;
+  font-size: 42px !important;
+  font-weight: 600 !important;
+  line-height: 101% !important;
+  letter-spacing: 0 !important;
+  color: $main-cyan-900 !important;
 }

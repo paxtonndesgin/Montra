@@ -143,3 +143,21 @@
 .variant3 {
   background: $color-button-tertiary;
 }
+
+@media (max-width: 768px) {
+  .buttonLink {
+    min-width: 0;
+    min-height: 42px;
+    padding: 13px 18px;
+    font-size: $fs-14;
+  }
+
+  .withArrow {
+    &:hover,
+    &:focus-visible {
+      min-width: 0;
+      min-height: 42px;
+      padding: 13px 18px;
+    }
+  }
+}

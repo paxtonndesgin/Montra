@@ -184,23 +184,24 @@
     align-items: stretch;
   }
   .contentWrapper {
-    padding: 40px 24px;
-    gap: 32px;
+    padding: 34px 24px;
+    gap: 24px;
   }
   .mainTitle {
-    font-size: clamp(32px, 12vw, 48px);
+    font-size: clamp(28px, 11vw, 44px);
   }
   .subtitle {
     max-width: none;
-    font-size: vars.$fs-14;
+    font-size: vars.$fs-12;
   }
   .rightCol {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
     padding-bottom: 0;
     
     a {
-      width: 100%;
+      width: auto;
     }
   }
 }

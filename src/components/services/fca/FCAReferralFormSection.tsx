@@ -10,7 +10,7 @@ const FCAReferralFormSection = () => {
         <div className={styles.formCard}>
           <div className={styles.formHeader}>
             <div>
-              <h2 className={styles.title}>Submit a Referral.</h2>
+              <h2 data-service-heading className={styles.title}>Submit a Referral.</h2>
               <p className={styles.subtitle}>Please complete the form below. Our clinical team will review your request and contact you within 1-2 business days to discuss next steps.</p>
             </div>
             <button className={styles.closeBtn}>&times;</button>

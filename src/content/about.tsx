@@ -1,4 +1,5 @@
 import React from 'react';
+import { PUBLIC_IMAGES } from '@/assets/images';
 
 export interface AboutContent {
   banner: {
@@ -27,6 +28,7 @@ export interface AboutContent {
     title: string;
     items: {
       id: number;
+      image: string;
       title: string;
       description: string;
       color: string;
@@ -56,21 +58,21 @@ export const aboutContent: AboutContent = {
     subtitle: "Supporting people to participate more confidently and independently in the activities that matter most.",
     cards: [
       {
-        image: "/images/about/banner.png",
+        image: PUBLIC_IMAGES.ABOUT_BANNER,
         content: "Montra Therapy is a community-based occupational therapy practice committed to providing high-quality, personalised support. We work with children, adults and older people across a range of settings, helping them navigate challenges, build capacity and improve their everyday function."
       },
       {
-        image: "/images/about/banner.png",
+        image: PUBLIC_IMAGES.ABOUT_BANNER_CENTER,
         content: "Our approach is warm, collaborative and grounded in real life. We understand that meaningful therapy is not just about assessment and recommendations — it is about listening well, understanding each person's goals and creating practical strategies that genuinely support daily living."
       },
       {
-        image: "/images/about/banner.png",
+        image: PUBLIC_IMAGES.ABOUT_ACHIEVEMENT,
         content: "Whether we are completing a functional assessment, providing ongoing therapy, recommending assistive technology or supporting safer living at home, we aim to deliver services that are thoughtful, responsive and clinically sound."
       }
     ]
   },
   purposeVisionValues: {
-    title: <>Our <span style={{ color: '#0059f4' }}>Purpose Vision & Values</span></>,
+    title: <>Our Purpose <span style={{ color: '#178350' }}> Vision & Values</span></>,
     purpose: {
       title: "Purpose",
       text: "To provide occupational therapy that helps people engage more fully, safely and confidently in everyday life."
@@ -91,12 +93,12 @@ export const aboutContent: AboutContent = {
   achievement: {
     title: "Achievement",
     items: [
-      { id: 1, title: 'Warm and professional approach', description: 'We aim to make the therapy process feel supportive, respectful and easy to navigate.', color: '#FF61CD' },
-      { id: 2, title: 'Clear recommendations', description: 'Our reports and recommendations are practical, well-reasoned and focused on meaningful outcomes.', color: '#337AF6' },
-      { id: 3, title: 'Evidence-informed practice', description: 'Our work is guided by clinical reasoning, best practice principles and real-world function.', color: '#FF9D2E' },
-      { id: 4, title: 'Thoughtful assessments', description: 'We take a thorough and functional approach to understanding each person’s strengths, challenges and support needs.', color: '#22C478' },
-      { id: 5, title: 'Broad community experience', description: 'We support individuals across disability, paediatrics, aged care and complex community settings.', color: '#FF7272' },
-      { id: 6, title: 'Functional focus', description: 'We keep everyday participation, independence and quality of life at the centre of what we do.', color: '#8D8D8D' }
+      { id: 1, image: PUBLIC_IMAGES.ABOUT_BANNER, title: 'Warm and professional approach', description: 'We aim to make the therapy process feel supportive, respectful and easy to navigate.', color: '#FF61CD' },
+      { id: 2, image: PUBLIC_IMAGES.ABOUT_BANNER_CENTER, title: 'Clear recommendations', description: 'Our reports and recommendations are practical, well-reasoned and focused on meaningful outcomes.', color: '#337AF6' },
+      { id: 3, image: PUBLIC_IMAGES.ABOUT_BANNER_RIGHT, title: 'Evidence-informed practice', description: 'Our work is guided by clinical reasoning, best practice principles and real-world function.', color: '#FF9D2E' },
+      { id: 4, image: PUBLIC_IMAGES.ABOUT_ACHIEVEMENT, title: 'Thoughtful assessments', description: 'We take a thorough and functional approach to understanding each person’s strengths, challenges and support needs.', color: '#22C478' },
+      { id: 5, image: PUBLIC_IMAGES.AGED_CARE_BANNER, title: 'Broad community experience', description: 'We support individuals across disability, paediatrics, aged care and complex community settings.', color: '#FF7272' },
+      { id: 6, image: PUBLIC_IMAGES.HMA_BANNER, title: 'Functional focus', description: 'We keep everyday participation, independence and quality of life at the centre of what we do.', color: '#8D8D8D' }
     ]
   },
   specialFeatures: {

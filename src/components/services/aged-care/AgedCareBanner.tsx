@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../../assets/style/scss/components/services/aged-care/AgedCareBanner.module.scss';
+import { PUBLIC_IMAGES } from '../../../assets/images';
 import ButtonLink from '@/components/ButtonLink';
 
 const AgedCareBanner = () => {
@@ -9,7 +10,7 @@ const AgedCareBanner = () => {
       <div className={styles.container}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/images/services/aged-care/banner.png"
+            src={PUBLIC_IMAGES.AGED_CARE_BANNER}
             alt="Aged Care Occupational Therapy"
             width={1200}
             height={600}
@@ -19,7 +20,7 @@ const AgedCareBanner = () => {
         </div>
 
         <div className={styles.textContent}>
-          <h1 className={styles.title}>
+          <h1 data-service-heading className={styles.title}>
             Aged Care Occupational Therapy
           </h1>
           <p className={styles.description}>

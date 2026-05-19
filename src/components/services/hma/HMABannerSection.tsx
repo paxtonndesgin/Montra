@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../../assets/style/scss/components/services/hma/HMABannerSection.module.scss';
+import { PUBLIC_IMAGES } from '../../../assets/images';
 import ButtonLink from '@/components/ButtonLink';
 
 const HMABannerSection = () => {
@@ -9,7 +10,7 @@ const HMABannerSection = () => {
       <div className={styles.container}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/images/services/hma/banner.png"
+            src={PUBLIC_IMAGES.HMA_BANNER}
             alt="Home Modification Assessments"
             width={1200}
             height={630}
@@ -19,7 +20,7 @@ const HMABannerSection = () => {
         </div>
 
         <div className={styles.textContent}>
-          <h1 className={styles.title}>
+          <h1 data-service-heading className={styles.title}>
             Home Modification Assessments
           </h1>
           <p className={styles.description}>

@@ -12,16 +12,12 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 .main {
   flex-grow: 1;
   position: relative;
-  background:
-    radial-gradient(circle at top left, rgba(0, 89, 244, 0.08), transparent 28%),
-    radial-gradient(circle at 85% 18%, rgba(30, 201, 137, 0.08), transparent 24%),
-    linear-gradient(180deg, #ffffff 0%, #f8fbff 54%, #ffffff 100%);
+  background: $color-white;
 }
 
 .btnPrimary {

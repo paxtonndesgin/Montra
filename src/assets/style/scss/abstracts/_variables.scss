@@ -118,9 +118,19 @@ $color-badge-green-light-bg: #E5F3EC; // Light green badge background
 $color-item-title-blue: #1B5CFF;      // Bright blue item titles
 $color-btn-dark-green: #12673F;       // Dark green CTA button text
 $color-pill-mint-bg: #78EFB7;         // Mint pill background
+$color-surface-page-tint: #f9fbff;
+$color-surface-frosted: rgba(255, 255, 255, 0.96);
+$color-border-brand-faint: rgba(0, 81, 222, 0.07);
+$color-border-brand-subtle: rgba(0, 81, 222, 0.08);
+$color-border-brand-soft: rgba(0, 81, 222, 0.1);
+$color-border-brand-muted: rgba(0, 81, 222, 0.12);
+$color-border-brand-strong: rgba(0, 81, 222, 0.16);
+$color-overlay-scrim: rgba(15, 28, 56, 0.14);
+$color-brand-light-active: rgba(230, 238, 254, 0.72);
 
 // Typography
 $font-family-base: 'Polin', Arial, Helvetica, sans-serif;
+$font-family-display: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif;
 
 // Font Weights
 $font-weight-thin: 200;

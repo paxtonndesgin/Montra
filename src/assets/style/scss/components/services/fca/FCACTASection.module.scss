@@ -66,4 +66,38 @@
       background: color.adjust($neutral-light-active, $lightness: -5%);
     }
   }
+
+  @media (max-width: 1024px) {
+    .contentWrapper {
+      padding: 48px 40px;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 0;
+      gap: 32px;
+    }
+
+    .mainTitle {
+      font-size: $fs-56;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contentWrapper {
+      padding: 40px 24px;
+      border-radius: 24px;
+    }
+
+    .mainTitle {
+      font-size: $fs-40;
+    }
+
+    .rightCol {
+      flex-direction: column;
+      width: 100%;
+
+      a {
+        width: 100%;
+      }
+    }
+  }
 }

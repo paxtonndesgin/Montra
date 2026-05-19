@@ -22,9 +22,13 @@
     font-family: $font-family-base;
     font-size: $fs-42;
     font-weight: $font-weight-semibold;
-    color: #0051DE;
+    color: $main-blue-600;
     text-align: center;
     margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: $fs-32;
+    }
   }
 
   .cardsGrid {
@@ -38,8 +42,8 @@
   .card {
     width: 320px;
     height: 320px;
-    background: #FFFFFF;
-    border: 10px solid #99EFCF; // main-cyan-200
+    background: $color-white;
+    border: 10px solid $main-cyan-200;
     border-radius: 24px;
     overflow: hidden;
     display: flex;
@@ -74,7 +78,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, #FFFFFF 70%);
+      background: linear-gradient(180deg, rgba($color-white, 0) 0%, rgba($color-white, 0.5) 50%, $color-white 70%);
       z-index: 2;
     }
   }
@@ -92,7 +96,7 @@
     font-family: $font-family-base;
     font-size: $fs-21;
     font-weight: $font-weight-semibold;
-    color: #179D6B;
+    color: $main-cyan-700;
     margin: 0;
   }
 
@@ -100,9 +104,30 @@
     font-family: $font-family-base;
     font-size: $fs-12;
     font-weight: $font-weight-medium;
-    color: #565656;
+    color: $neutral-dark-active;
     line-height: 1.4;
     margin: 0;
+  }
+
+  .carouselDots {
+    display: none;
+  }
+
+  .carouselDot {
+    appearance: none;
+    border: none;
+    padding: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(37, 37, 37, 0.16);
+    transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+  }
+
+  .carouselDotActive {
+    background: rgba(37, 37, 37, 0.92);
+    transform: scale(1.08);
   }
 
   @media (max-width: 1024px) {
@@ -110,6 +135,53 @@
       transform: none !important;
       width: 100%;
       max-width: 350px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      max-width: 412px;
+      padding: 0 16px;
+      box-sizing: border-box;
+      gap: 32px;
+    }
+
+    .cardsGrid {
+      width: 100%;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-wrap: nowrap;
+      gap: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 8px 0 8px;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .card {
+      max-width: none;
+      width: min(280px, calc(100vw - 96px));
+      min-width: min(280px, calc(100vw - 96px));
+      height: 320px;
+      scroll-snap-align: start;
+
+      &:nth-child(1) { transform: rotate(-5deg) !important; }
+      &:nth-child(2) { transform: translateY(-16px) rotate(5deg) !important; }
+      &:nth-child(3) { transform: rotate(-3deg) !important; }
+    }
+
+    .carouselDots {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
     }
   }
 }

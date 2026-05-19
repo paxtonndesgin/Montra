@@ -4,6 +4,10 @@
 .bannerSection {
   padding: vars.$section-padding-y 0;
   background: vars.$color-white;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
 }
 
 .container {
@@ -26,6 +30,12 @@
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  @media (max-width: 768px) {
+    border-radius: 24px;
+    margin-bottom: 24px;
+    max-width: 100%;
   }
 }
 
@@ -67,5 +77,17 @@
   
   .btnSecondary {
     min-width: 180px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+
+    .btnPrimary,
+    .btnSecondary {
+      min-width: 0;
+      width: 100%;
+    }
   }
 }

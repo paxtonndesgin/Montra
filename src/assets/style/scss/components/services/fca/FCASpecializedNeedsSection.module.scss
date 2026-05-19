@@ -21,15 +21,22 @@
     z-index: -1;
   }
 
+  @media (max-width: 1024px) {
+    margin-top: 100px;
+  }
+
   @media (max-width: 992px) {
     padding: 60px 30px;
+
     &::before {
       border-radius: 80px 80px 0 0;
     }
   }
 
   @media (max-width: 768px) {
-    padding: 40px 20px;
+    padding: 48px 16px;
+    margin-top: 60px;
+
     &::before {
       border-radius: 50px 50px 0 0;
     }
@@ -43,6 +50,21 @@
     align-items: center;
     gap: 210px;
     width: 100%;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 48px;
+      width: 100%;
+      max-width: 410px;
+      padding: 0;
+    }
   }
 
   .leftCol {
@@ -51,6 +73,18 @@
     flex-direction: column;
     gap: 24px;
     align-items: flex-start;
+
+    @media (max-width: 1024px) {
+      flex: none;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      gap: 14px;
+      align-items: center;
+      text-align: center;
+    }
   }
 
   .badge {
@@ -66,6 +100,14 @@
     font-size: $fs-12;
     font-weight: $font-weight-medium;
     color: $color-heading-green;
+
+    @media (max-width: 768px) {
+      width: auto;
+      height: auto;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
   }
 
   .title {
@@ -75,6 +117,19 @@
     color: $main-cyan-900;
     line-height: 1.01;
     margin: 0;
+
+    @media (max-width: 1024px) {
+      font-size: clamp(28px, 3.8vw, 38px);
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 410px;
+      font-size: $fs-42;
+      font-weight: $font-weight-semibold;
+      text-align: center;
+      letter-spacing: 0;
+    }
   }
 
   .description {
@@ -85,22 +140,54 @@
     line-height: 1.5;
     margin: 0;
     max-width: 520px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 410px;
+      font-size: $fs-12;
+      line-height: 1.2;
+      text-align: center;
+    }
   }
 
   .rightCol {
     flex: 0 0 45%;
+
+    @media (max-width: 1024px) {
+      flex: none;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 410px;
+    }
   }
 
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px 56px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      justify-items: center;
+    }
   }
 
   .gridItem {
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 248px;
+      gap: 6px;
+      align-items: center;
+      text-align: center;
+    }
   }
 
   .itemTitle {
@@ -109,6 +196,11 @@
     font-weight: $font-weight-semibold;
     color: $main-blue-600;
     margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: $fs-21;
+      text-align: center;
+    }
   }
 
   .itemDescription {
@@ -118,5 +210,11 @@
     color: $neutral-dark-active;
     line-height: 1.4;
     margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: $fs-12;
+      line-height: 1.2;
+      text-align: center;
+    }
   }
 }

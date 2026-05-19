@@ -13,7 +13,7 @@ const FCASpecializedNeedsSection = () => {
       <div className={styles.container}>
         <div className={styles.leftCol}>
           <div className={styles.badge}>{content.badge}</div>
-          <h2 className={styles.title}>{content.title}</h2>
+          <h2 data-service-heading className={styles.title}>{content.title}</h2>
           <p className={styles.description}>{content.description}</p>
         </div>
         

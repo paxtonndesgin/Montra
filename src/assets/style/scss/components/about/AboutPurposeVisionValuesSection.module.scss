@@ -65,12 +65,15 @@
       
       .part4 {
         position: absolute;
-        left: 101px;
-        top: 36px;
+        left: 23.82%;
+        top: 5.84%;
+        width: 47.17%;
         z-index: 1;
         opacity: 0;
         
         img {
+          width: 100%;
+          height: auto;
           animation: floatTop 4s ease-in-out infinite;
         }
       }
@@ -79,22 +82,28 @@
         position: absolute;
         left: 0;
         top: 0;
+        width: 94.34%;
         z-index: 2;
         opacity: 0;
         
         img {
+          width: 100%;
+          height: auto;
           animation: floatMid 6s ease-in-out infinite;
         }
       }
 
       .part6 {
         position: absolute;
-        left: 30px;
-        top: 330px;
+        left: 7.08%;
+        top: 53.57%;
+        width: 92.92%;
         z-index: 3;
         opacity: 0;
         
         img {
+          width: 100%;
+          height: auto;
           animation: floatBottom 5s ease-in-out infinite;
         }
       }
@@ -174,7 +183,7 @@
 
     .contentLayout {
       flex-direction: column;
-      gap: 36px;
+      gap: 24px;
       max-width: 100%;
     }
 
@@ -185,10 +194,11 @@
     }
 
     .centerColumn {
-      width: min(424px, 100%);
+      width: min(280px, 55vw);
       height: auto;
       aspect-ratio: 424 / 616;
-      order: -1;
+      order: 0;
+      margin: 8px auto;
     }
 
     .textBlock,
@@ -199,7 +209,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .aboutPurposeSection {
     padding-top: 72px;
     padding-bottom: 72px;
@@ -219,7 +229,8 @@
     }
 
     .centerColumn {
-      width: min(320px, 100%);
+      width: min(220px, calc(100vw - 120px));
+      margin: 4px auto 8px;
     }
 
     .textBlock,

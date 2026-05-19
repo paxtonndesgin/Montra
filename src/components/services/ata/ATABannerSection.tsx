@@ -19,7 +19,7 @@ const ATABannerSection = () => {
         </div>
 
         <div className={styles.textContent}>
-          <h1 className={styles.title}>
+          <h1 data-service-heading className={styles.title}>
             Assistive Technology Assessments
           </h1>
           <p className={styles.description}>

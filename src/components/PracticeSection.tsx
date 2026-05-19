@@ -6,6 +6,10 @@ import { homeContent } from '@/content/home'
 
 const PracticeSection = () => {
   const { practice } = homeContent;
+  const titleLines = [
+    { text: 'Clinical', pill: 'Rigor', tone: 'blue' as const },
+    { text: 'and', pill: 'Trust.', tone: 'green' as const },
+  ];
 
   return (
     <section className={styles.practiceSection}>
@@ -13,7 +17,12 @@ const PracticeSection = () => {
         <div className={styles.header}>
           <h2 className={styles.subtitle}>{practice.title.subtitle}</h2>
           <div className={styles.title}>
-            {practice.title.main}
+            {titleLines.map((line) => (
+              <div key={line.pill} className={styles.titleLine}>
+                <span className={styles.titleText}>{line.text}</span>
+                <span className={line.tone === 'blue' ? styles.pillBlue : styles.pillGreen}>{line.pill}</span>
+              </div>
+            ))}
           </div>
         </div>
 

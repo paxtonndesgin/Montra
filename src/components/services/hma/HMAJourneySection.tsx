@@ -11,7 +11,7 @@ const HMAJourneySection = () => {
   return (
     <section className={styles.journeySection}>
       <div className={styles.container}>
-        <h2 className={styles.title}>{content.title}</h2>
+        <h2 data-service-heading className={styles.title}>{content.title}</h2>
         
         <div className={styles.stepsGrid}>
           {content.steps.map((step, index) => (

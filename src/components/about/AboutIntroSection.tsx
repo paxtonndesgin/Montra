@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../assets/style/scss/components/about/AboutIntroSection.module.scss';
-import { IMAGES } from '../../assets/images';
 import ScrollAnimator from '../animation/ScrollAnimator';
 
 import { aboutContent } from '@/content/about';
@@ -27,7 +26,7 @@ const AboutIntroSection = () => {
             return (
               <ScrollAnimator key={index} className={styles.cardAnimator} delay={delays[index] || 0.1} yOffset={40}>
                 <div className={`${styles.card} ${cardClasses[index] || styles.cardCenter}`}>
-                  <Image src={card.image} alt="About Card" width={320} height={320} className={styles.cardImage} />
+                  <Image src={card.image} alt="About Card" width={320} height={320} sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 320px" className={styles.cardImage} />
                   <div className={styles.cardContent}>
                     <p>{card.content}</p>
                   </div>

@@ -29,7 +29,7 @@ const ATAJourneySection = () => {
     <section className={styles.journeySection}>
       <div className={styles.container}>
         <div className={styles.leftCol}>
-          <h2 className={styles.title}>
+          <h2 data-service-heading className={styles.title}>
             The<br />
             Assessment<br />
             Journey

@@ -78,7 +78,7 @@
 
   .card {
     position: relative;
-    width: 320px;
+    width: 327px;
     height: 320px;
     border: 10px solid $neutral-light-active;
     border-radius: 24px;
@@ -118,6 +118,10 @@
       z-index: 0;
     }
 
+    .mobileSticker {
+      display: none;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -135,7 +139,7 @@
       
       p {
         font-family: $font-family-base;
-        font-size: $fs-14;
+        font-size: $fs-12;
         font-weight: $font-weight-medium;
         color: $neutral-dark-active;
         text-align: center;
@@ -150,7 +154,7 @@
     padding-top: 112px;
 
     .title {
-      font-size: $fs-36;
+        font-size: $fs-42;
     }
 
     .subtitle {
@@ -163,32 +167,110 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .aboutIntroSection {
-    padding-top: 72px;
+    padding-top: 56px;
 
     .container {
-      gap: 28px;
+      gap: 22px;
     }
 
     .title {
-      font-size: $fs-32;
+        font-size: $fs-42;
       gap: 6px;
+
+      .pillBlue,
+      .pillGreen {
+        padding: 2px 12px 6px;
+      }
     }
 
     .subtitle {
-      font-size: $fs-16;
+      font-size: $fs-12;
       line-height: 1.5;
+      max-width: 320px;
     }
 
     .cardsContainer {
-      gap: 20px;
-      margin-top: 12px;
+        --mobile-card-width: min(314px, calc(100vw - 76px));
+
+        gap: 0;
+      margin-top: 8px;
+        width: calc(100% + 32px);
+        padding: 10px max(16px, calc((100vw - var(--mobile-card-width)) / 2)) 12px;
+        margin-left: -16px;
+        overflow-x: auto;
+        overflow-y: visible;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+    }
+
+    .cardAnimator {
+        width: var(--mobile-card-width);
+        min-width: var(--mobile-card-width);
+        flex: 0 0 var(--mobile-card-width);
+      display: flex;
+      justify-content: center;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+
+        & + .cardAnimator {
+          margin-left: -26px;
+        }
     }
 
     .card {
-      width: min(100%, 320px);
-      height: 300px;
+        width: var(--mobile-card-width);
+        min-width: var(--mobile-card-width);
+      min-height: 340px;
+      height: auto;
+      border-width: 8px;
+      border-radius: 28px;
+      padding: 24px 18px 20px;
+      box-shadow: 0 20px 40px rgba(16, 31, 66, 0.08);
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+
+        &.cardLeft {
+          transform: translateY(12px) rotate(5deg);
+        }
+
+        &.cardCenter {
+          transform: translateY(0) rotate(-5deg);
+        }
+
+        &.cardRight {
+          transform: translateY(12px) rotate(5deg);
+        }
+
+      &::after {
+        background: linear-gradient(180deg, rgba($color-white, 0.18) 0%, rgba($color-white, 0.72) 46%, $color-white 68%);
+      }
+
+      .cardImage {
+        filter: saturate(0.82) brightness(1.04);
+      }
+
+      .cardContent {
+        margin-top: auto;
+        width: 100%;
+
+        p {
+          font-size: $fs-13;
+          line-height: 1.45;
+          text-align: center;
+        }
+      }
     }
   }
 }

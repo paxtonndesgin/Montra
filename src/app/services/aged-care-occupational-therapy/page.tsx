@@ -15,7 +15,7 @@ import Image from "next/image";
 import DecorRight from "@/assets/decor/design3/Vector-9.svg";
 import DecorLeft from "@/assets/decor/design3/Vector-10.svg";
 
-export const revalidate = 60; // ISR: Revalidate every 60 seconds
+export const revalidate = 60;
 
 export const metadata = {
   title: 'Aged Care Occupational Therapy | Montra Therapy',

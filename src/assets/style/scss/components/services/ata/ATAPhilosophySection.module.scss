@@ -21,10 +21,10 @@
   }
 
   .title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: $font-family-display;
     font-size: 36px;
     font-weight: 700;
-    color: #0E5D3F;
+    color: $main-cyan-900;
     line-height: 40px;
     letter-spacing: -0.9px;
     margin: 0;
@@ -61,10 +61,10 @@
   }
 
   .pillarTitle {
-    font-family: 'Polin', sans-serif;
+    font-family: $font-family-base;
     font-size: 21px;
     font-weight: 600;
-    color: #0051DE;
+    color: $main-blue-600;
     line-height: 120%;
     margin: 0;
     display: flex;
@@ -72,10 +72,10 @@
   }
 
   .pillarDescription {
-    font-family: 'Polin', sans-serif;
+    font-family: $font-family-base;
     font-size: 12px;
     font-weight: 500;
-    color: #565656;
+    color: $neutral-dark-active;
     line-height: 120%;
     margin: 0;
     display: flex;

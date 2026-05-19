@@ -12,7 +12,7 @@ const OOTServiceSection = () => {
     <section className={styles.serviceSection}>
       <div className={styles.container}>
         <div className={styles.leftCol}>
-          <h2 className={styles.title}>{content.title}</h2>
+          <h2 data-service-heading className={styles.title}>{content.title}</h2>
         </div>
         <div className={styles.rightCol}>
           {content.services.map((service, index) => (

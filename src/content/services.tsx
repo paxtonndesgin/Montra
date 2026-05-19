@@ -1,4 +1,5 @@
 import React from 'react';
+import { PUBLIC_IMAGES } from '@/assets/images';
 
 export interface ServiceContent {
   banner: {
@@ -215,7 +216,7 @@ export const servicesContent: Record<string, ServiceContent> = {
     banner: {
       title: "Aged Care Occupational Therapy",
       description: "Expert occupational therapy for older adults to maintain independence and safety at home.",
-      image: "/images/services/aged-care/banner.png",
+      image: PUBLIC_IMAGES.AGED_CARE_BANNER,
     },
     independence: {
       title: "Maintaining Independence at Home",
@@ -316,7 +317,7 @@ export const servicesContent: Record<string, ServiceContent> = {
     banner: {
       title: "Paediatric Occupational Therapy",
       description: "We provide a structured roadmap from initial contact to measurable progress, ensuring your child receives the comprehensive care they deserve at home.",
-      image: "/images/services/paediatric/banner.png",
+      image: PUBLIC_IMAGES.PAEDIATRIC_BANNER,
     },
     developmentAreas: {
       title: "Foundational Development Areas",
@@ -360,7 +361,7 @@ export const servicesContent: Record<string, ServiceContent> = {
     banner: {
       title: "Assistive Technology Assessments",
       description: "Evidence-based technology recommendations that transform daily living. Precisely matched to NDIS funding requirements and individual needs.",
-      image: "/images/services/ata/banner.png",
+      image: PUBLIC_IMAGES.ATA_BANNER,
     },
     whatIs: {
       title: <>What is Assistive<br />Technology?</>,
@@ -389,10 +390,10 @@ export const servicesContent: Record<string, ServiceContent> = {
     banner: {
       title: "Functional Capacity Assessments",
       description: "Our thorough assessments provide the clinical clarity needed to justify supports and empower independence.",
-      image: "/images/services/fca/banner.png",
+      image: PUBLIC_IMAGES.FCA_BANNER,
     },
     evaluation: {
-      title: <>A comprehensive<br />evaluation of<br /><span style={{color: '#0059f4'}}>independence.</span></>,
+      title: <>A comprehensive evaluation of <span style={{color: '#0059f4'}}>independence.</span></>,
       description: "Functional Capacity Assessment (FCA) is a detailed investigation into how an individual's disability impacts their everyday life across all life domains.",
       stats: [
         { number: '12-15', text: 'Average Hours invested per report', type: 'blue' },
@@ -408,7 +409,7 @@ export const servicesContent: Record<string, ServiceContent> = {
     },
     specializedNeeds: {
       badge: "Eligibility",
-      title: <>Specialized for<br />high-complexity<br />needs.</>,
+      title: "Specialized for high-complexity needs.",
       description: "Our assessments are designed for individuals requiring clear clinical documentation to secure essential support services.",
       categories: [
         { title: 'NDIS Participants', description: 'Adults and adolescents seeking new or renewed plan funding.' },
@@ -470,7 +471,7 @@ export const servicesContent: Record<string, ServiceContent> = {
     banner: {
       title: "Home Modification Assessments",
       description: "Strategic architectural modifications designed to improve safety, accessibility, and long-term independence.",
-      image: "/images/services/hma/banner.png",
+      image: PUBLIC_IMAGES.HMA_BANNER,
     },
     redefining: {
       title: "Redefining Accessibility",
@@ -500,7 +501,7 @@ export const servicesContent: Record<string, ServiceContent> = {
     whyStrategic: {
       title: "Why Strategic Modification Matters",
       description: "Poorly planned modifications lead to expensive rework and delayed independence. Our clinical approach identifies the root cause of environmental barriers to ensure the first solution is the right one.",
-      image: "/images/services/hma/strategic.png",
+      image: PUBLIC_IMAGES.HMA_STRATEGIC,
       stats: [
         { number: "0%", text: "Tolerance for error", type: "blue" },
         { number: "24/7", text: "Safe independence", type: "green" }
@@ -534,19 +535,19 @@ export const servicesContent: Record<string, ServiceContent> = {
     banner: {
       title: "Ongoing Occupational Therapy",
       description: "Sustainable, goal-oriented clinical intervention designed to foster independence and enhance quality of life.",
-      image: "/images/services/oot/banner.png",
+      image: PUBLIC_IMAGES.OOT_BANNER,
     },
     support: {
       title: "Therapy Support Areas",
       cards: [
-        { title: "Daily Living Skills", description: "Developing strategies for essential tasks to enhance daily functional success.", image: "/images/services/oot/daily_living.png" },
-        { title: "Independence", description: "Empowering participants to take control of their environment and routines.", image: "/images/services/oot/independence.png" },
-        { title: "Cognitive Support", description: "Customized cognitive strategies to improve mental engagement and processing.", image: "/images/services/oot/cognitive.png" }
+        { title: "Daily Living Skills", description: "Developing strategies for essential tasks to enhance daily functional success.", image: PUBLIC_IMAGES.OOT_DAILY_LIVING },
+        { title: "Independence", description: "Empowering participants to take control of their environment and routines.", image: PUBLIC_IMAGES.OOT_INDEPENDENCE },
+        { title: "Cognitive Support", description: "Customized cognitive strategies to improve mental engagement and processing.", image: PUBLIC_IMAGES.OOT_COGNITIVE }
       ]
     },
     targeted: {
       title: "Targeted Care Populations",
-      image: "/images/services/oot/targeted_v2.png",
+      image: PUBLIC_IMAGES.OOT_TARGETED,
       populations: [
         { title: "NDIS Participants", description: "Self-managed, plan-managed, or NDIA-managed participants seeking outcome-focused therapy." },
         { title: "Families & Carers", description: "Families requiring professional guidance on home modification and capacity building." },

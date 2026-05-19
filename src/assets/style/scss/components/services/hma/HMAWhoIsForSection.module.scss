@@ -21,7 +21,7 @@
     font-family: $font-family-base;
     font-size: $fs-42;
     font-weight: $font-weight-semibold;
-    color: #0E5D3F;
+    color: $main-cyan-900;
     line-height: 101%;
     margin: 0;
   }
@@ -34,8 +34,8 @@
   }
 
   .card {
-    background: #E6EEFE;
-    border: 8px solid #8AB3FA;
+    background: $main-blue-50;
+    border: 8px solid $main-blue-200;
     border-radius: 24px;
     padding: 24px;
     display: flex;
@@ -45,7 +45,7 @@
 
     &:hover {
       transform: translateX(10px) scale(1.02);
-      border-color: #0051DE;
+      border-color: $main-blue-600;
     }
   }
 
@@ -53,7 +53,7 @@
     font-family: $font-family-base;
     font-size: $fs-21;
     font-weight: $font-weight-semibold;
-    color: #0051DE;
+    color: $main-blue-600;
     line-height: 120%;
   }
 
@@ -67,7 +67,7 @@
     font-family: $font-family-base;
     font-size: $fs-21;
     font-weight: $font-weight-semibold;
-    color: #0051DE;
+    color: $main-blue-600;
     line-height: 120%;
     margin: 0;
   }
@@ -76,7 +76,7 @@
     font-family: $font-family-base;
     font-size: $fs-12;
     font-weight: $font-weight-medium;
-    color: #565656;
+    color: $neutral-dark-active;
     line-height: 120%;
     margin: 0;
   }
@@ -88,6 +88,43 @@
     }
     .rightCol {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+      padding: 40px 0;
+
+      .container {
+        gap: 24px;
+      }
+
+    .leftCol {
+      flex: none;
+      width: 100%;
+    }
+
+    .title {
+        font-size: 28px;
+      }
+
+      .rightCol {
+        gap: 12px;
+      }
+
+      .card {
+        padding: 18px;
+        gap: 16px;
+        border-width: 6px;
+      }
+
+      .number,
+      .cardTitle {
+        font-size: 18px;
+      }
+
+      .cardDescription {
+        font-size: 13px;
+        line-height: 1.45;
     }
   }
 }

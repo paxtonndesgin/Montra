@@ -26,7 +26,7 @@ const ATAWhoIsForSection = () => {
     <section className={styles.whoIsForSection}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Who This Is For</h2>
+          <h2 data-service-heading className={styles.title}>Who This Is For</h2>
           <p className={styles.subtitle}>Specialized support for the entire care network.</p>
         </div>
 

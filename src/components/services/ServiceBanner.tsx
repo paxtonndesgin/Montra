@@ -33,13 +33,15 @@ const ServiceBanner: React.FC<ServiceBannerProps> = ({
             alt={title}
             fill
             className={styles.image}
+            loading={imagePriority ? 'eager' : 'lazy'}
+            fetchPriority={imagePriority ? 'high' : 'auto'}
             priority={imagePriority}
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
         </div>
 
         <div className={styles.textContent}>
-          <h1 className={styles.title}>
+          <h1 data-service-heading className={styles.title}>
             {title}
           </h1>
           <p className={styles.description}>

@@ -46,28 +46,28 @@
   }
 
   .iconBox {
-    width: 48px;
-    height: 48px;
+      width: 32px;
+      height: 32px;
     background: $color-icon-green;
-    border-radius: 12px;
+      border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     
     .icon {
-      width: 24px;
-      height: 24px;
+        width: 16px;
+        height: 16px;
       border: 2px solid $main-cyan-600;
-      border-radius: 6px;
+        border-radius: 4px;
       position: relative;
 
       &::after {
         content: "";
-        position: absolute;
-        top: 4px;
-        left: 4px;
-        width: 12px;
-        height: 12px;
+          position: absolute;
+          top: 3px;
+          left: 3px;
+          width: 8px;
+          height: 8px;
         background: $main-cyan-600;
         border-radius: 2px;
       }
@@ -76,11 +76,12 @@
 
   .title {
     font-family: $font-family-base;
-    font-size: $fs-36;
-    font-weight: $font-weight-bold;
+      font-size: $fs-42;
+      font-weight: $font-weight-semibold;
     color: $main-cyan-900;
-    line-height: 1.2;
+      line-height: 1.01;
     margin: 0;
+      max-width: 364px;
 
     .highlight {
       color: $main-blue-800;
@@ -89,33 +90,39 @@
 
   .description {
     font-family: $font-family-base;
-    font-size: $fs-14;
-    color: $neutral-dark-active;
-    line-height: 1.5;
+      font-size: $fs-17;
+      font-weight: $font-weight-medium;
+      color: #737373;
+      line-height: 1.2;
     margin: 0;
-    max-width: 400px;
+      max-width: 364px;
   }
 
   .statsRow {
     display: flex;
-    gap: 16px;
-    margin-top: 16px;
+      gap: 8px;
+      margin-top: 0;
+      width: 100%;
+      max-width: 364px;
   }
 
   .statBoxBlue {
     background: $main-blue-400;
-    border-radius: 16px;
+      border-radius: 18px;
     padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+      justify-content: center;
+      gap: 8px;
     flex: 1;
     color: $color-white;
+      min-height: 84px;
 
     .statNumber {
       font-family: $font-family-base;
-      font-size: $fs-24;
+        font-size: $fs-25;
       font-weight: $font-weight-semibold;
+        line-height: 1.2;
     }
 
     .statText {
@@ -128,18 +135,21 @@
 
   .statBoxGreen {
     background: $main-cyan-700;
-    border-radius: 16px;
+      border-radius: 18px;
     padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+      justify-content: center;
+      gap: 8px;
     flex: 1;
     color: $color-white;
+      min-height: 84px;
 
     .statNumber {
       font-family: $font-family-base;
-      font-size: $fs-24;
+        font-size: $fs-25;
       font-weight: $font-weight-semibold;
+        line-height: 1.2;
     }
 
     .statText {
@@ -175,17 +185,20 @@
 
   .domainsTitle {
     font-family: $font-family-base;
-    font-size: $fs-24;
+      font-size: $fs-25;
     font-weight: $font-weight-semibold;
     color: $main-cyan-900;
     margin: 0;
+      align-self: center;
+      text-align: center;
   }
 
   .domainsList {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+      margin-top: 0;
     gap: 24px;
+      width: 100%;
   }
 
   .domainItem {
@@ -228,37 +241,86 @@
       max-width: 100%;
     }
 
+    .leftCol {
+      width: 100%;
+      max-width: 364px;
+    overflow-wrap: normal;
+    word-break: normal;
+    text-wrap: balance;
+    }
+
     .description {
-      max-width: none;
+      max-width: 364px;
     }
 
     .rightCol {
       width: 100%;
+      max-width: 364px;
       align-self: auto;
     }
   }
 
   @media (max-width: 768px) {
-    .card {
-      padding: 20px 16px;
-      border-radius: 24px;
+    .container {
+      width: 100%;
+      max-width: 442px;
+      padding: 0 15px;
     }
 
-    .title {
-      font-size: $fs-32;
+    .card {
+      padding: 24px;
+      gap: 46px;
+      border-radius: 24px;
+      width: min(100%, 412px);
+      max-width: 412px;
+    }
+
+    .leftCol {
+      gap: 24px;
+      width: min(100%, 364px);
+      max-width: 364px;
+    }
+
+    .title,
+    .description,
+    .statsRow {
+      width: 100%;
+      max-width: 364px;
     }
 
     .statsRow {
-      flex-direction: column;
+      flex-direction: row;
+      gap: 8px;
+      margin-top: 0;
+    }
+
+    .statBoxBlue,
+    .statBoxGreen {
+      padding: 16px;
+      min-width: 0;
+      flex: 1 1 calc((100% - 8px) / 2);
+    }
+
+    .description {
+      max-width: 364px;
     }
 
     .rightCol {
-      padding: 24px 16px;
+      padding: 32px 24px;
+      width: min(100%, 364px);
+      max-width: 364px;
+    }
+
+    .domainsCard {
+      gap: 24px;
     }
 
     .domainsList {
-      margin-top: 12px;
-      gap: 18px;
+      margin-top: 0;
+      gap: 24px;
+      width: min(100%, 316px);
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

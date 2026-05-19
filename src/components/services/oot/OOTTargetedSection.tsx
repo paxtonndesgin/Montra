@@ -25,7 +25,7 @@ const OOTTargetedSection = () => {
         </div>
 
         <div className={styles.textCol}>
-          <h2 className={styles.title}>{content.title}</h2>
+          <h2 data-service-heading className={styles.title}>{content.title}</h2>
           <div className={styles.populationsList}>
             {content.populations.map((item, index) => (
               <div key={index} className={styles.populationItem}>

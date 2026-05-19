@@ -16,7 +16,7 @@
   .title {
     font-size: vars.$fs-42;
     font-weight: 700;
-    color: #0E5D3F;
+    color: vars.$main-cyan-900;
   }
 }
 
@@ -67,21 +67,74 @@
 }
 
 .cardGrey {
-  background: #EBEBEB;
+  background: vars.$neutral-light-active;
   .cardTitle { color: vars.$neutral-dark-active; }
-  .cardDesc { color: #565656; }
+  .cardDesc { color: vars.$neutral-dark-active; }
 }
 
 .cardBlue {
-  background: #5490F8;
-  .cardTitle, .cardDesc { color: #F9F9F9; }
+  background: vars.$main-blue-300;
+  .cardTitle, .cardDesc { color: vars.$neutral-light; }
 }
 
 .cardGreen {
-  background: #179D6B;
-  .cardTitle, .cardDesc { color: #F9F9F9; }
+  background: vars.$main-cyan-700;
+  .cardTitle, .cardDesc { color: vars.$neutral-light; }
 }
 
 .cardWide {
   flex: 2;
+}
+
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .header {
+    margin-bottom: 24px;
+
+    .title {
+      text-align: center;
+    }
+  }
+
+  .grid {
+    width: 100%;
+    max-width: 412px;
+    gap: 8px;
+  }
+
+  .row {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .card,
+  .cardWide {
+    flex: 1 1 0;
+  }
+
+  .card {
+    min-height: 170px;
+    padding: 20px 16px;
+    border-radius: 18px;
+
+    .cardTitle {
+      font-size: vars.$fs-18;
+      margin-bottom: 6px;
+    }
+
+    .cardDesc {
+      font-size: vars.$fs-12;
+      line-height: 120%;
+    }
+  }
 }

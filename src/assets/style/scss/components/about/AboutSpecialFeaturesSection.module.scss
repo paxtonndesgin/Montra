@@ -131,25 +131,32 @@
 
 @media (max-width: 768px) {
   .aboutSpecialFeaturesSection {
-    padding-top: 72px;
+    padding-top: 56px;
 
     .container {
-      gap: 28px;
+      gap: 24px;
     }
 
     .title {
-      font-size: $fs-32;
+      font-size: $fs-24;
       line-height: 1.2;
     }
 
     .accordionHeader {
       align-items: flex-start;
-      gap: 16px;
+      gap: 12px;
+      padding: 14px 0;
     }
 
     .itemTitle {
-      font-size: $fs-24;
+      font-size: $fs-20;
       line-height: 1.25;
+    }
+
+    .iconBtn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
     }
   }
 }

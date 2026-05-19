@@ -1,8 +1,10 @@
+"use client";
+
 import Image from 'next/image'
 import React from 'react'
-import Link from 'next/link'
 import arrowIcon from '../assets/icon/arrow.svg'
 import styles from '../assets/style/scss/components/ButtonLink.module.scss'
+import RouteLoadingLink from './RouteLoadingLink'
 
 type ButtonLinkProps = {
   href: string
@@ -10,6 +12,7 @@ type ButtonLinkProps = {
   variant?: 'default' | 'variant2' | 'variant3'
   className?: string
   showArrowOnHover?: boolean
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
 const ButtonLink = ({
@@ -18,10 +21,12 @@ const ButtonLink = ({
   variant = 'default',
   className = '',
   showArrowOnHover = true,
+  onClick,
 }: ButtonLinkProps) => {
   return (
-    <Link
+    <RouteLoadingLink
       href={href}
+      onClick={onClick}
       className={[
         styles.buttonLink,
         styles[variant],
@@ -33,7 +38,7 @@ const ButtonLink = ({
       <span className={styles.iconWrapper} aria-hidden="true">
         <Image src={arrowIcon} alt="" className={styles.icon} />
       </span>
-    </Link>
+    </RouteLoadingLink>
   )
 }
 

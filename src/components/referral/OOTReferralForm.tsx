@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { 
   X, User, Building, FileQuestion, PlusCircle, 
   Check, ChevronDown, Clock, ShieldCheck, Send 
 } from 'lucide-react';
 import baseStyles from '../../assets/style/scss/components/referral/ReferralForm.module.scss';
 import styles from '../../assets/style/scss/components/referral/OOTReferralForm.module.scss';
+import RouteLoadingLink from '@/components/RouteLoadingLink';
 
 interface OOTReferralFormProps {
   hideCloseButton?: boolean;
@@ -67,9 +67,9 @@ export default function OOTReferralForm({ hideCloseButton = false }: OOTReferral
     <div className={baseStyles.formContainer}>
       {/* Close Button */}
       {!hideCloseButton && (
-        <Link href="/" className={baseStyles.closeButton}>
+        <RouteLoadingLink href="/" className={baseStyles.closeButton}>
           <X size={24} />
-        </Link>
+        </RouteLoadingLink>
       )}
 
       {/* Header */}

@@ -26,7 +26,7 @@ const HMAWhyStrategicSection = () => {
 
         <div className={styles.textCol}>
           <div className={styles.textContent}>
-            <h2 className={styles.title}>{content.title}</h2>
+            <h2 data-service-heading className={styles.title}>{content.title}</h2>
             <p className={styles.description}>
               {content.description}
             </p>

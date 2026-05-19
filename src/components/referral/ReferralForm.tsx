@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X, User, Building, FileQuestion, PlusCircle,
@@ -9,9 +8,11 @@ import {
 } from 'lucide-react';
 import styles from '@/assets/style/scss/components/referral/ReferralForm.module.scss';
 import { submitReferral, getServices, Service } from '@/lib/api/referral';
+import RouteLoadingLink from '@/components/RouteLoadingLink';
 
 interface ReferralFormProps {
   hideCloseButton?: boolean;
+  selectedServiceName?: string;
 }
 
 function CollapsePanel({ open, children }: { open: boolean; children: React.ReactNode }) {
@@ -33,7 +34,7 @@ function CollapsePanel({ open, children }: { open: boolean; children: React.Reac
   );
 }
 
-export default function ReferralForm({ hideCloseButton = false }: ReferralFormProps) {
+export default function ReferralForm({ hideCloseButton = false, selectedServiceName }: ReferralFormProps) {
   // ── Field state ──────────────────────────────────────────────────────────────
   const [fullName, setFullName] = useState('');
   const [dob, setDob] = useState('');
@@ -69,6 +70,14 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
   useEffect(() => {
     getServices().then(setServices);
   }, []);
+
+  useEffect(() => {
+    if (!selectedServiceName || services.length === 0) return;
+    const match = services.find(
+      s => s.name.toLowerCase() === selectedServiceName.toLowerCase()
+    );
+    if (match) setServiceId(match.id);
+  }, [selectedServiceName, services]);
 
   // ── Collapsed state ──────────────────────────────────────────────────────────
   const [collapsed, setCollapsed] = useState({ p: false, r: false, c: false, o: false });
@@ -162,9 +171,9 @@ export default function ReferralForm({ hideCloseButton = false }: ReferralFormPr
     <div className={styles.formContainer}>
       {/* Close Button */}
       {!hideCloseButton && (
-        <Link href="/" className={styles.closeButton}>
+        <RouteLoadingLink href="/" className={styles.closeButton}>
           <X size={24} />
-        </Link>
+        </RouteLoadingLink>
       )}
 
       {/* Header */}

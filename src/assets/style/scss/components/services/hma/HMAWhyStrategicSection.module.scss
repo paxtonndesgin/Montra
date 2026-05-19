@@ -8,8 +8,8 @@
   .container {
     @include container;
     max-width: 1320px;
-    background: #F9F9F9;
-    border: 10px solid #EBEBEB;
+    background: $neutral-light;
+    border: 10px solid $neutral-light-active;
     border-radius: 32px;
     display: flex;
     align-items: center;
@@ -30,7 +30,7 @@
       right: 0;
       bottom: 0;
       width: 40%;
-      background: linear-gradient(90deg, rgba(249, 249, 249, 0) 0%, #F9F9F9 100%);
+      background: linear-gradient(90deg, rgba($neutral-light, 0) 0%, $neutral-light 100%);
       z-index: 2;
     }
   }
@@ -65,7 +65,7 @@
     font-family: $font-family-base;
     font-size: $fs-42;
     font-weight: $font-weight-semibold;
-    color: #0E5D3F;
+    color: $main-cyan-900;
     line-height: 101%;
     margin: 0;
   }
@@ -74,7 +74,7 @@
     font-family: $font-family-base;
     font-size: $fs-12;
     font-weight: $font-weight-medium;
-    color: #565656;
+    color: $neutral-dark-active;
     line-height: 120%;
     margin: 0;
   }
@@ -96,7 +96,7 @@
       font-family: $font-family-base;
       font-size: $fs-25;
       font-weight: $font-weight-semibold;
-      color: #F9F9F9;
+      color: $neutral-light;
       margin: 0;
     }
 
@@ -104,16 +104,16 @@
       font-family: $font-family-base;
       font-size: $fs-12;
       font-weight: $font-weight-medium;
-      color: #F9F9F9;
+      color: $neutral-light;
       line-height: 120%;
     }
 
     &.blueCard {
-      background: #5490F8;
+      background: $main-blue-300;
     }
 
     &.greenCard {
-      background: #179D6B;
+      background: $main-cyan-700;
     }
   }
 
@@ -136,26 +136,77 @@
   }
 
   @media (max-width: 768px) {
+    padding: 40px 0;
+
     .container {
-      border-radius: 24px;
-      border-width: 8px;
+      width: 100%;
+      max-width: 412px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      padding: 0 16px;
+      box-sizing: border-box;
     }
 
     .imageCol {
-      height: 240px;
+      display: none;
     }
 
     .textCol {
-      padding: 24px 16px;
-      gap: 24px;
+      width: 100%;
+      padding: 0;
+      gap: 36px;
+      box-sizing: border-box;
+    }
+
+    .textContent {
+      width: 100%;
+      gap: 14px;
     }
 
     .title {
-      font-size: $fs-32;
+      width: 100%;
+      font-size: $fs-42;
+      font-weight: $font-weight-semibold;
+      color: $main-cyan-900;
+      line-height: 101%;
+    }
+
+    .description {
+      width: 100%;
+      font-size: $fs-12;
+      font-weight: $font-weight-medium;
+      color: $neutral-dark-active;
+      line-height: 120%;
     }
 
     .statsRow {
-      flex-direction: column;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .statCard {
+      flex: 1 1 0;
+      width: auto;
+      min-width: 0;
+      min-height: 84px;
+      padding: 16px;
+      justify-content: center;
+      gap: 8px;
+
+      h3 {
+        width: 170px;
+        font-size: $fs-25;
+        line-height: 120%;
+      }
+
+      span {
+        width: 170px;
+        font-size: $fs-12;
+        line-height: 120%;
+      }
     }
   }
 }

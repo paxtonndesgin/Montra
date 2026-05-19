@@ -7,7 +7,7 @@ const MAX_WIDTH = 1600;
 const WEBP_QUALITY = 80;
 
 const folders = [
-  join(IMAGES_DIR, 'Hinh anh 3'),
+  join(IMAGES_DIR, 'source_photo'),
   join(IMAGES_DIR, 'banner'),
   join(IMAGES_DIR, 'logo'),
 ];

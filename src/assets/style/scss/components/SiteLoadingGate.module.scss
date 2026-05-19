@@ -1,0 +1,69 @@
+@use '../abstracts/variables' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top, rgba($main-blue-100, 0.92), transparent 42%),
+    linear-gradient(180deg, rgba($color-white, 0.98) 0%, rgba($main-blue-50, 0.96) 100%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  transition: opacity 0.26s ease, visibility 0.26s ease;
+}
+
+.overlayBlocking {
+  pointer-events: auto;
+}
+
+.overlayLeaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: min(100%, 320px);
+  padding: 28px 24px;
+  border: 1px solid rgba($main-blue-200, 0.8);
+  border-radius: 28px;
+  background: rgba($color-white, 0.9);
+  box-shadow: 0 24px 80px rgba(0, 58, 143, 0.12);
+}
+
+.spinner {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 4px solid rgba($main-blue-200, 0.45);
+  border-top-color: $main-blue-500;
+  border-right-color: $main-cyan-700;
+  animation: gateSpin 0.9s linear infinite;
+}
+
+.label {
+  margin: 0;
+  color: $neutral-dark-hover;
+  font-size: $fs-20;
+  font-weight: $font-weight-semibold;
+  text-align: center;
+}
+
+@keyframes gateSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

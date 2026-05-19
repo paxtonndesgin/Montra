@@ -1,16 +1,18 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Globe, Mail, Phone } from 'lucide-react'
 import styles from '../assets/style/scss/components/Footer.module.scss'
 import { IMAGES } from '../assets/images'
+import RouteLoadingLink from './RouteLoadingLink'
 
 const NAV_LINKS = {
   Services: [
-    { label: 'Functional Assessments', href: '#' },
-    { label: 'NDIS Reporting', href: '#' },
-    { label: 'Home Modifications', href: '#' },
-    { label: 'Assistive Technology', href: '#' },
+    { label: 'Functional Capacity Assessments', href: '/services/functional-capacity-assessments' },
+    { label: 'Assistive Technology Assessments', href: '/services/assistive-technology-assessments' },
+    { label: 'Home Modification Assessments', href: '/services/home-modification-assessments' },
+    { label: 'Paediatric Occupational Therapy', href: '/services/paediatric-occupational-therapy' },
+    { label: 'Aged Care Occupational Therapy', href: '/services/aged-care-occupational-therapy' },
+    { label: 'Ongoing Occupational Therapy', href: '/services/ongoing-occupational-therapy' },
   ],
   Practice: [
     { label: 'Clinical Governance', href: '#' },
@@ -33,7 +35,7 @@ const Footer = () => {
         <div className={styles.top}>
           {/* Brand column */}
           <div className={styles.brand}>
-            <Link href="/" className={styles.logoLink}>
+            <RouteLoadingLink href="/" className={styles.logoLink}>
               <Image
                 src={IMAGES.LOGO_MAIN}
                 alt="Montra Therapy Logo"
@@ -44,7 +46,7 @@ const Footer = () => {
                 <span>Montra</span>
                 <span>Therapy</span>
               </span>
-            </Link>
+            </RouteLoadingLink>
             <p className={styles.tagline}>
               Clear. Reliable. Evidence-Based<br />Occupational Therapy.
             </p>
@@ -69,9 +71,9 @@ const Footer = () => {
                 <ul className={styles.navList}>
                   {links.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className={styles.navLink}>
+                      <RouteLoadingLink href={link.href} className={styles.navLink}>
                         {link.label}
-                      </Link>
+                      </RouteLoadingLink>
                     </li>
                   ))}
                 </ul>
@@ -83,7 +85,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © 2024 Montra Therapy. All rights reserved. Evidence-based clinical excellence.
+            © 2026 Montra Therapy. All rights reserved. Evidence-based clinical excellence.
           </p>
           <span className={styles.bottomAccent}>Evidence-Based outcomes.</span>
         </div>

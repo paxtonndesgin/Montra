@@ -130,9 +130,37 @@
     padding: 40px 24px;
     border-radius: 32px;
   }
-  .stepItem {
-    flex: 0 0 100%;
+
+  .journeyWrapper {
+    overflow: hidden;
   }
+
+  .steps {
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    margin-bottom: -8px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .stepItem {
+    flex: 0 0 min(280px, calc(100vw - 96px));
+    min-width: min(280px, calc(100vw - 96px));
+    scroll-snap-align: start;
+  }
+
+  .stepDescription {
+    padding-right: 0;
+  }
+
   .line {
     display: none;
   }

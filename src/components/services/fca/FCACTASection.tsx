@@ -8,7 +8,7 @@ const FCACTASection = () => {
       <div className={styles.container}>
         <div className={styles.contentWrapper}>
           <div className={styles.leftCol}>
-            <h2 className={styles.mainTitle}>
+            <h2 data-service-heading className={styles.mainTitle}>
               Need a<br />
               Functional<br />
               Capacity<br />

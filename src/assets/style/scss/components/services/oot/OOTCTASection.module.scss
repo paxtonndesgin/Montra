@@ -29,7 +29,7 @@
     .overlay {
       position: absolute;
       inset: 0;
-      background: #003FAD;
+      background: vars.$main-blue-700;
       mix-blend-mode: screen;
     }
   }
@@ -65,7 +65,7 @@
     font-family: vars.$font-family-base;
     font-size: vars.$fs-12;
     font-weight: vars.$font-weight-medium;
-    color: #F9F9F9;
+    color: vars.$neutral-light;
     line-height: 120%;
     max-width: 583px;
     margin: 0;
@@ -83,15 +83,15 @@
   .btnPrimary {
     width: 139.65px;
     height: 43.7px;
-    background: #1EC989 !important;
+    background: vars.$main-cyan-600 !important;
     font-size: vars.$fs-12;
   }
 
   .btnSecondary {
     width: 108.3px;
     height: 43.7px;
-    background: #EAEAEA !important;
-    color: #12673F !important;
+    background: vars.$neutral-light-active !important;
+    color: vars.$color-btn-dark-green !important;
     font-size: vars.$fs-12;
   }
 

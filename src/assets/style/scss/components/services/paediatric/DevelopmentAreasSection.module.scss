@@ -3,7 +3,7 @@
 
 .section {
   padding: $section-padding-y 0;
-  background: #f9f9f9;
+  background: $neutral-light;
 }
 
 .container {
@@ -18,7 +18,7 @@
   .title {
     font-size: 32px;
     font-weight: 600;
-    color: #0E5D3F; // Montra/Main Cyan/main cyan-900
+    color: $main-cyan-900;
     margin-bottom: 16px;
     line-height: 1.1;
     
@@ -29,10 +29,72 @@
   
   .subtitle {
     font-size: 14px;
-    color: #252525;
+    color: $color-text-darkest;
     max-width: 556px;
     margin: 0 auto;
     line-height: 1.4;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+    background: $color-white;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .header {
+    max-width: 412px;
+    margin-bottom: 28px;
+
+    .title {
+      font-size: 42px;
+      font-weight: 600;
+      line-height: 101%;
+      color: $main-cyan-900;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+  }
+
+  .grid {
+    max-width: 412px;
+    gap: 12px;
+  }
+
+  .row {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .card {
+    min-height: 170px;
+    padding: 20px 16px;
+    flex: 1 1 0;
+    border-radius: 18px;
+
+    .cardTitle {
+      font-size: 16px;
+      line-height: 1.15;
+    }
+
+    .cardDesc {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+  }
+
+  .cardLarge,
+  .cardSmall {
+    flex: 1 1 0;
   }
 }
 
@@ -90,22 +152,57 @@
 }
 
 .cardGrey {
-  background: #EBEBEB;
+  background: $neutral-light-active;
   .cardTitle, .cardDesc {
-    color: #565656;
+    color: $neutral-dark-active;
   }
 }
 
 .cardBlue {
-  background: #5490F8;
+  background: $main-blue-300;
   .cardTitle, .cardDesc {
-    color: #F9F9F9;
+    color: $neutral-light;
   }
 }
 
 .cardGreen {
-  background: #179D6B;
+  background: $main-cyan-700;
   .cardTitle, .cardDesc {
-    color: #F9F9F9;
+    color: $neutral-light;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    max-width: 412px;
+    gap: 12px;
+  }
+
+  .row {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .card {
+    min-height: 170px;
+    padding: 20px 16px;
+    flex: 1 1 0;
+    border-radius: 18px;
+
+    .cardTitle {
+      font-size: 16px;
+      line-height: 1.15;
+    }
+
+    .cardDesc {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+  }
+
+  .cardLarge,
+  .cardSmall {
+    flex: 1 1 0;
   }
 }

@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import FuncCapIcon from '../assets/icon/func-cap-asset-icon.svg'
 import OngOccTherapIcon from '../assets/icon/ong-occ-therap-icon.svg'
@@ -20,7 +22,63 @@ const ICONS = {
 }
 
 const ServicesSection = () => {
-  const { services } = homeContent;
+  const { services } = homeContent
+  const cardsRef = useRef<HTMLDivElement | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const cardsElement = cardsRef.current
+
+    if (!cardsElement) {
+      return
+    }
+
+    const updateActiveCard = () => {
+      const cardElements = Array.from(cardsElement.children) as HTMLElement[]
+
+      if (!cardElements.length) {
+        return
+      }
+
+      const viewportCenter = cardsElement.scrollLeft + cardsElement.clientWidth / 2
+      let closestIndex = 0
+      let closestDistance = Number.POSITIVE_INFINITY
+
+      cardElements.forEach((cardElement, index) => {
+        const cardCenter = cardElement.offsetLeft + cardElement.clientWidth / 2
+        const distance = Math.abs(cardCenter - viewportCenter)
+
+        if (distance < closestDistance) {
+          closestDistance = distance
+          closestIndex = index
+        }
+      })
+
+      setActiveIndex(closestIndex)
+    }
+
+    updateActiveCard()
+
+    cardsElement.addEventListener('scroll', updateActiveCard, { passive: true })
+    window.addEventListener('resize', updateActiveCard)
+
+    return () => {
+      cardsElement.removeEventListener('scroll', updateActiveCard)
+      window.removeEventListener('resize', updateActiveCard)
+    }
+  }, [])
+
+  const handleDotClick = (index: number) => {
+    const cardsElement = cardsRef.current
+    const cardElement = cardsElement?.children[index] as HTMLElement | undefined
+
+    if (!cardsElement || !cardElement) {
+      return
+    }
+
+    cardElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+    setActiveIndex(index)
+  }
 
   return (
     <section className={styles.servicesSection}>
@@ -30,7 +88,7 @@ const ServicesSection = () => {
           <span className={styles.titleGreen}>{services.title.green}</span>
         </h2>
 
-        <div className={styles.cardsGrid}>
+        <div ref={cardsRef} className={styles.cardsGrid}>
           {services.cards.map((card) => (
             <div key={card.id} className={`${styles.card} ${styles[card.theme]}`}>
               <div className={styles.cardTop}>
@@ -53,6 +111,19 @@ const ServicesSection = () => {
                 <div className={styles.arrowIcon} />
               </div>
             </div>
+          ))}
+        </div>
+
+        <div className={styles.carouselDots} aria-label="Services carousel pagination">
+          {services.cards.map((card, index) => (
+            <button
+              key={`${card.id}-dot`}
+              type="button"
+              className={`${styles.carouselDot} ${index === activeIndex ? styles.carouselDotActive : ""}`}
+              onClick={() => handleDotClick(index)}
+              aria-label={`View ${card.id} service card`}
+              aria-pressed={index === activeIndex}
+            />
           ))}
         </div>
 

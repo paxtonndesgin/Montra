@@ -2,6 +2,8 @@ import React from 'react'
 import styles from '../assets/style/scss/components/ReferralEnquirySection.module.scss'
 import ButtonLink from './ButtonLink'
 import Image from 'next/image'
+import type { StaticImageData } from 'next/image'
+import { IMAGES } from '../assets/images'
 
 interface ReferralEnquirySectionProps {
   title?: React.ReactNode;
@@ -10,7 +12,7 @@ interface ReferralEnquirySectionProps {
   primaryBtnHref?: string;
   secondaryBtnText?: string;
   secondaryBtnHref?: string;
-  image?: string;
+  image?: string | StaticImageData;
   variant?: 'default' | 'service';
 }
 
@@ -21,7 +23,7 @@ const ReferralEnquirySection: React.FC<ReferralEnquirySectionProps> = ({
   primaryBtnHref = "/referral",
   secondaryBtnText = "Contact Us",
   secondaryBtnHref = "/contact",
-  image = "/referral_cta_bg.png",
+  image = IMAGES.BANNER_2,
   variant = 'default'
 }) => {
   return (

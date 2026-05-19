@@ -15,7 +15,7 @@ const ATAFrameworkSection = () => {
     <section className={styles.frameworkSection}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>{content.title}</h2>
+          <h2 data-service-heading className={styles.title}>{content.title}</h2>
         </div>
 
         <div className={styles.gridWrapper}>

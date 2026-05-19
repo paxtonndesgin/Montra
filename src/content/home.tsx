@@ -31,11 +31,11 @@ export const homeContent = {
     },
     cards: [
       {
-        image: 'PRACTICE_1',
+        image: 'HOME_PRACTICE_1',
         text: "At Montra Therapy, we believe that precision in documentation and assessment is the cornerstone of effective patient outcomes. Our team operates with an editorial level of detail, ensuring every report is a surgical instrument for progress."
       },
       {
-        image: 'PRACTICE_2',
+        image: 'HOME_PRACTICE_2',
         text: "We bridge the gap between complex clinical data and actionable human-centric goals. By maintaining the highest ethical standards, we empower participants and their support networks through clear, authoritative guidance."
       }
     ]
@@ -97,11 +97,41 @@ export const homeContent = {
     },
     subtitle: "Providing expert clinical support across the care ecosystem.",
     cards: [
-      { id: 1, lines: ['NDIS', 'Participants'], Icon: Users, tiltClass: 'cardTiltOne' },
-      { id: 2, lines: ['Older Adults'], Icon: User, tiltClass: 'cardTiltTwo' },
-      { id: 3, lines: ['Families', '& Carers'], Icon: Heart, tiltClass: 'cardTiltThree' },
-      { id: 4, lines: ['Support', 'Coordinators'], Icon: RefreshCcw, tiltClass: 'cardTiltFour' },
-      { id: 5, lines: ['Medical', 'Professionals'], Icon: Stethoscope, tiltClass: 'cardTiltFive' },
+      {
+        id: 1,
+        lines: ['NDIS', 'Participants'],
+        description: 'We support NDIS participants to build functional capacity, increase independence and work towards meaningful personal goals.',
+        Icon: Users,
+        tiltClass: 'cardTiltOne'
+      },
+      {
+        id: 2,
+        lines: ['Older Adults'],
+        description: 'We help older adults maintain confidence, safety and participation in daily routines through practical occupational therapy support.',
+        Icon: User,
+        tiltClass: 'cardTiltTwo'
+      },
+      {
+        id: 3,
+        lines: ['Families', '& Carers'],
+        description: 'We equip families and carers with strategies, education and recommendations that make everyday support more sustainable.',
+        Icon: Heart,
+        tiltClass: 'cardTiltThree'
+      },
+      {
+        id: 4,
+        lines: ['Support', 'Coordinators'],
+        description: 'We work alongside support coordinators with clear documentation and practical clinical recommendations that help plans move forward.',
+        Icon: RefreshCcw,
+        tiltClass: 'cardTiltFour'
+      },
+      {
+        id: 5,
+        lines: ['Medical', 'Professionals'],
+        description: 'We collaborate with medical and allied health professionals to provide aligned, evidence-based care around shared goals.',
+        Icon: Stethoscope,
+        tiltClass: 'cardTiltFive'
+      },
     ]
   },
   whyChoose: {

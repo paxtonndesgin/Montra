@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../../assets/style/scss/components/services/aged-care/AgedCareCTA.module.scss';
+import { PUBLIC_IMAGES } from '../../../assets/images';
 import ButtonLink from '@/components/ButtonLink';
 
 const AgedCareCTA = () => {
@@ -8,7 +9,7 @@ const AgedCareCTA = () => {
     <section className={styles.ctaSection}>
       <div className={styles.bgImage}>
         <Image
-          src="/images/services/aged-care/cta_bg.png"
+          src={PUBLIC_IMAGES.AGED_CARE_CTA}
           alt="Aged Care Support"
           fill
           style={{ objectFit: 'cover' }}
@@ -17,7 +18,7 @@ const AgedCareCTA = () => {
       
       <div className={styles.container}>
         <div className={styles.content}>
-          <h2 className={styles.title}>Looking for aged care occupational therapy support?</h2>
+          <h2 data-service-heading className={styles.title}>Looking for aged care occupational therapy support?</h2>
           <div className={styles.actions}>
             <ButtonLink href="/referral" className={styles.btnGreen} showArrowOnHover={false}>
               Make a Referral

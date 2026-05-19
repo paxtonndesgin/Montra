@@ -31,15 +31,14 @@
     .bannerImageWrapper {
       position: relative;
       width: 100%;
+      aspect-ratio: 3801 / 1623;
       border-radius: 40px; 
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
       .bannerImage {
-        width: 100%;
-        height: auto;
-        display: block;
         object-fit: cover;
+        object-position: center;
       }
       .badgesWrapper {
         position: absolute;
@@ -118,35 +117,87 @@
 
 @media (max-width: 768px) {
   .bannerSection {
-    padding: 16px;
+    padding: 12px 16px 8px;
 
     &::after {
       display: none;
     }
-  }
 
-  .bannerContainer {
-    .bannerImageWrapper {
-      border-radius: 24px;
+    .bannerContainer {
+      .bannerImageWrapper {
+        border-radius: 24px;
+        aspect-ratio: 364 / 412;
 
-      .badgesWrapper {
-        position: static;
-        padding: 16px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-        background: linear-gradient(180deg, rgba(10, 46, 140, 0) 0%, rgba(10, 46, 140, 0.55) 100%);
-        margin-top: -88px;
-        z-index: 2;
-
-        .badgeLeft,
-        .badgeRight {
-          width: fit-content;
-          max-width: 100%;
+        .bannerImage {
+          object-fit: cover;
+          object-position: center;
         }
 
-        .badgeRight {
-          align-self: flex-start;
+        .badgesWrapper {
+          position: absolute;
+          inset: 0;
+          padding: 0;
+          background: none;
+          z-index: 2;
+          pointer-events: none;
+
+          .badgeLeft,
+          .badgeRight {
+            position: absolute;
+            margin: 0;
+            max-width: calc(100% - 40px);
+            background: #CBF9E4;
+            color: #178350;
+          }
+
+          .badgeLeft {
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 163px;
+            min-height: 30px;
+            padding: 8px 16px;
+            border-radius: 1000px;
+            font-size: $fs-12;
+            font-weight: $font-weight-medium;
+            line-height: 1.2;
+            text-align: center;
+          }
+
+          .badgeRight {
+            left: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 199px;
+            min-height: 59px;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 16px;
+
+            .statValue {
+              width: 73px;
+              font-size: 36px;
+              font-weight: $font-weight-semibold;
+              line-height: 1.2;
+              margin-right: 0;
+              text-align: right;
+            }
+
+            .statLabel {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              width: 86px;
+              font-size: $fs-12;
+              font-weight: $font-weight-medium;
+              line-height: 1.2;
+            }
+          }
         }
       }
     }

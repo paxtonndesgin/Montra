@@ -14,8 +14,8 @@
     width: 100%;
     max-width: 1320px;
     min-height: 575px;
-    background: #F9F9F9;
-    border: 10px solid #EBEBEB;
+    background: vars.$neutral-light;
+    border: 10px solid vars.$neutral-light-active;
     border-radius: 32px;
     box-sizing: border-box;
     margin: 0 auto;
@@ -41,7 +41,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(249, 249, 249, 0) 16%, #F9F9F9 100%);
+      background: linear-gradient(90deg, rgba(vars.$neutral-light, 0) 16%, vars.$neutral-light 100%);
       z-index: 2;
     }
   }
@@ -58,11 +58,11 @@
   }
 
   .title {
-    font-family: 'Polin', sans-serif;
+    font-family: vars.$font-family-base;
     font-weight: 600;
     font-size: vars.$fs-42;
     line-height: 101%;
-    color: #0E5D3F;
+    color: vars.$main-cyan-900;
     margin: 0;
   }
 
@@ -78,20 +78,20 @@
     gap: 4px;
 
     h3 {
-      font-family: 'Polin', sans-serif;
+      font-family: vars.$font-family-base;
       font-weight: 600;
       font-size: vars.$fs-21;
       line-height: 120%;
-      color: #0051DE;
+      color: vars.$main-blue-600;
       margin: 0;
     }
 
     p {
-      font-family: 'Polin', sans-serif;
+      font-family: vars.$font-family-base;
       font-weight: 500;
       font-size: vars.$fs-12;
       line-height: 120%;
-      color: #565656;
+      color: vars.$neutral-dark-active;
       margin: 0;
       max-width: 320px;
     }
@@ -108,7 +108,7 @@
       flex: none;
       height: 400px;
       &::after {
-        background: linear-gradient(0deg, rgba(249, 249, 249, 0) 16%, #F9F9F9 100%);
+        background: linear-gradient(0deg, rgba(vars.$neutral-light, 0) 16%, vars.$neutral-light 100%);
       }
     }
     .textCol {
@@ -118,17 +118,50 @@
   }
 
   @media (max-width: 768px) {
+    padding: 40px 0;
+
+    .container {
+      max-width: 412px;
+      min-height: 0;
+      padding: 0 16px;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      overflow: visible;
+    }
+
     .imageCol {
-      height: 280px;
+      display: none;
     }
 
     .textCol {
-      padding: 28px 20px;
-      gap: 24px;
+      width: 100%;
+      max-width: 412px;
+      padding: 0;
+      gap: 36px;
+      align-items: flex-start;
     }
 
     .title {
-      font-size: vars.$fs-32;
+      max-width: 349px;
+      font-size: vars.$fs-42;
+      line-height: 101%;
+    }
+
+    .populationsList {
+      width: 100%;
+      gap: 24px;
+    }
+
+    .populationItem {
+      width: 100%;
+      gap: 6px;
+
+      p {
+        max-width: 412px;
+        font-size: vars.$fs-12;
+        line-height: 120%;
+      }
     }
   }
 }
